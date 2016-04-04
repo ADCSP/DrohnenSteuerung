@@ -1,0 +1,2 @@
+Link für die Myo Armband API
+https://developer.thalmic.com/docs/api_reference/android/index.html
