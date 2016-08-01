@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Test Mobile</string>
+    <string name="hello_world">hello world!</string>
+    <string name="subtitle">i´m the drone control</string>
+    <string name="ring">ring</string>
+    <string name="check">check</string>
+    <string name="arrow">Arrow</string>
+    <string name="title_activity_sek">Light</string>
+
+
+</resources>

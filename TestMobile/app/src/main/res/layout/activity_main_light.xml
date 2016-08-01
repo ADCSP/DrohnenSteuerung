@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="de.hs_bochum.testmobile.MainActivity"
+    android:foregroundGravity="center_vertical|center_horizontal"
+    android:focusableInTouchMode="true"
+    android:background="@drawable/background_gradient_light">
+
+    <ListView android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:headerDividersEnabled="false"
+        android:background="@color/black_overlay"
+        android:smoothScrollbar="true"
+        android:visibility="visible" />
+
+    <!--Check Image-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/check"
+        android:src="@drawable/checked50"
+        android:visibility="invisible"
+        android:tint="#1eff00"
+        android:contentDescription="@string/check"
+        android:layout_alignRight="@+id/no_check"
+        android:layout_alignEnd="@+id/no_check"
+        android:layout_marginTop="5dp" />
+
+    <!--NoCheck Image-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:id="@+id/no_check"
+        android:src="@drawable/cancel50"
+        android:visibility="invisible"
+        android:tint="#ff0008"
+        android:contentDescription="@string/check"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="5dp" />
+
+    <!--Position Arrows-->
+
+    <!--Title-->
+    <TextView
+        android:id="@+id/activity_main_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        android:textSize="40sp"
+        android:textColor="#2d2d2d"
+        android:singleLine="false"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/list"
+        android:layout_centerHorizontal="true" />
+
+    <!--Subtitle-->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subtitle"
+        android:textSize="20sp"
+        android:layout_below="@+id/activity_main_light"
+        android:layout_centerHorizontal="true" />
+
+    <!--Progress Circle-->
+    <ProgressBar
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:id="@+id/progressBar"
+        android:indeterminate="false"
+        android:visibility="invisible"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="2dp" />
+
+    <!--Button-->
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/touch"
+        android:layout_alignTop="@+id/toggleButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:tint="#000000" />
+
+    <ToggleButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="New ToggleButton"
+        android:id="@+id/toggleButton"
+        android:background="@drawable/round_button_light"
+        style=' style="?metaButtonBarButtonStyle"'
+        android:layout_marginBottom="22dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textOff=" "
+        android:textOn=" " />
+
+    <!--Circle Image-->
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:id="@+id/ring"
+        android:src="@drawable/round_border_button_light"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14.5dp"
+        android:contentDescription="@string/ring" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/list"
+        android:layout_above="@+id/progressBar"
+        android:id="@+id/frameLayout">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/droneView"
+            android:src="@drawable/dronebig"
+            android:tint="#2d2d2d"
+            android:layout_gravity="center"
+            android:visibility="visible" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/downArrow"
+            android:visibility="invisible"
+            android:rotation="90"
+            android:src="@drawable/next48"
+            android:tint="#2d2d2d"
+            android:contentDescription="@string/arrow"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/leftArrow"
+            android:visibility="invisible"
+            android:rotation="180"
+            android:src="@drawable/next48"
+            android:tint="#2d2d2d"
+            android:contentDescription="@string/arrow"
+            android:layout_gravity="center"
+            android:layout_marginRight="70dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/topArrow"
+            android:visibility="invisible"
+            android:rotation="270"
+            android:src="@drawable/next48"
+            android:tint="#2d2d2d"
+            android:contentDescription="@string/arrow"
+            android:layout_gravity="center"
+            android:baselineAlignBottom="false"
+            android:layout_marginBottom="60dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rightArrow"
+            android:visibility="invisible"
+            android:rotation="0"
+            android:src="@drawable/next48"
+            android:tint="#2d2d2d"
+            android:contentDescription="@string/arrow"
+            android:layout_gravity="center"
+            android:layout_marginLeft="70dp" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/switchmode"
+            android:background="@drawable/day"
+            style=' style="?metaButtonBarButtonStyle"'
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#2d2d2d"
+            android:textOff=" "
+            android:textOn=" "
+            android:layout_gravity="top|left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+
+    </FrameLayout>
+
+</RelativeLayout>
