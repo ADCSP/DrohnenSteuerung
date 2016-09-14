@@ -36,22 +36,12 @@ import QtQuick 2.0
 Rectangle {
     width: 500
     height: 500
-    gradient: Gradient {
-        GradientStop {
-            position: 0
-            color: "#08165b"
-        }
-
-        GradientStop {
-            position: 0.986
-            color: "#8394e5"
-        }
-    }
+    color: "#4f68e2"
 
     Column {
         id: column1
         anchors.fill: parent
-        spacing: (height - happyButton.height - sadButton.height - title.height) / 3
+        spacing: (height - startButton.height - stopButton.height - title.height) / 3
 
         Text {
             id: title
@@ -70,10 +60,13 @@ Rectangle {
             x: 200
             y: 350
             width: 100
-            height: parent.height / 5
+            height: 100
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 20
             fillMode: Image.PreserveAspectFit
             source: "../images/touch.png"
-            anchors.horizontalCenter: parent.horizontalCenter
             smooth: true
 
             Behavior on scale {
@@ -83,27 +76,24 @@ Rectangle {
             }
 
             MouseArea {
-                width: 100
                 anchors.fill: parent
                 onClicked: {
                     notificationClient.notification = "Starten"
                }
                // onClicked: notificationClient.notification = "User is happy!"
-                onPressed: happyButton.scale = 0.9
-                onReleased: happyButton.scale = 1.0
             }
         }
 
         Image {
             id: stopButton
-            x: 200
             width: 100
             height: parent.height / 5
+            anchors.left: parent.left
+            anchors.leftMargin: 50
             anchors.bottom: parent.bottom
             anchors.bottomMargin: 20
             fillMode: Image.PreserveAspectFit
             source: "../images/touch.png"
-            anchors.horizontalCenter: parent.horizontalCenter
             smooth: true
 
             Behavior on scale {
@@ -113,11 +103,8 @@ Rectangle {
             }
 
             MouseArea {
-                anchors.topMargin: 0
                 anchors.fill: parent
                 onClicked: notificationClient.notification = "Links"
-                onPressed: sadButton.scale = 0.9
-                onReleased: sadButton.scale = 1.0
             }
         }
     }
