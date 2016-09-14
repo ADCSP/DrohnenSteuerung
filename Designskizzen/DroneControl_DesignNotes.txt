@@ -1,0 +1,36 @@
+4 States
+	-Grundzustand	Armband/Bluetoth connect state
+		Armband Bluetooth Connect button 
+		Connect ja/nein anzeige
+	-Sprachkontrolle
+		-Startbutton
+		-Textbos mit Aktbefehl
+		-Logausgabemit den letzten 5 Befehlen
+		
+
+	-WLan DroneValues
+		WLan Signalstärke, AktHöhe, Flugwinkel(X/Y), Speed,
+		 Winkel, Speed der Rotoren(4/1), Errorstate 
+		
+	-Joystick state
+		-Joystick in der mitte
+		-Musterfliegen buttons
+		-Liste ausgabe mit ausgewählten Mustern
+		-Ausführen /Stop Button für Muster
+
+Alle haben
+	WLAN connect button
+	WLAN Values anz
+	3 Radio Buttons (switchbar nur wenn gelandet)
+		Standart = Grundzustand
+		Sprachkontroll
+		Joystick
+	Notfall aus Button (Lande button)
+	VideoFeed 2x
+	Settings button (kleines Zahnrad rechts oben) 
+		-Wlan Values anzeigen
+		-Videofeed an/Aus
+		-Sprachauswahl (optional)
+		-Default state
+		-App quit (optional)
+		
