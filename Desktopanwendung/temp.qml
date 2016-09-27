@@ -1,7 +1,8 @@
-import QtQuick.Controls 2.5
+import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Extras 1.4
+import QtQuick 2.5
 
 Rectangle {
     id: rectangle2
@@ -14,7 +15,7 @@ Rectangle {
     gradient: Gradient {
         GradientStop {
             position: 0.034
-            color: "#001601"
+            color: "#ffffff"
         }
 
         GradientStop {
@@ -63,13 +64,13 @@ Rectangle {
 
     RowLayout {
         id: rl_Video
-        height: 450
+        /*height: 450
         anchors.top: parent.top
         anchors.topMargin: 250
         anchors.left: parent.left
         anchors.leftMargin: 75
         anchors.right: parent.right
-        anchors.rightMargin: 75
+        anchors.rightMargin: 75*/
 
         Rectangle {
             id: r_Video1
@@ -136,7 +137,7 @@ Rectangle {
 
     RowLayout {
         id: rl_Radiobuttons
-        anchors.right: parent.right
+        /*anchors.right: parent.right
         anchors.rightMargin: 150
         anchors.left: parent.left
         anchors.leftMargin: 150
@@ -144,19 +145,19 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 150
         anchors.top: r_State.bottom
-        anchors.topMargin: 25
+        anchors.topMargin: 25*/
 
         RadioButton {
             id: rb_Joystick
             text: "Joystick"
-            bottomPadding: 0
-            rightPadding: 0
-            topPadding: 0
+            //bottomPadding: 0
+            //rightPadding: 0
+            //topPadding: 0
             checked: false
-            spacing: 10
-            leftPadding: 100
-            scale: 1.6
-            transformOrigin: Item.Center
+            //spacing: 10
+            //leftPadding: 100
+           // scale: 1.6
+            //transformOrigin: Item.Center
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
@@ -164,14 +165,14 @@ Rectangle {
         RadioButton {
             id: rb_Armband
             text: qsTr("Armband")
-            bottomPadding: 0
-            rightPadding: 0
-            topPadding: 0
-            autoExclusive: true
+            //bottomPadding: 0
+            //rightPadding: 0
+            //topPadding: 0
+            //autoExclusive: true
             checked: true
-            spacing: 10
-            leftPadding: 100
-            scale: 1.5
+            //spacing: 10
+            //leftPadding: 100
+            //scale: 1.5
             Layout.fillWidth: true
             Layout.fillHeight: true
         }
@@ -179,15 +180,15 @@ Rectangle {
         RadioButton {
             id: rb_Speech
             text: qsTr("Spracherkennung")
-            bottomPadding: 0
+            //bottomPadding: 0
             Layout.rowSpan: 1
-            leftPadding: 100
-            rightPadding: 0
-            z: 0
-            rotation: 0
-            scale: 1.5
-            topPadding: 0
-            spacing: 10
+            //leftPadding: 100
+            //rightPadding: 0
+           // z: 0
+            //rotation: 0
+           // scale: 1.5
+            //topPadding: 0
+            //spacing: 10
             checked: false
             Layout.fillWidth: true
             Layout.fillHeight: true
