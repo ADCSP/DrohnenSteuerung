@@ -1,21 +1,18 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
+import QtQuick.Window 2.0
 import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     id: mainwindow
     visible: true
-    width: 1500
-    height: 1000
+    width: Screen.width * .7
+    height: Screen.height * .7
     title: qsTr("Dronen Steuerungs System")
 
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
-            /*MenuItem {
-                text: qsTr("&Open")
-                onTriggered: console.log("Open action triggered");
-            }*/
             MenuItem {
                 text: qsTr("Exit")
                 onTriggered: Qt.quit();
