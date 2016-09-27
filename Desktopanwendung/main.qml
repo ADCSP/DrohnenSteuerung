@@ -4,8 +4,8 @@ import QtQuick.Controls 1.4
 ApplicationWindow {
     id: applicationWindow1
     visible: true
-    width: 640
-    height: 480
+    width: 1000
+    height: 750
     title: qsTr("Dronen Steuerungs System")
 
     menuBar: MenuBar {
@@ -30,42 +30,21 @@ ApplicationWindow {
     }
 
     Label {
-        text: qsTr("Dronen Steuerungs System")
-        anchors.verticalCenterOffset: -208
-        anchors.horizontalCenterOffset: 1
-        anchors.centerIn: parent
+        text: qsTr("Drohnen Steuerungs System")
+        font.pointSize: 30
+        anchors.top: parent.top
+        anchors.topMargin: 10
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: 0
     }
 
     Rectangle {
-        id: b
-        y: 250
-        height: 200
-        color: "#848484"
-        radius: 15
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 50
-        anchors.right: parent.right
-        anchors.rightMargin: 50
-        anchors.left: parent.left
-        anchors.leftMargin: 50
-        border.width: 5
-
-        Text {
-            id: b_text
-            color: "#ffffff"
-            text: qsTr("Quit")
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            anchors.fill: parent
-            font.pixelSize: 30
-        }
-
-        MouseArea {
-            id: b_mouse_area
-            anchors.fill: parent
-            onClicked: {
-                Qt.quit()
-            }
-        }
+        id: videofeed_placeholder
+        width: 600
+        height: 400
+        color: "#686a78"
+        anchors.top: parent.top
+        anchors.topMargin: 60
+        anchors.horizontalCenter: parent.horizontalCenter
     }
 }
