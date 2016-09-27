@@ -55,7 +55,7 @@ ApplicationWindow {
         id: r_Titel
         height: 80
         color: "#4cd10000"
-        radius: 4
+        radius: 15
         anchors.right: parent.right
         anchors.rightMargin: 300
         anchors.left: parent.left
@@ -100,8 +100,9 @@ ApplicationWindow {
             width: 440
             height: 200
             color: "#80ffffff"
+            radius: 15
             opacity: 1
-            border.width: 8
+            border.width: 10
             Layout.fillHeight: true
             Layout.fillWidth: true
 
@@ -120,8 +121,9 @@ ApplicationWindow {
             width: 440
             height: 200
             color: "#80ffffff"
+            radius: 15
             Layout.fillWidth: true
-            border.width: 8
+            border.width: 10
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.fillHeight: true
 
@@ -140,13 +142,14 @@ ApplicationWindow {
         id: r_State
         height: 250
         color: "#80c00404"
+        radius: 15
         anchors.rightMargin: 100
         anchors.leftMargin: 100
         anchors.top: rl_Video.bottom
         anchors.right: parent.right
         anchors.left: parent.left
         anchors.topMargin: 20
-        border.width: 6
+        border.width: 10
     }
 
 }
