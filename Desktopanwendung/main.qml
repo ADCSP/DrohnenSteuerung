@@ -11,20 +11,20 @@ ApplicationWindow {
     menuBar: MenuBar {
         Menu {
             title: qsTr("File")
-            MenuItem {
+            /*MenuItem {
                 text: qsTr("&Open")
                 onTriggered: console.log("Open action triggered");
-            }
+            }*/
             MenuItem {
                 text: qsTr("Exit")
                 onTriggered: Qt.quit();
             }
         }
         Menu {
-            title: qsTr("Test")
+            title: qsTr("Edit")
             MenuItem {
-                text: qsTr("&Testing")
-                onTriggered: console.log("Test action triggered")
+                text: qsTr("&Telemetry")
+                onTriggered: console.log("Telemetry action triggered")
             }
         }
     }
