@@ -7,10 +7,10 @@ import QtQuick.Extras 1.4
 ApplicationWindow {
     id: applicationWindow1
     visible: true
-    width: Screen.width
-    height: Screen.height
+    width: Screen.width *.75
+    height: Screen.height * .75
     color: "#085b04"
-    title: qsTr("Dronen Steuerungs System")
+    title: qsTr("Drohnen Steuerungs System")
 
     menuBar: MenuBar {
         Menu {
@@ -29,6 +29,24 @@ ApplicationWindow {
             MenuItem {
                 text: qsTr("&Telemetry")
                 onTriggered: console.log("Telemetry action triggered")
+            }
+            MenuItem {
+                text: qsTr("&Connect")
+                onTriggered: console.log("Connect action triggered")
+            }
+            /*MenuItem {
+                text: r_Video1.visible? qsTr("Hide Cam 1"): qsTr("Show Cam 1")
+                onTriggered: {
+                    r_Video1.visible = !r_Video1.visible
+                    console.log("Cam 1 action triggered")
+                }
+            }*/
+            MenuItem {
+                text: r_Video2.visible? qsTr("Hide Cam 2"): qsTr("Show Cam 2")
+                onTriggered: {
+                    r_Video2.visible = !r_Video2.visible
+                    console.log("Cam 2 action triggered")
+                }
             }
         }
     }
@@ -60,20 +78,22 @@ ApplicationWindow {
 
         MouseArea {
             id: ma_TitelButton
+            anchors.fill: parent
             hoverEnabled: false
+            onClicked: Qt.quit()
         }
     }
 
     RowLayout {
         id: rl_Video
         y: 182
-        width: 1000
         height: 300
+        anchors.right: parent.right
+        anchors.rightMargin: 100
         anchors.left: parent.left
-        anchors.leftMargin: 99
-        anchors.horizontalCenter: r_Titel.horizontalCenter
-        anchors.top: r_Titel.verticalCenter
-        anchors.topMargin: 50
+        anchors.leftMargin: 100
+        anchors.top: r_Titel.bottom
+        anchors.topMargin: 20
 
         Rectangle {
             id: r_Video1
@@ -84,6 +104,15 @@ ApplicationWindow {
             border.width: 8
             Layout.fillHeight: true
             Layout.fillWidth: true
+
+            Text {
+                id: t_Video1
+                text: qsTr("Cam 1")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                anchors.fill: parent
+                font.pixelSize: 50
+            }
         }
 
         Rectangle {
@@ -95,22 +124,28 @@ ApplicationWindow {
             border.width: 8
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.fillHeight: true
+
+            Text {
+                id: t_Video2
+                text: qsTr("Cam 2")
+                horizontalAlignment: Text.AlignHCenter
+                anchors.fill: parent
+                font.pixelSize: 50
+                verticalAlignment: Text.AlignVCenter
+            }
         }
     }
 
     Rectangle {
         id: r_State
-        x: 0
-        width: 600
         height: 250
         color: "#80c00404"
-        anchors.right: parent.right
         anchors.rightMargin: 100
+        anchors.leftMargin: 100
         anchors.top: rl_Video.bottom
-        anchors.topMargin: 20
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.right: parent.right
         anchors.left: parent.left
-        anchors.leftMargin: 50
+        anchors.topMargin: 20
         border.width: 6
     }
 
