@@ -84,23 +84,50 @@ ApplicationWindow {
         }
     }
 
-    RowLayout {
-        id: rl_Video
-        y: 182
-        height: 300
-        anchors.right: parent.right
-        anchors.rightMargin: 100
-        anchors.left: parent.left
-        anchors.leftMargin: 100
+    Rectangle {
+        id: r_State
+        color: "#80c00404"
+        radius: 15
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 50
         anchors.top: r_Titel.bottom
         anchors.topMargin: 20
+        anchors.right: parent.right
+        anchors.rightMargin: 50
+        anchors.left: sv_Video.right
+        anchors.leftMargin: 20
+        border.width: 10
+    }
+
+    SplitView {
+        id: sv_Video
+        width: 404
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 50
+        anchors.left: parent.left
+        anchors.leftMargin: 50
+        anchors.top: r_Titel.bottom
+        anchors.topMargin: 20
+        orientation: Qt.Vertical
 
         Rectangle {
             id: r_Video1
-            width: 440
+            width: 400
             height: 200
-            color: "#80ffffff"
-            radius: 15
+            radius: 1
+            gradient: Gradient {
+                GradientStop {
+                    position: 0
+                    color: "#f61313"
+                }
+
+                GradientStop {
+                    position: 1
+                    color: "#000000"
+                }
+            }
+            anchors.top: parent.top
+            anchors.topMargin: 0
             opacity: 1
             border.width: 10
             Layout.fillHeight: true
@@ -109,19 +136,31 @@ ApplicationWindow {
             Text {
                 id: t_Video1
                 text: qsTr("Cam 1")
+                anchors.fill: parent
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                anchors.fill: parent
                 font.pixelSize: 50
             }
         }
 
         Rectangle {
             id: r_Video2
-            width: 440
+            width: 400
             height: 200
-            color: "#80ffffff"
-            radius: 15
+            radius: 1
+            gradient: Gradient {
+                GradientStop {
+                    position: 0
+                    color: "#f61313"
+                }
+
+                GradientStop {
+                    position: 1
+                    color: "#000000"
+                }
+            }
+            anchors.top: r_Video1.bottom
+            anchors.topMargin: 0
             Layout.fillWidth: true
             border.width: 10
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -130,26 +169,12 @@ ApplicationWindow {
             Text {
                 id: t_Video2
                 text: qsTr("Cam 2")
-                horizontalAlignment: Text.AlignHCenter
                 anchors.fill: parent
+                horizontalAlignment: Text.AlignHCenter
                 font.pixelSize: 50
                 verticalAlignment: Text.AlignVCenter
             }
         }
-    }
-
-    Rectangle {
-        id: r_State
-        height: 250
-        color: "#80c00404"
-        radius: 15
-        anchors.rightMargin: 100
-        anchors.leftMargin: 100
-        anchors.top: rl_Video.bottom
-        anchors.right: parent.right
-        anchors.left: parent.left
-        anchors.topMargin: 20
-        border.width: 10
     }
 
 }
