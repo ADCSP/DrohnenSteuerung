@@ -49,6 +49,35 @@ ApplicationWindow {
                 }
             }
         }
+        Menu {
+            title: qsTr("Modus")
+             MenuItem {
+                 text: qsTr("&Armband")
+                 visible: q_armband.visible?true:false;
+                 onTriggered: {
+                     q_armband.visible = true;
+                     q_sprache.visible =false;
+                     q_joystick.visible = false;
+
+                 }
+             }
+             MenuItem {
+                 text: qsTr("&Sprachsteuerung")
+                 onTriggered: {
+                     q_armband.visible = false;
+                     q_sprache.visible = true;
+                     q_joystick.visible = false;
+                 }
+             }
+             MenuItem {
+                 text: qsTr("&Joystick")
+                 onTriggered: {
+                     q_armband.visible = false;
+                     q_sprache.visible =false;
+                     q_joystick.visible = true;
+                 }
+             }
+        }
     }
 
     Rectangle {
@@ -97,6 +126,23 @@ ApplicationWindow {
         anchors.left: sv_Video.right
         anchors.leftMargin: 20
         border.width: 10
+
+        Armband {
+            id: q_armband
+            anchors.fill: parent
+        }
+
+        Joystick {
+            id: q_joystick
+            visible: false
+            anchors.fill: parent
+        }
+
+        Sprachsteuerung {
+            id: q_sprache
+            anchors.fill: parent
+            visible: false
+        }
     }
 
     SplitView {

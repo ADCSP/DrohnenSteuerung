@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>temp.qml</file>
+        <file>Armband.qml</file>
+        <file>Joystick.qml</file>
+        <file>Sprachsteuerung.qml</file>
     </qresource>
 </RCC>
