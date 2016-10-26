@@ -3,6 +3,7 @@ import QtQuick.Controls 1.4
 import QtQuick.Window 2.2
 import QtQuick.Layouts 1.3
 import QtQuick.Extras 1.4
+import QtQml 2.2
 
 ApplicationWindow {
     id: applicationWindow1
@@ -32,6 +33,7 @@ ApplicationWindow {
             }
             MenuItem {
                 text: qsTr("&Connect")
+
                 onTriggered: {
 
                     console.log("Connect action triggered")
@@ -154,6 +156,7 @@ ApplicationWindow {
     SplitView {
         id: sv_Video
         width: 404
+        opacity: 0.9
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 50
         anchors.left: parent.left
@@ -179,7 +182,7 @@ ApplicationWindow {
                 }
             }
             anchors.top: parent.top
-            anchors.topMargin: 0
+            anchors.topMargin: -1
             opacity: 1
             border.width: 10
             Layout.fillHeight: true
@@ -198,8 +201,9 @@ ApplicationWindow {
         Rectangle {
             id: r_Video2
             width: 400
-            height: 200
             radius: 1
+            anchors.bottom: parent.bottom
+            anchors.bottomMargin: 0
             gradient: Gradient {
                 GradientStop {
                     position: 0
