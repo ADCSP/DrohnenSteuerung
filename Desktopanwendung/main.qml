@@ -32,7 +32,10 @@ ApplicationWindow {
             }
             MenuItem {
                 text: qsTr("&Connect")
-                onTriggered: console.log("Connect action triggered")
+                onTriggered: {
+
+                    console.log("Connect action triggered")
+                }
             }
             /*MenuItem {
                 text: r_Video1.visible? qsTr("Hide Cam 1"): qsTr("Show Cam 1")
@@ -53,16 +56,18 @@ ApplicationWindow {
             title: qsTr("Modus")
              MenuItem {
                  text: qsTr("&Armband")
-                 visible: q_armband.visible?true:false;
+                 enabled:  q_armband.visible?false:true;
                  onTriggered: {
                      q_armband.visible = true;
                      q_sprache.visible =false;
                      q_joystick.visible = false;
 
+
                  }
              }
              MenuItem {
                  text: qsTr("&Sprachsteuerung")
+                  enabled:  q_sprache.visible?false:true;
                  onTriggered: {
                      q_armband.visible = false;
                      q_sprache.visible = true;
@@ -71,6 +76,7 @@ ApplicationWindow {
              }
              MenuItem {
                  text: qsTr("&Joystick")
+                 enabled:  q_joystick.visible?false:true;
                  onTriggered: {
                      q_armband.visible = false;
                      q_sprache.visible =false;
