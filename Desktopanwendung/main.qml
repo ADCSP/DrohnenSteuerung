@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.3
 import QtQuick.Extras 1.4
 import QtQml 2.2
 
+
 ApplicationWindow {
     id: applicationWindow1
     visible: true
@@ -12,6 +13,8 @@ ApplicationWindow {
     height: Screen.height * .75
     color: "#085b04"
     title: qsTr("Drohnen Steuerungs System")
+
+    signal qmlSignal(string msg)
 
     menuBar: MenuBar {
         Menu {
@@ -32,12 +35,11 @@ ApplicationWindow {
                 onTriggered: console.log("Telemetry action triggered")
             }
             MenuItem {
+                id: connect
                 text: qsTr("&Connect")
 
-                onTriggered: {
-
-                    console.log("Connect action triggered")
-                }
+                onTriggered: qmlSignal("Ich habe fertig")
+                //onTriggered: {console.log(wConnect.connectNow())}
             }
             /*MenuItem {
                 text: r_Video1.visible? qsTr("Hide Cam 1"): qsTr("Show Cam 1")
