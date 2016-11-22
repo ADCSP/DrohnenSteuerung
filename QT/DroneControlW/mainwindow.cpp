@@ -17,3 +17,4 @@ void MainWindow::on_actionHide_Cam_2_triggered()
 {
 
 }
+

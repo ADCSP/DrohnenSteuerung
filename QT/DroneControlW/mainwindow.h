@@ -18,6 +18,8 @@ public:
 private slots:
     void on_actionHide_Cam_2_triggered();
 
+    void on_actionHide_Cam_2_toggled(bool arg1);
+
 private:
     Ui::MainWindow *ui;
 };
