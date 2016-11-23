@@ -16,9 +16,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_actionHide_Cam_2_triggered();
 
-    void on_actionHide_Cam_2_toggled(bool arg1);
+
+
+    void on_actionArmband_triggered();
+
+    void on_DroneControl_clicked();
+
+    void on_actionSprachsteuerung_triggered();
+
+    void on_actionJoystick_triggered();
 
 private:
     Ui::MainWindow *ui;
