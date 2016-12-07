@@ -4,11 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core network gui widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = DroneControlW
+
 TEMPLATE = app
 QMAKE_CFLAGS_WARN_OFF -= -Wunused-parameter
 
@@ -20,3 +20,15 @@ FORMS    += mainwindow.ui
 
 HEADERS += \
     mainwindow.h \
+
+INCLUDEPATH +=  ../cv-drone/logic \
+                ../cv-drone/logic/command \
+                ../cv-drone/logic/navdata
+
+LIBS += -L"../cv-drone/logic" \
+        -L"../cv-drone/logic/command" \
+        -L"../cv-drone/logic/navdata"
+
+
+
+TARGET = DroneControlW
