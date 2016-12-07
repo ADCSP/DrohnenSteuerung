@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+
 namespace Ui {
 class MainWindow;
 }
@@ -16,7 +17,6 @@ public:
     ~MainWindow();
 
 private slots:
-
 
 
     void on_actionArmband_triggered();
