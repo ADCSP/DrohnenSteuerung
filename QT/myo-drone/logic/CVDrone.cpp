@@ -36,7 +36,6 @@ namespace Drone
 
         navdataService  = new NavdataService(configFile->getIp(),configFile->getNavdataPort());
         commandService  = new CommandService(configFile->getIp(), configFile->getCommandPort());
-        videoService    = new VideoService(configFile->getIp(), configFile->getVideoPort());
 
         connect(commandService, SIGNAL(reconnected()),  navdataService, SLOT(reconnect()));
         connect(commandService, SIGNAL(reconnected()),  videoService,   SLOT(reconnect()));
@@ -47,7 +46,6 @@ namespace Drone
 
         navdataService->start();
         commandService->start();
-        videoService->start();
 
         thread->start();
         moveToThread(thread);
@@ -64,7 +62,6 @@ namespace Drone
     {
         commandService->stop();
         navdataService->stop();
-        videoService->stop();
         thread->quit();
         thread->wait();
     }
@@ -231,14 +228,5 @@ namespace Drone
     CommandService* CVDrone::getCommandService()
     {
         return commandService;
-    }
-
-    /*!
-     * \brief CvDrone::getVideoService returns a pointer of the VideoService
-     * \return VideoService
-     */
-    VideoService* CVDrone::getVideoService()
-    {
-        return videoService;
     }
 }

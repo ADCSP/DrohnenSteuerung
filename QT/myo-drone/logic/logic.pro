@@ -6,7 +6,6 @@ HEADERS +=  \
 	CuteService.h \
 	CommandService.h \
         NavdataService.h \
-        VideoService.h \
         ConfigFile.h \
         CVDrone.h
 
@@ -14,7 +13,6 @@ SOURCES +=  \
     	CuteService.cpp \
 	CommandService.cpp \
         NavdataService.cpp \
-        VideoService.cpp \
         ConfigFile.cpp \
         CVDrone.cpp
 

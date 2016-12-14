@@ -22,4 +22,4 @@ LIBS += -L"../logic" \
         -llogic -lcommand -lnavdata -lgui
 
 
-TARGET = ../MyoDrone
+TARGET = ../myo-drone

@@ -31,7 +31,6 @@
 #include <navdata/WindOption.h>
 #include <navdata/Zimmu3000Option.h>
 
-Q_DECLARE_METATYPE(cv::Mat)
 Q_DECLARE_METATYPE(Drone::Navdata::AdcDataFrameOption)
 Q_DECLARE_METATYPE(Drone::Navdata::AltitudeOption)
 Q_DECLARE_METATYPE(Drone::Navdata::CksOption)
@@ -70,7 +69,6 @@ namespace Provision
      */
     void initQMetaTypes()
     {
-        qRegisterMetaType<cv::Mat>("cv::Mat&");
         qRegisterMetaType<Drone::Navdata::AdcDataFrameOption>("AdcDataFrameOption");
         qRegisterMetaType<Drone::Navdata::AltitudeOption>("AltitudeOption");
         qRegisterMetaType<Drone::Navdata::CksOption>("CksOption");
