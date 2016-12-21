@@ -1,5 +1,5 @@
 #include <QMetaType>
-#include <opencv2/opencv.hpp>
+
 
 #include <navdata/AdcDataFrameOption.h>
 #include <navdata/AltitudeOption.h>

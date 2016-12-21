@@ -3,7 +3,6 @@
 
 #include <cmath>
 #include <QObject>
-#include <opencv2/opencv.hpp>
 
 #include <CuteService.h>
 
@@ -16,12 +15,12 @@ namespace Drone
         explicit VideoService(QString droneIP, int port, QObject *parent = 0);
         ~VideoService();
         int getFps() const;
-        cv::Mat getMatrix();
+        //cv::Mat getMatrix();
     private:
-        cv::VideoCapture* capture;
+       // cv::VideoCapture* capture;
         QString tcpString;
         int fps;
-        cv::Mat frame;
+        //cv::Mat frame;
         bool lostConnection;
         QTimer *lostTimer;
     signals:

@@ -45,6 +45,9 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
     connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              this,           SLOT(detectToggled(bool)));
 
+    ui->actionArmband->setEnabled(false);
+    ui->fgSprache->setVisible(false);
+    ui->fgJoystick->setVisible(false);
 }
 
 /*!
@@ -177,4 +180,38 @@ void MainWindow::navdataDebugWindowClosed()
 void MainWindow::showFrame(QPixmap pixmap)
 {
     ui->videoContainer->setPixmap(pixmap);
+}
+
+void MainWindow::on_actionArmband_triggered()
+{
+    ui->actionArmband->setEnabled(false);
+    ui->actionJoystick->setEnabled(true);
+    ui->actionSprachsteuerung->setEnabled(true);
+
+    ui->fgSprache->setVisible(false);
+    ui->fgArmband->setVisible(true);
+    ui->fgJoystick->setVisible(false);
+}
+
+
+void MainWindow::on_actionSprachsteuerung_triggered()
+{
+    ui->actionArmband->setEnabled(true);
+    ui->actionJoystick->setEnabled(true);
+    ui->actionSprachsteuerung->setEnabled(false);
+
+    ui->fgArmband->setVisible(false);
+    ui->fgSprache->setVisible(true);
+    ui->fgJoystick->setVisible(false);
+}
+
+void MainWindow::on_actionJoystick_triggered()
+{
+    ui->actionArmband->setEnabled(true);
+    ui->actionJoystick->setEnabled(false);
+    ui->actionSprachsteuerung->setEnabled(true);
+
+    ui->fgArmband->setVisible(false);
+    ui->fgSprache->setVisible(false);
+    ui->fgJoystick->setVisible(true);
 }

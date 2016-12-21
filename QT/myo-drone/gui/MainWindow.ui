@@ -15,6 +15,73 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
+    <item alignment="Qt::AlignHCenter">
+     <widget class="QPushButton" name="buttonEmergency">
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 37, 40);
+border-color: rgb(0, 0, 0);
+font: 75 30pt &quot;Calibri&quot;;
+alternate-background-color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>DroneControl</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="fModus">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QFrame" name="fgJoystick">
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+           <widget class="QLabel" name="lJoystick">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Joystick&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="fgSprache">
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+           <widget class="QLabel" name="lSprache">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Sprache&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QFrame" name="fgArmband">
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+           <widget class="QLabel" name="lArmband">
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Armband&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
     <item>
      <widget class="QFrame" name="frame_2">
       <property name="frameShape">
@@ -99,16 +166,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="buttonEmergency">
-         <property name="autoFillBackground">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Emergency</string>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QPushButton" name="buttonDetect">
          <property name="text">
           <string>Detect</string>
@@ -142,7 +199,7 @@
      <x>0</x>
      <y>0</y>
      <width>777</width>
-     <height>25</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
@@ -166,9 +223,18 @@
     <addaction name="actionCommands"/>
     <addaction name="actionNavdata"/>
    </widget>
+   <widget class="QMenu" name="menuModus">
+    <property name="title">
+     <string>Modus</string>
+    </property>
+    <addaction name="actionArmband"/>
+    <addaction name="actionJoystick"/>
+    <addaction name="actionSprachsteuerung"/>
+   </widget>
    <addaction name="menuWindow"/>
    <addaction name="menuReconnect"/>
    <addaction name="menuDebug"/>
+   <addaction name="menuModus"/>
   </widget>
   <widget class="QStatusBar" name="statusBar">
    <property name="autoFillBackground">
@@ -213,6 +279,21 @@
    </property>
    <property name="text">
     <string>&amp;Manual Control</string>
+   </property>
+  </action>
+  <action name="actionArmband">
+   <property name="text">
+    <string>Armband</string>
+   </property>
+  </action>
+  <action name="actionJoystick">
+   <property name="text">
+    <string>Joystick</string>
+   </property>
+  </action>
+  <action name="actionSprachsteuerung">
+   <property name="text">
+    <string>Sprachsteuerung</string>
    </property>
   </action>
  </widget>

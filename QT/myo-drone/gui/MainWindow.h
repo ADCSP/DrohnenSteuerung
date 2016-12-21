@@ -48,6 +48,10 @@ public slots:
     void commandDebugWindowClosed();
     void navdataDebugWindowClosed();
     void showFrame(QPixmap pixmap);
+private slots:
+    void on_actionArmband_triggered();
+    void on_actionJoystick_triggered();
+    void on_actionSprachsteuerung_triggered();
 };
 
 #endif // MAINWINDOW_H
