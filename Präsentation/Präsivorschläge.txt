@@ -1,0 +1,11 @@
+Vorstelleung Armband und Drohne
+
+Verlaufsdiagramm (Baut auf altem Projekt auf (objekterkennung) wir machen Steuerung mit gleicher Drohne, Probleme klar und deutlich ansprechen und weitere Lösungen
+Verbindungsdiagramm (Handy/Smartpohone --> MyoArmband/Sprachsteuerung/Joystick -- > OS (windows/Linux/OSX)
+
+Logo
+
+Plakat
+
+Doku
+

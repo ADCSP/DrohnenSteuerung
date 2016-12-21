@@ -189,6 +189,9 @@ alternate-background-color: rgb(0, 0, 0);</string>
         </widget>
        </item>
       </layout>
+      <zorder>buttonDetect</zorder>
+      <zorder>buttonStart</zorder>
+      <zorder>buttonAutopilot</zorder>
      </widget>
     </item>
    </layout>
@@ -199,7 +202,7 @@ alternate-background-color: rgb(0, 0, 0);</string>
      <x>0</x>
      <y>0</y>
      <width>777</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
