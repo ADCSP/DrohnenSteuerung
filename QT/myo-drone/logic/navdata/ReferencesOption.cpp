@@ -126,7 +126,7 @@ namespace Drone
             return kVY;
         }
 
-        u_int32_t ReferencesOption::getkMode()
+        uint32_t ReferencesOption::getkMode()
         {
             return kMode;
         }

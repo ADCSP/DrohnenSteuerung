@@ -29,7 +29,7 @@ namespace Drone
             float getPhiMod();
             float getkVX();
             float getkVY();
-            u_int32_t getkMode();
+            uint32_t getkMode();
             float getUiTime();
             float getUiTheta();
             float getUiPhi();
@@ -51,7 +51,7 @@ namespace Drone
             float phiMod;
             float kVX;
             float kVY;
-            u_int32_t kMode;
+            uint32_t kMode;
             float uiTime;
             float uiTheta;
             float uiPhi;

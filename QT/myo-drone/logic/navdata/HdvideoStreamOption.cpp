@@ -42,12 +42,12 @@ namespace Drone
 
         }
 
-        u_int32_t HdvideoStreamOption::decodeHdvideoState(HdvideoStreamOption::HdvideoState state)
+        uint32_t HdvideoStreamOption::decodeHdvideoState(HdvideoStreamOption::HdvideoState state)
         {
-            return static_cast<u_int32_t>(state);
+            return static_cast<uint32_t>(state);
         }
 
-        HdvideoStreamOption::HdvideoState HdvideoStreamOption::decodeHdvideoState(u_int32_t state)
+        HdvideoStreamOption::HdvideoState HdvideoStreamOption::decodeHdvideoState(uint32_t state)
         {
             if(state == 0 ||
                     state < 8 ||
@@ -61,32 +61,32 @@ namespace Drone
             return hdvideoState;
         }
 
-        u_int32_t HdvideoStreamOption::getStorageFifoNbPackets()
+        uint32_t HdvideoStreamOption::getStorageFifoNbPackets()
         {
             return storageFifoNbPackets;
         }
 
-        u_int32_t HdvideoStreamOption::getStorageFifoSize()
+        uint32_t HdvideoStreamOption::getStorageFifoSize()
         {
             return storageFifoSize;
         }
 
-        u_int32_t HdvideoStreamOption::getUsbkeySize()
+        uint32_t HdvideoStreamOption::getUsbkeySize()
         {
             return usbkeySize;
         }
 
-        u_int32_t HdvideoStreamOption::getUsbkeyFreespace()
+        uint32_t HdvideoStreamOption::getUsbkeyFreespace()
         {
             return usbkeyFreespace;
         }
 
-        u_int32_t HdvideoStreamOption::getFrameNumber()
+        uint32_t HdvideoStreamOption::getFrameNumber()
         {
             return frameNumber;
         }
 
-        u_int32_t HdvideoStreamOption::getUsbkeyRemainingTime()
+        uint32_t HdvideoStreamOption::getUsbkeyRemainingTime()
         {
             return usbkeyRemainingTime;
         }

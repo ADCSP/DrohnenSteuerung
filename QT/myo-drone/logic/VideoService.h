@@ -3,7 +3,7 @@
 
 #include <cmath>
 #include <QObject>
-#include <opencv2/opencv.hpp>
+#include <C:\\Users\\Soulseller\\opencv\\build\\include\\opencv2\\opencv.hpp>
 
 #include <CuteService.h>
 

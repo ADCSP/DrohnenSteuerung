@@ -15,9 +15,9 @@ namespace Drone
             CksOption(QByteArray& rawData);
             CksOption();
             ~CksOption();
-            u_int32_t getCks();
+            uint32_t getCks();
         private:
-            u_int32_t cks;
+            uint32_t cks;
         };
     }
 }

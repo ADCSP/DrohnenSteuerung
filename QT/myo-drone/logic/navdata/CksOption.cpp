@@ -36,7 +36,7 @@ namespace Drone
 
         }
 
-        u_int32_t CksOption::getCks()
+        uint32_t CksOption::getCks()
         {
             return cks;
         }

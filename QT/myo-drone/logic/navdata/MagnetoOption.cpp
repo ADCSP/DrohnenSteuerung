@@ -94,12 +94,12 @@ namespace Drone
             return headingFusionUnwrapped;
         }
 
-        u_int16_t MagnetoOption::getMagnetoCalibrationOk()
+        uint16_t MagnetoOption::getMagnetoCalibrationOk()
         {
             return magnetoCalibrationOk;
         }
 
-        u_int32_t MagnetoOption::getMagnetoState()
+        uint32_t MagnetoOption::getMagnetoState()
         {
             return magnetoState;
         }

@@ -22,9 +22,9 @@ namespace Drone
             float getObsAccZ();
             float getObsAlt();
             vector<float> getObsX();
-            u_int32_t getObsState();
+            uint32_t getObsState();
             vector<float> getEstVb();
-            u_int32_t getEstState();
+            uint32_t getEstState();
 
         private:
             int32_t altitudeVersion;
@@ -34,9 +34,9 @@ namespace Drone
             float obsAccZ;
             float obsAlt;
             vector<float> obsX;
-            u_int32_t obsState;
+            uint32_t obsState;
             vector<float> estVb;
-            u_int32_t estState;
+            uint32_t estState;
         };
     }
 }

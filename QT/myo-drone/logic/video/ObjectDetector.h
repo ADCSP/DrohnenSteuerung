@@ -4,8 +4,8 @@
 #include <QObject>
 #include <QThread>
 #include <QPixmap>
-#include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include <C:\Users\Soulseller\opencv\build\include\opencv2/objdetect/objdetect.hpp>
+#include <C:\Users\Soulseller\opencv\build\include\opencv2/imgproc/imgproc.hpp>
 #include <math.h>
 #include <ConfigFile.h>
 #include <VideoService.h>

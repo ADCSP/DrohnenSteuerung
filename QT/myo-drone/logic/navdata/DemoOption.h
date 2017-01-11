@@ -15,7 +15,7 @@ namespace Drone
             DemoOption(QByteArray& rawData);
             DemoOption();
             ~DemoOption();
-            enum class ControlState : u_int8_t {
+            enum class ControlState : uint8_t {
                 DEFAULT         =   0,
                 INIT            =   1,
                 LANDED          =   2,
@@ -29,7 +29,7 @@ namespace Drone
                 NOT_DEFINED     =   10  // self defined
             };
 
-            enum class FlyingState : u_int8_t {
+            enum class FlyingState : uint8_t {
                 LANDED          =   0,
                 FLYING          =   1,
                 TAKE_OFF        =   2,
@@ -37,17 +37,17 @@ namespace Drone
                 NOT_DEFINED     =   4  // self defined
             };
 
-            static u_int8_t decodeControlState(ControlState state);
-            static ControlState decodeControlState(u_int8_t state);
+            static uint8_t decodeControlState(ControlState state);
+            static ControlState decodeControlState(uint8_t state);
 
-            static u_int8_t decodeFlyingState(FlyingState state);
-            static FlyingState decodeFlyingState(u_int8_t state);
+            static uint8_t decodeFlyingState(FlyingState state);
+            static FlyingState decodeFlyingState(uint8_t state);
 
             static FlyingState mapControlStateToFlyingState(ControlState state);
 
             ControlState getCtrlState();
             FlyingState getFlyingState();
-            u_int32_t getVbatFlyingPercentage();
+            uint32_t getVbatFlyingPercentage();
             float getTheta();
             float getPhi();
             float getPsi();
@@ -58,7 +58,7 @@ namespace Drone
         private:
             ControlState controlState;
             FlyingState flyingState;
-            u_int32_t vbatFlyingPercentage;
+            uint32_t vbatFlyingPercentage;
             float theta;
             float phi;
             float psi;

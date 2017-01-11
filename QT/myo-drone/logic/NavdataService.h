@@ -48,7 +48,7 @@ namespace Drone
     public:
         explicit NavdataService(QString droneIP, int port, QObject *parent = 0);
 
-        enum class DroneState : u_int8_t
+        enum class DroneState : uint8_t
         {
                     FLYING                          = 0,
                     VIDEO_ENABLED                   = 1,
@@ -85,13 +85,13 @@ namespace Drone
                     NOT_DEFINED                     = 32
         };
 
-        u_int8_t decodeDroneState(DroneState state);
-        DroneState decodeDroneState(u_int8_t state);
+        uint8_t decodeDroneState(DroneState state);
+        DroneState decodeDroneState(uint8_t state);
 
         ~NavdataService();
     private:
         QUdpSocket* socket;
-        u_int32_t lastSequence;
+        uint32_t lastSequence;
         bool isConnected, wasConnected;
         bool isListening;
 

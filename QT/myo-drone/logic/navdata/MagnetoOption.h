@@ -24,8 +24,8 @@ namespace Drone
             float getHeadingUnwrapped();
             float getHeadingGyroUnwrapped();
             float getHeadingFusionUnwrapped();
-            u_int16_t getMagnetoCalibrationOk();
-            u_int32_t getMagnetoState();
+            uint16_t getMagnetoCalibrationOk();
+            uint32_t getMagnetoState();
             float getMagnetoRadius();
             float getErrorMean();
             float getErrorVar();
@@ -39,8 +39,8 @@ namespace Drone
             float headingUnwrapped;
             float headingGyroUnwrapped;
             float headingFusionUnwrapped;
-            u_int16_t magnetoCalibrationOk; //Java char
-            u_int32_t magnetoState;
+            uint16_t magnetoCalibrationOk; //Java char
+            uint32_t magnetoState;
             float magnetoRadius;
             float errorMean;
             float errorVar;

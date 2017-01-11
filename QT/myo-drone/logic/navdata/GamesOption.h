@@ -15,11 +15,11 @@ namespace Drone
             GamesOption(QByteArray& rawData);
             GamesOption();
             ~GamesOption();
-            u_int32_t getDoubleTapCounter();
-            u_int32_t getFinishLineCounter();
+            uint32_t getDoubleTapCounter();
+            uint32_t getFinishLineCounter();
         private:
-            u_int32_t doubleTapCounter;
-            u_int32_t finishLineCounter;
+            uint32_t doubleTapCounter;
+            uint32_t finishLineCounter;
         };
     }
 }

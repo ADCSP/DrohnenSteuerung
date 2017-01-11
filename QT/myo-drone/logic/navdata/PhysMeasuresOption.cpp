@@ -47,7 +47,7 @@ namespace Drone
             return accsTemp;
         }
 
-        u_int16_t PhysMeasuresOption::getGyroTemp()
+        uint16_t PhysMeasuresOption::getGyroTemp()
         {
             return gyroTemp;
         }
@@ -62,17 +62,17 @@ namespace Drone
             return physGyros;
         }
 
-        u_int32_t PhysMeasuresOption::getAlim3v3()
+        uint32_t PhysMeasuresOption::getAlim3v3()
         {
             return alim3v3;
         }
 
-        u_int32_t PhysMeasuresOption::getVrefEpson()
+        uint32_t PhysMeasuresOption::getVrefEpson()
         {
             return vrefEpson;
         }
 
-        u_int32_t PhysMeasuresOption::getVrefIdg()
+        uint32_t PhysMeasuresOption::getVrefIdg()
         {
             return vrefIdg;
         }

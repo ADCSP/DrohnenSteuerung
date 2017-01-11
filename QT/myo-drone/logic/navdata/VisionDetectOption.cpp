@@ -53,37 +53,37 @@ namespace Drone
 
         }
 
-        u_int32_t VisionDetectOption::getNbDetected() const
+        uint32_t VisionDetectOption::getNbDetected() const
         {
             return nbDetected;
         }
 
-        vector<u_int32_t> VisionDetectOption::getType() const
+        vector<uint32_t> VisionDetectOption::getType() const
         {
             return type;
         }
 
-        vector<u_int32_t> VisionDetectOption::getXc() const
+        vector<uint32_t> VisionDetectOption::getXc() const
         {
             return xc;
         }
 
-        vector<u_int32_t> VisionDetectOption::getYc() const
+        vector<uint32_t> VisionDetectOption::getYc() const
         {
             return yc;
         }
 
-        vector<u_int32_t> VisionDetectOption::getWidth() const
+        vector<uint32_t> VisionDetectOption::getWidth() const
         {
             return width;
         }
 
-        vector<u_int32_t> VisionDetectOption::getHeight() const
+        vector<uint32_t> VisionDetectOption::getHeight() const
         {
             return height;
         }
 
-        vector<u_int32_t> VisionDetectOption::getDistance() const
+        vector<uint32_t> VisionDetectOption::getDistance() const
         {
             return distance;
         }
@@ -103,7 +103,7 @@ namespace Drone
             return translation;
         }
 
-        vector<u_int32_t> VisionDetectOption::getCameraSource() const
+        vector<uint32_t> VisionDetectOption::getCameraSource() const
         {
             return cameraSource;
         }

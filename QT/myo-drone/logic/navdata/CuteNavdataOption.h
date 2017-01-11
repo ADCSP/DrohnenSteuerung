@@ -14,9 +14,9 @@ namespace Drone
         class CuteNavdataOption
         {
         public:
-            u_int16_t getTag();
+            uint16_t getTag();
             virtual ~CuteNavdataOption();
-            enum class Tag : u_int16_t {
+            enum class Tag : uint16_t {
                 DEMO            =   0,
                 TIME            =   1,
                 RAW_MEASURES    =   2,
@@ -49,8 +49,8 @@ namespace Drone
                 CKS             =   65535
             };
 
-            static u_int16_t decodeTag(Tag tag);
-            static Tag decodeTag(u_int16_t tag);
+            static uint16_t decodeTag(Tag tag);
+            static Tag decodeTag(uint16_t tag);
 
             static bool fetchBool(QByteArray& data);
 
@@ -58,9 +58,9 @@ namespace Drone
             static int16_t fetchInt16(QByteArray &data, bool swapEndian = true);
             static int32_t fetchInt32(QByteArray& data, bool swapEndian = true);
 
-            static u_int8_t fetchUnsignedInt8(QByteArray& data);
-            static u_int16_t fetchUnsignedInt16(QByteArray& data, bool swapEndian = true);
-            static u_int32_t fetchUnsignedInt32(QByteArray& data, bool swapEndian = true);
+            static uint8_t fetchUnsignedInt8(QByteArray& data);
+            static uint16_t fetchUnsignedInt16(QByteArray& data, bool swapEndian = true);
+            static uint32_t fetchUnsignedInt32(QByteArray& data, bool swapEndian = true);
 
             static float fetchFloat(QByteArray& data, bool swapEndian = true);
             static double fetchDouble(QByteArray &data, bool swapEndian = true);
@@ -69,15 +69,15 @@ namespace Drone
             static vector<int16_t> fetchInt16Vector(QByteArray &data, int length, bool swapEndian = true);
             static vector<int32_t> fetchInt32Vector(QByteArray &data, int length, bool swapEndian = true);
 
-            static vector<u_int8_t> fetchUnsignedInt8Vector(QByteArray &data, int length);
-            static vector<u_int16_t> fetchUnsignedInt16Vector(QByteArray &data, int length, bool swapEndian = true);
-            static vector<u_int32_t> fetchUnsignedInt32Vector(QByteArray &data, int length, bool swapEndian = true);
+            static vector<uint8_t> fetchUnsignedInt8Vector(QByteArray &data, int length);
+            static vector<uint16_t> fetchUnsignedInt16Vector(QByteArray &data, int length, bool swapEndian = true);
+            static vector<uint32_t> fetchUnsignedInt32Vector(QByteArray &data, int length, bool swapEndian = true);
 
             static vector<float> fetchFloatVector(QByteArray &data, int length, bool swapEndian = true);
             static vector<vector<float>> fetchFloatMatrix(QByteArray &data, int rows, int columns, bool swapEndian = true);
 
         protected:
-            CuteNavdataOption(u_int16_t tag);
+            CuteNavdataOption(uint16_t tag);
             int tag;
         };
     }

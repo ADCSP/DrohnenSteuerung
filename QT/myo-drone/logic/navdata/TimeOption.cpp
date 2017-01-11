@@ -24,9 +24,9 @@ namespace Drone
         {
             // The 11 most significant bits represents the seconds,
             // and the 21 least significant bits are the microseconds
-            u_int32_t buffer        = fetchUnsignedInt32(rawData);
-            u_int32_t seconds       = buffer >> 21;
-            u_int32_t microseconds  = (buffer << 11) >> 11;
+            uint32_t buffer        = fetchUnsignedInt32(rawData);
+            uint32_t seconds       = buffer >> 21;
+            uint32_t microseconds  = (buffer << 11) >> 11;
             // Convert to milliseconds
             time                    = seconds*1000 + microseconds/1000;
         }
@@ -42,7 +42,7 @@ namespace Drone
 
         }
 
-        u_int32_t TimeOption::getTime()
+        uint32_t TimeOption::getTime()
         {
             return time;
         }

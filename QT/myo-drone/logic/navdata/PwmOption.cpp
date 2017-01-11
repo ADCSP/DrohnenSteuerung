@@ -61,42 +61,42 @@ namespace Drone
 
         }
 
-        u_int8_t PwmOption::getMotor1()
+        uint8_t PwmOption::getMotor1()
         {
             return motor1;
         }
 
-        u_int8_t PwmOption::getMotor2()
+        uint8_t PwmOption::getMotor2()
         {
             return motor2;
         }
 
-        u_int8_t PwmOption::getMotor3()
+        uint8_t PwmOption::getMotor3()
         {
             return motor3;
         }
 
-        u_int8_t PwmOption::getMotor4()
+        uint8_t PwmOption::getMotor4()
         {
             return motor4;
         }
 
-        u_int8_t PwmOption::getSatMotor1()
+        uint8_t PwmOption::getSatMotor1()
         {
             return satMotor1;
         }
 
-        u_int8_t PwmOption::getSatMotor2()
+        uint8_t PwmOption::getSatMotor2()
         {
             return satMotor2;
         }
 
-        u_int8_t PwmOption::getSatMotor3()
+        uint8_t PwmOption::getSatMotor3()
         {
             return satMotor3;
         }
 
-        u_int8_t PwmOption::getSatMotor4()
+        uint8_t PwmOption::getSatMotor4()
         {
             return satMotor4;
         }

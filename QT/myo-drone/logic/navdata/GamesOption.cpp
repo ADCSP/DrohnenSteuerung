@@ -37,12 +37,12 @@ namespace Drone
 
         }
 
-        u_int32_t GamesOption::getDoubleTapCounter()
+        uint32_t GamesOption::getDoubleTapCounter()
         {
             return doubleTapCounter;
         }
 
-        u_int32_t GamesOption::getFinishLineCounter()
+        uint32_t GamesOption::getFinishLineCounter()
         {
             return finishLineCounter;
         }

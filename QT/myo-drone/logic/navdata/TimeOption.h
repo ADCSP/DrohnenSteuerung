@@ -15,9 +15,9 @@ namespace Drone
             TimeOption(QByteArray& rawData);
             TimeOption();
             ~TimeOption();
-            u_int32_t getTime();
+            uint32_t getTime();
         private:
-            u_int32_t time;
+            uint32_t time;
         };
     }
 }

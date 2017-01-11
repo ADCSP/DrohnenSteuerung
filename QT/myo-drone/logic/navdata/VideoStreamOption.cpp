@@ -51,27 +51,27 @@ namespace Drone
 
         }
 
-        u_int8_t VideoStreamOption::getQuant()
+        uint8_t VideoStreamOption::getQuant()
         {
             return quant;
         }
 
-        u_int32_t VideoStreamOption::getFrameSize()
+        uint32_t VideoStreamOption::getFrameSize()
         {
             return frameSize;
         }
 
-        u_int32_t VideoStreamOption::getFrameNumber()
+        uint32_t VideoStreamOption::getFrameNumber()
         {
             return frameNumber;
         }
 
-        u_int32_t VideoStreamOption::getAtcmdRefSeq()
+        uint32_t VideoStreamOption::getAtcmdRefSeq()
         {
             return atcmdRefSeq;
         }
 
-        u_int32_t VideoStreamOption::getAtcmdMeanRefGap()
+        uint32_t VideoStreamOption::getAtcmdMeanRefGap()
         {
             return atcmdMeanRefGap;
         }
@@ -81,17 +81,17 @@ namespace Drone
             return atcmdVarRefGap;
         }
 
-        u_int32_t VideoStreamOption::getAtcmdRefQuality()
+        uint32_t VideoStreamOption::getAtcmdRefQuality()
         {
             return atcmdRefQuality;
         }
 
-        u_int32_t VideoStreamOption::getOutBitrate()
+        uint32_t VideoStreamOption::getOutBitrate()
         {
             return outBitrate;
         }
 
-        u_int32_t VideoStreamOption::getDesiredBitrate()
+        uint32_t VideoStreamOption::getDesiredBitrate()
         {
             return desiredBitrate;
         }
@@ -121,12 +121,12 @@ namespace Drone
             return data5;
         }
 
-        u_int32_t VideoStreamOption::getTcpQueueLevel()
+        uint32_t VideoStreamOption::getTcpQueueLevel()
         {
             return tcpQueueLevel;
         }
 
-        u_int32_t VideoStreamOption::getFifoQueueLevel()
+        uint32_t VideoStreamOption::getFifoQueueLevel()
         {
             return fifoQueueLevel;
         }

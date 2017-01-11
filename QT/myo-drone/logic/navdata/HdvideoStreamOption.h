@@ -15,7 +15,7 @@ namespace Drone
             HdvideoStreamOption(QByteArray& rawData);
             HdvideoStreamOption();
             ~HdvideoStreamOption();
-            enum class HdvideoState : u_int32_t {
+            enum class HdvideoState : uint32_t {
                 STORAGE_FIFO_IS_FULL    =   0,
                 USBKEY_IS_PRESENT       =   8,
                 USBKEY_IS_RECORDING     =   9,
@@ -23,24 +23,24 @@ namespace Drone
                 NOT_DEFINED             =   1337    // self defined
             };
 
-            static u_int32_t decodeHdvideoState(HdvideoState state);
-            static HdvideoState decodeHdvideoState(u_int32_t state);
+            static uint32_t decodeHdvideoState(HdvideoState state);
+            static HdvideoState decodeHdvideoState(uint32_t state);
 
             HdvideoState getHdvideoState();
-            u_int32_t getStorageFifoNbPackets();
-            u_int32_t getStorageFifoSize();
-            u_int32_t getUsbkeySize();
-            u_int32_t getUsbkeyFreespace();
-            u_int32_t getFrameNumber();
-            u_int32_t getUsbkeyRemainingTime();
+            uint32_t getStorageFifoNbPackets();
+            uint32_t getStorageFifoSize();
+            uint32_t getUsbkeySize();
+            uint32_t getUsbkeyFreespace();
+            uint32_t getFrameNumber();
+            uint32_t getUsbkeyRemainingTime();
         private:
             HdvideoState hdvideoState;
-            u_int32_t storageFifoNbPackets;
-            u_int32_t storageFifoSize;
-            u_int32_t usbkeySize;
-            u_int32_t usbkeyFreespace;
-            u_int32_t frameNumber;
-            u_int32_t usbkeyRemainingTime;
+            uint32_t storageFifoNbPackets;
+            uint32_t storageFifoSize;
+            uint32_t usbkeySize;
+            uint32_t usbkeyFreespace;
+            uint32_t frameNumber;
+            uint32_t usbkeyRemainingTime;
         };
     }
 }

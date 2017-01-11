@@ -15,30 +15,30 @@ namespace Drone
             VisionDetectOption(QByteArray& rawData);
             VisionDetectOption();
             ~VisionDetectOption();
-            u_int32_t getNbDetected() const;
-            vector<u_int32_t> getType() const;
-            vector<u_int32_t> getXc() const;
-            vector<u_int32_t> getYc() const;
-            vector<u_int32_t> getWidth() const;
-            vector<u_int32_t> getHeight() const;
-            vector<u_int32_t> getDistance() const;
+            uint32_t getNbDetected() const;
+            vector<uint32_t> getType() const;
+            vector<uint32_t> getXc() const;
+            vector<uint32_t> getYc() const;
+            vector<uint32_t> getWidth() const;
+            vector<uint32_t> getHeight() const;
+            vector<uint32_t> getDistance() const;
             vector<float> getOrientationAngle() const;
             vector<vector<vector<float> > > getRotation() const;
             vector<vector<float> > getTranslation() const;
-            vector<u_int32_t> getCameraSource() const;
+            vector<uint32_t> getCameraSource() const;
 
         private:
-            u_int32_t                       nbDetected;
-            vector<u_int32_t>               type;
-            vector<u_int32_t>               xc;
-            vector<u_int32_t>               yc;
-            vector<u_int32_t>               width;
-            vector<u_int32_t>               height;
-            vector<u_int32_t>               distance;
+            uint32_t                       nbDetected;
+            vector<uint32_t>               type;
+            vector<uint32_t>               xc;
+            vector<uint32_t>               yc;
+            vector<uint32_t>               width;
+            vector<uint32_t>               height;
+            vector<uint32_t>               distance;
             vector<float>                   orientationAngle;
             vector<vector<vector<float>>>   rotation;
             vector<vector<float>>           translation;
-            vector<u_int32_t>               cameraSource;
+            vector<uint32_t>               cameraSource;
         };
     }
 }

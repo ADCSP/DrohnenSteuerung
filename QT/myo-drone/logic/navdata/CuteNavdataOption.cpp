@@ -25,7 +25,7 @@ namespace Drone
          *
          * \param tag The unique tag of the derived option.
          */
-        CuteNavdataOption::CuteNavdataOption(u_int16_t tag)
+        CuteNavdataOption::CuteNavdataOption(uint16_t tag)
         {
             this->tag = tag;
         }
@@ -39,7 +39,7 @@ namespace Drone
         /*!
          * \brief Returns the tag of the option.
          */
-        u_int16_t CuteNavdataOption::getTag()
+        uint16_t CuteNavdataOption::getTag()
         {
             return tag;
         }
@@ -50,9 +50,9 @@ namespace Drone
          * \param tag The unique tag of the derived option, represented as enum.
          * \return The unique tag of the derived option, represented as int.
          */
-        u_int16_t CuteNavdataOption::decodeTag(Tag tag)
+        uint16_t CuteNavdataOption::decodeTag(Tag tag)
         {
-            return static_cast<u_int16_t>(tag);
+            return static_cast<uint16_t>(tag);
         }
 
         /*!
@@ -60,7 +60,7 @@ namespace Drone
          * \param tag The unique tag of the derived option, represented as int.
          * \return The unique tag of the derived option, represented as enum.
          */
-        CuteNavdataOption::Tag CuteNavdataOption::decodeTag(u_int16_t tag)
+        CuteNavdataOption::Tag CuteNavdataOption::decodeTag(uint16_t tag)
         {
             if(tag < 28 || tag == 65535)
                 return static_cast<Tag>(tag);
@@ -148,9 +148,9 @@ namespace Drone
          * \param data The reference to the given byte array.
          * \return The read value.
          */
-        u_int8_t CuteNavdataOption::fetchUnsignedInt8(QByteArray &data)
+        uint8_t CuteNavdataOption::fetchUnsignedInt8(QByteArray &data)
         {
-            return static_cast<u_int8_t>(fetchInt8(data));
+            return static_cast<uint8_t>(fetchInt8(data));
         }
 
         /*!
@@ -159,9 +159,9 @@ namespace Drone
          * \param swapEndian If this boolean is set to true, the method reads in inverted order.
          * \return The read value.
          */
-        u_int16_t CuteNavdataOption::fetchUnsignedInt16(QByteArray &data, bool swapEndian)
+        uint16_t CuteNavdataOption::fetchUnsignedInt16(QByteArray &data, bool swapEndian)
         {
-            return static_cast<u_int16_t>(fetchInt16(data, swapEndian));
+            return static_cast<uint16_t>(fetchInt16(data, swapEndian));
         }
 
         /*!
@@ -170,9 +170,9 @@ namespace Drone
          * \param swapEndian If this boolean is set to true, the method reads in inverted order.
          * \return The read value.
          */
-        u_int32_t CuteNavdataOption::fetchUnsignedInt32(QByteArray &data, bool swapEndian)
+        uint32_t CuteNavdataOption::fetchUnsignedInt32(QByteArray &data, bool swapEndian)
         {
-            return static_cast<u_int32_t>(fetchInt32(data, swapEndian));
+            return static_cast<uint32_t>(fetchInt32(data, swapEndian));
         }
 
         /*!
@@ -288,9 +288,9 @@ namespace Drone
          * \param swapEndian If this boolean is set to true, the method reads in inverted order.
          * \return The read values.
          */
-        vector<u_int8_t> CuteNavdataOption::fetchUnsignedInt8Vector(QByteArray &data, int length)
+        vector<uint8_t> CuteNavdataOption::fetchUnsignedInt8Vector(QByteArray &data, int length)
         {
-            vector<u_int8_t> result(length);
+            vector<uint8_t> result(length);
             if(length <= 0)
                 return result;
             for(int i = 0;i < length; i++)
@@ -305,9 +305,9 @@ namespace Drone
          * \param swapEndian If this boolean is set to true, the method reads in inverted order.
          * \return The read values.
          */
-        vector<u_int16_t> CuteNavdataOption::fetchUnsignedInt16Vector(QByteArray &data, int length, bool swapEndian)
+        vector<uint16_t> CuteNavdataOption::fetchUnsignedInt16Vector(QByteArray &data, int length, bool swapEndian)
         {
-            vector<u_int16_t> result(length);
+            vector<uint16_t> result(length);
             if(length <= 0)
                 return result;
             for(int i = 0;i < length; i++)
@@ -322,9 +322,9 @@ namespace Drone
          * \param swapEndian If this boolean is set to true, the method reads in inverted order.
          * \return The read values.
          */
-        vector<u_int32_t> CuteNavdataOption::fetchUnsignedInt32Vector(QByteArray &data, int length, bool swapEndian)
+        vector<uint32_t> CuteNavdataOption::fetchUnsignedInt32Vector(QByteArray &data, int length, bool swapEndian)
         {
-            vector<u_int32_t> result(length);
+            vector<uint32_t> result(length);
             if(length <= 0)
                 return result;
             for(int i = 0;i < length; i++)

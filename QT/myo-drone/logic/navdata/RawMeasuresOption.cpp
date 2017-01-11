@@ -51,7 +51,7 @@ namespace Drone
 
         }
 
-        vector<u_int16_t> RawMeasuresOption::getRawAccs()
+        vector<uint16_t> RawMeasuresOption::getRawAccs()
         {
             return rawAccs;
         }
@@ -66,57 +66,57 @@ namespace Drone
             return rawGyros110;
         }
 
-        u_int16_t RawMeasuresOption::getVbatRaw()
+        uint16_t RawMeasuresOption::getVbatRaw()
         {
             return vbatRaw;
         }
 
-        u_int16_t RawMeasuresOption::getUsDebutEcho()
+        uint16_t RawMeasuresOption::getUsDebutEcho()
         {
             return usDebutEcho;
         }
 
-        u_int16_t RawMeasuresOption::getUsFinEcho()
+        uint16_t RawMeasuresOption::getUsFinEcho()
         {
             return usFinEcho;
         }
 
-        u_int16_t RawMeasuresOption::getUsAssociationEcho()
+        uint16_t RawMeasuresOption::getUsAssociationEcho()
         {
             return usAssociationEcho;
         }
 
-        u_int16_t RawMeasuresOption::getUsDistanceEcho()
+        uint16_t RawMeasuresOption::getUsDistanceEcho()
         {
             return usDistanceEcho;
         }
 
-        u_int16_t RawMeasuresOption::getUsCourbeTemps()
+        uint16_t RawMeasuresOption::getUsCourbeTemps()
         {
             return usCourbeTemps;
         }
 
-        u_int16_t RawMeasuresOption::getUsCourbeValeur()
+        uint16_t RawMeasuresOption::getUsCourbeValeur()
         {
             return usCourbeValeur;
         }
 
-        u_int16_t RawMeasuresOption::getUsCourbeRef()
+        uint16_t RawMeasuresOption::getUsCourbeRef()
         {
             return usCourbeRef;
         }
 
-        u_int16_t RawMeasuresOption::getFlagEchoIni()
+        uint16_t RawMeasuresOption::getFlagEchoIni()
         {
             return flagEchoIni;
         }
 
-        u_int16_t RawMeasuresOption::getNbEcho()
+        uint16_t RawMeasuresOption::getNbEcho()
         {
             return nbEcho;
         }
 
-        u_int32_t RawMeasuresOption::getSumEcho()
+        uint32_t RawMeasuresOption::getSumEcho()
         {
             return sumEcho;
         }

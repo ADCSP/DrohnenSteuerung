@@ -80,7 +80,7 @@ namespace Drone
             return obsX;
         }
 
-        u_int32_t AltitudeOption::getObsState()
+        uint32_t AltitudeOption::getObsState()
         {
             return obsState;
         }
@@ -90,7 +90,7 @@ namespace Drone
             return estVb;
         }
 
-        u_int32_t AltitudeOption::getEstState()
+        uint32_t AltitudeOption::getEstState()
         {
             return estState;
         }

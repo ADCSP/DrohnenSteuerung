@@ -26,4 +26,5 @@ LIBS += -L"../logic" \
         -llogic -lcommand -lnavdata -lvideo -lgui
 
 
+
 TARGET = ../MyoDrone

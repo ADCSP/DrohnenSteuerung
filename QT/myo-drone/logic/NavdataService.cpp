@@ -60,9 +60,9 @@ namespace Drone
      * \param state the enum
      * \return
      */
-    u_int8_t NavdataService::decodeDroneState(NavdataService::DroneState state)
+    uint8_t NavdataService::decodeDroneState(NavdataService::DroneState state)
     {
-        return static_cast<u_int8_t>(state);
+        return static_cast<uint8_t>(state);
     }
 
     /*!
@@ -70,7 +70,7 @@ namespace Drone
      * \param state the value
      * \return NOT_DEFINED if the value couldn't be found.
      */
-    NavdataService::DroneState NavdataService::decodeDroneState(u_int8_t state)
+    NavdataService::DroneState NavdataService::decodeDroneState(uint8_t state)
     {
         if(state < 32)
             return static_cast<DroneState>(state);
@@ -444,7 +444,7 @@ namespace Drone
             expectedChecksum += datagram.at(i) & 0xFF;
 
         /* Check header */
-        u_int32_t header = CuteNavdataOption::fetchUnsignedInt32(datagram);
+        uint32_t header = CuteNavdataOption::fetchUnsignedInt32(datagram);
         if(header != 0x55667788 && header != 0x55667789)
         {
             emit gotInvalidPackage();
@@ -454,10 +454,10 @@ namespace Drone
         }
 
         /* The drone state is not always defined... */
-        u_int32_t droneState = CuteNavdataOption::fetchUnsignedInt32(datagram);
+        uint32_t droneState = CuteNavdataOption::fetchUnsignedInt32(datagram);
 
         /* Check sequence number */
-        u_int32_t sequence = CuteNavdataOption::fetchUnsignedInt32(datagram);
+        uint32_t sequence = CuteNavdataOption::fetchUnsignedInt32(datagram);
         if(sequence <= lastSequence && sequence != 1)
         {
             emit gotInvalidPackage();
@@ -481,7 +481,7 @@ namespace Drone
                         CuteNavdataOption::fetchUnsignedInt16(datagram));
 
             // Length includes header size (4 bytes)
-            u_int16_t size = CuteNavdataOption::fetchUnsignedInt16(datagram) - 4;
+            uint16_t size = CuteNavdataOption::fetchUnsignedInt16(datagram) - 4;
 
             if(size == 0)
             {

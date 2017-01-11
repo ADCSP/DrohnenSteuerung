@@ -46,25 +46,25 @@ namespace Drone
 
         }
 
-        u_int8_t DemoOption::decodeControlState(ControlState state)
+        uint8_t DemoOption::decodeControlState(ControlState state)
         {
-            return static_cast<u_int8_t>(state);
+            return static_cast<uint8_t>(state);
         }
 
 
-        DemoOption::ControlState DemoOption::decodeControlState(u_int8_t state)
+        DemoOption::ControlState DemoOption::decodeControlState(uint8_t state)
         {
             if(state < 10)
                 return static_cast<ControlState>(state);
             return static_cast<ControlState>(ControlState::NOT_DEFINED);
         }
 
-        u_int8_t DemoOption::decodeFlyingState(FlyingState state)
+        uint8_t DemoOption::decodeFlyingState(FlyingState state)
         {
-            return static_cast<u_int8_t>(state);
+            return static_cast<uint8_t>(state);
         }
 
-        DemoOption::FlyingState DemoOption::decodeFlyingState(u_int8_t state)
+        DemoOption::FlyingState DemoOption::decodeFlyingState(uint8_t state)
         {
             if(state < 4)
                 return static_cast<FlyingState>(state);
@@ -107,7 +107,7 @@ namespace Drone
             return flyingState;
         }
 
-        u_int32_t DemoOption::getVbatFlyingPercentage()
+        uint32_t DemoOption::getVbatFlyingPercentage()
         {
             return vbatFlyingPercentage;
         }

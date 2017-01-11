@@ -16,20 +16,20 @@ namespace Drone
             PhysMeasuresOption();
             ~PhysMeasuresOption();
             float getAccsTemp();
-            u_int16_t getGyroTemp();
+            uint16_t getGyroTemp();
             vector<float> getPhysAccs();
             vector<float> getPhysGyros();
-            u_int32_t getAlim3v3();
-            u_int32_t getVrefEpson();
-            u_int32_t getVrefIdg();
+            uint32_t getAlim3v3();
+            uint32_t getVrefEpson();
+            uint32_t getVrefIdg();
         private:
             float accsTemp;
-            u_int16_t gyroTemp;
+            uint16_t gyroTemp;
             vector<float> physAccs;
             vector<float> physGyros;
-            u_int32_t alim3v3;
-            u_int32_t vrefEpson;
-            u_int32_t vrefIdg;
+            uint32_t alim3v3;
+            uint32_t vrefEpson;
+            uint32_t vrefIdg;
         };
     }
 }
