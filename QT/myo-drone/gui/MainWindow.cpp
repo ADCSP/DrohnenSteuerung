@@ -34,6 +34,8 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     this->navdataService    = cvDrone->getNavdataService();
     this->videoService      = cvDrone->getVideoService();
 
+    setFocusPolicy(Qt::StrongFocus);
+
     ui->videoContainer->setScaledContents(true);
 
     connect(ui->actionControl_Window,   SIGNAL(toggled(bool)),              this,           SLOT(toggleControlWindow(bool)));
@@ -48,6 +50,26 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
 
     connect(ui->buttonStart,            SIGNAL(clicked(bool)),              this,           SLOT(toggleTakeOffLand(bool)));
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
+
+    connect(ui->bttnForward,            SIGNAL(pressed()),                  cvDrone,        SLOT(moveForward()));
+    connect(ui->bttnBackward,           SIGNAL(pressed()),                  cvDrone,        SLOT(moveBackward()));
+    connect(ui->bttnLeft,               SIGNAL(pressed()),                  cvDrone,        SLOT(moveLeft()));
+    connect(ui->bttnRight,              SIGNAL(pressed()),                  cvDrone,        SLOT(moveRight()));
+    connect(ui->bttnUp,                 SIGNAL(pressed()),                  cvDrone,        SLOT(moveUp()));
+    connect(ui->bttnDown,               SIGNAL(pressed()),                  cvDrone,        SLOT(moveDown()));
+    connect(ui->bttnTurnLeft,           SIGNAL(pressed()),                  cvDrone,        SLOT(turnLeft()));
+    connect(ui->bttnTurnRight,          SIGNAL(pressed()),                  cvDrone,        SLOT(turnRight()));
+
+    connect(ui->bttnForward,            SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnBackward,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnLeft,               SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnRight,              SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnUp,                 SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnDown,               SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnTurnLeft,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+
+    connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
     /*
     connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              objectDetector, SLOT(setActivated(bool)));
     connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              this,           SLOT(detectToggled(bool)));
@@ -72,6 +94,7 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
+    ui->actionControl_Window->setEnabled(false);
     ui->frSprache->setVisible(false);
     ui->frJoystick->setVisible(false);
 }
@@ -261,6 +284,9 @@ void MainWindow::showFrame(QPixmap pixmap)
     ui->videoContainer->setPixmap(pixmap);
 }
 
+/*!
+ * \brief MainWindow::on_actionJoystick_triggered hides Armband and Sprache, and disables the menuentry
+ */
 void MainWindow::on_actionJoystick_triggered()
 {
     ui->actionArmband->setEnabled(true);
@@ -292,4 +318,61 @@ void MainWindow::on_actionSprache_triggered()
     ui->frArmband->setVisible(false);
     ui->frSprache->setVisible(true);
     ui->frJoystick->setVisible(false);
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if(!event->isAutoRepeat())
+    {
+        switch (event->key()) {
+        case Qt::Key_W:
+            ui->lbButtonOut->setText("Forward");
+            //cvDrone->moveForward();
+            return;
+        case Qt::Key_A:
+            ui->lbButtonOut->setText("Left");
+            //cvDrone->moveLeft();
+            return;
+        case Qt::Key_S:
+            ui->lbButtonOut->setText("Backward");
+            //cvDrone->moveBackward();
+            return;
+        case Qt::Key_D:
+            ui->lbButtonOut->setText("Right");
+            //cvDrone->moveRight();
+            return;
+        case Qt::Key_Up:
+            ui->lbButtonOut->setText("Up");
+            //cvDrone->moveUp();
+            return;
+        case Qt::Key_Down:
+            ui->lbButtonOut->setText("Down");
+            //cvDrone->moveDown();
+            return;
+        case Qt::Key_Left:
+            ui->lbButtonOut->setText("AX L");
+            //cvDrone->turnLeft();
+            return;
+        case Qt::Key_Right:
+            ui->lbButtonOut->setText("AX R");
+            //cvDrone->turnRight();
+            return;
+        case Qt::Key_Escape:
+            ui->lbButtonOut->setText("Emergency");
+            //cvDrone->emergency();
+            return;
+        }
+        QWidget::keyPressEvent(event);
+    }
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    if( !event->isAutoRepeat() && (event->key() != Qt::Key_Escape) )
+    {
+        ui->lbButtonOut->setText("");
+        //cvDrone->hover();
+        return;
+    }
+    QWidget::keyReleaseEvent(event);
 }

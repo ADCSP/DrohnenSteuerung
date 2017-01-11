@@ -24,6 +24,8 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent = 0);
+    void keyPressEvent(QKeyEvent *e) override;
+    void keyReleaseEvent(QKeyEvent *e) override;
     ~MainWindow();
 
 protected:

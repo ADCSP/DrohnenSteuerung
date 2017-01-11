@@ -106,7 +106,7 @@ void ControlWindow::keyPressEvent(QKeyEvent *event)
 
 void ControlWindow::keyReleaseEvent(QKeyEvent *event)
 {
-    if(!event->isAutoRepeat() & event->key() != Qt::Key_Escape & event->key() != Qt::Key_Space)
+    if( !event->isAutoRepeat() & (event->key() != Qt::Key_Escape) & (event->key() != Qt::Key_Space) )
     {
         cvDrone->hover();
         return;
