@@ -22,32 +22,58 @@
  * \param *objectDetector
  * \param *parent
  */
-MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
+MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    this->objectDetector    = objectDetector;
     this->cvDrone           = cvDrone;
     this->commandService    = cvDrone->getCommandService();
     this->navdataService    = cvDrone->getNavdataService();
+    this->videoService      = cvDrone->getVideoService();
 
     ui->videoContainer->setScaledContents(true);
 
     connect(ui->actionControl_Window,   SIGNAL(toggled(bool)),              this,           SLOT(toggleControlWindow(bool)));
+    //connect(ui->actionVideo_Options,    SIGNAL(toggled(bool)),              this,           SLOT(toggleVideoSettings(bool)));
     connect(ui->actionCommands,         SIGNAL(toggled(bool)),              this,           SLOT(toggleCommandDebug(bool)));
     connect(ui->actionNavdata,          SIGNAL(toggled(bool)),              this,           SLOT(toggleNavdataDebug(bool)));
+    //connect(ui->actionOpenCV,           SIGNAL(toggled(bool)),              this,           SLOT(toggleOpenCVDebug(bool)));
 
     connect(ui->actionReconnect,        SIGNAL(triggered()),                commandService, SLOT(reconnect()));
     connect(ui->actionNavdata_Service,  SIGNAL(triggered()),                navdataService, SLOT(reconnect()));
+    connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
 
     connect(ui->buttonStart,            SIGNAL(clicked(bool)),              this,           SLOT(toggleTakeOffLand(bool)));
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
+    /*
+    connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              objectDetector, SLOT(setActivated(bool)));
     connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              this,           SLOT(detectToggled(bool)));
+    */
+    /*
+    connect(objectDetector,             SIGNAL(moveLeft()),                 cvDrone,        SLOT(moveLeft()));
+    connect(objectDetector,             SIGNAL(moveRight()),                cvDrone,        SLOT(moveRight()));
+    connect(objectDetector,             SIGNAL(moveUp()),                   cvDrone,        SLOT(moveUp()));
+    connect(objectDetector,             SIGNAL(moveDown()),                 cvDrone,        SLOT(moveDown()));
+    connect(objectDetector,             SIGNAL(moveUpRight()),              cvDrone,        SLOT(moveUpperRight()));
+    connect(objectDetector,             SIGNAL(moveUpLeft()),               cvDrone,        SLOT(moveUpperLeft()));
+    connect(objectDetector,             SIGNAL(moveDownRight()),            cvDrone,        SLOT(moveLowerRight()));
+    connect(objectDetector,             SIGNAL(moveDownLeft()),             cvDrone,        SLOT(moveLowerLeft()));
+    connect(objectDetector,             SIGNAL(inCenter()),                 cvDrone,        SLOT(hover()));
+    */
+    connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
+    connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
+
+    connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
+
+    ui->actionOpenCV->setVisible(false);
+    ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
-    ui->fgSprache->setVisible(false);
-    ui->fgJoystick->setVisible(false);
+    ui->frSprache->setVisible(false);
+    ui->frJoystick->setVisible(false);
 }
 
 /*!
@@ -84,6 +110,21 @@ void MainWindow::toggleControlWindow(bool toggle)
         controlWindow->close();
 }
 
+/*!
+ * \brief MainWindow::toggleVideoSettings either opens or closes the VideoSettingsWindow
+ */
+void MainWindow::toggleVideoSettings(bool toggle)
+{
+    if(toggle)
+    {
+        videoSettings = new VideoSettingsWindow(objectDetector);
+        connect(videoSettings,  SIGNAL(closed()),   this,           SLOT(videoSettingsWindowClosed()));
+        connect(this,           SIGNAL(closed()),   videoSettings,  SLOT(close()));
+        videoSettings->show();
+    }
+    else
+        videoSettings->close();
+}
 
 /*!
  * \brief MainWindow::toggleCommandDebug either opens or closes the CommandDebugWindow
@@ -118,6 +159,22 @@ void MainWindow::toggleNavdataDebug(bool toggle)
 }
 
 /*!
+ * \brief MainWindow::toggleOpenCVDebug either opens or closes the OpenCVDebugWindow
+ */
+void MainWindow::toggleOpenCVDebug(bool toggle)
+{
+    if(toggle)
+    {
+        openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
+        connect(openCVDebug,    SIGNAL(closed()),   this,           SLOT(openCVDebugWindowClosed()));
+        connect(this,           SIGNAL(closed()),   openCVDebug,    SLOT(close()));
+        openCVDebug->show();
+    }
+    else
+        openCVDebug->close();
+}
+
+/*!
  * \brief MainWindow::toggleTakeOffLand either starts or lands the Drone
  */
 void MainWindow::toggleTakeOffLand(bool toggle)
@@ -136,8 +193,8 @@ void MainWindow::toggleTakeOffLand(bool toggle)
 
 void MainWindow::detectToggled(bool toggle)
 {
-    if(!toggle)
-        ui->buttonAutopilot->setChecked(false);
+    //if(!toggle)
+      //  ui->buttonAutopilot->setChecked(false);
 }
 
 /*!
@@ -174,6 +231,28 @@ void MainWindow::navdataDebugWindowClosed()
 }
 
 /*!
+ * \brief MainWindow::openCVDebugWindowClosed is processed when ethe OpenCVDebugWindow is closed.
+ * The corresponding checkBox will be unchecked.
+ */
+void MainWindow::openCVDebugWindowClosed()
+{
+    ui->actionOpenCV->setChecked(false);
+    openCVDebug->disconnect();
+    delete openCVDebug;
+}
+
+/*!
+ * \brief MainWindow::videoSettingsWindowClosed is processed when ethe VideoSettingsWindow is closed.
+ * The corresponding checkBox will be unchecked.
+ */
+void MainWindow::videoSettingsWindowClosed()
+{
+    ui->actionVideo_Options->setChecked(false);
+    videoSettings->disconnect();
+    delete videoSettings;
+}
+
+/*!
  * \brief MainWindow::showFrame shows the pixmap on the videoLabel.
  * \param pixmap the pixmap to show.
  */
@@ -182,36 +261,35 @@ void MainWindow::showFrame(QPixmap pixmap)
     ui->videoContainer->setPixmap(pixmap);
 }
 
-void MainWindow::on_actionArmband_triggered()
-{
-    ui->actionArmband->setEnabled(false);
-    ui->actionJoystick->setEnabled(true);
-    ui->actionSprachsteuerung->setEnabled(true);
-
-    ui->fgSprache->setVisible(false);
-    ui->fgArmband->setVisible(true);
-    ui->fgJoystick->setVisible(false);
-}
-
-
-void MainWindow::on_actionSprachsteuerung_triggered()
-{
-    ui->actionArmband->setEnabled(true);
-    ui->actionJoystick->setEnabled(true);
-    ui->actionSprachsteuerung->setEnabled(false);
-
-    ui->fgArmband->setVisible(false);
-    ui->fgSprache->setVisible(true);
-    ui->fgJoystick->setVisible(false);
-}
-
 void MainWindow::on_actionJoystick_triggered()
 {
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(false);
-    ui->actionSprachsteuerung->setEnabled(true);
+    ui->actionSprache->setEnabled(true);
 
-    ui->fgArmband->setVisible(false);
-    ui->fgSprache->setVisible(false);
-    ui->fgJoystick->setVisible(true);
+    ui->frArmband->setVisible(false);
+    ui->frSprache->setVisible(false);
+    ui->frJoystick->setVisible(true);
+}
+
+void MainWindow::on_actionArmband_triggered()
+{
+    ui->actionArmband->setEnabled(false);
+    ui->actionJoystick->setEnabled(true);
+    ui->actionSprache->setEnabled(true);
+
+    ui->frSprache->setVisible(false);
+    ui->frArmband->setVisible(true);
+    ui->frJoystick->setVisible(false);
+}
+
+void MainWindow::on_actionSprache_triggered()
+{
+    ui->actionArmband->setEnabled(true);
+    ui->actionJoystick->setEnabled(true);
+    ui->actionSprache->setEnabled(false);
+
+    ui->frArmband->setVisible(false);
+    ui->frSprache->setVisible(true);
+    ui->frJoystick->setVisible(false);
 }

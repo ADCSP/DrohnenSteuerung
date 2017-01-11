@@ -7,19 +7,23 @@ CONFIG += c++11
 
 CONFIG += link_pkgconfig
 
+PKGCONFIG += opencv
+
 SOURCES += main.cpp \ 
            provision.cpp
 
 INCLUDEPATH +=  ../logic \
                 ../logic/command \
                 ../logic/navdata \
+                ../logic/video \
                 ../gui
 
 LIBS += -L"../logic" \
         -L"../logic/command" \
         -L"../logic/navdata" \
+        -L"../logic/video" \
         -L"../gui" \
-        -llogic -lcommand -lnavdata -lgui
+        -llogic -lcommand -lnavdata -lvideo -lgui
 
 
-TARGET = ../myo-drone
+TARGET = ../MyoDrone

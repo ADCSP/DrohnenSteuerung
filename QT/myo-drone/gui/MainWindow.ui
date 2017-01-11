@@ -6,126 +6,139 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>777</width>
-    <height>525</height>
+    <width>1200</width>
+    <height>650</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>CV-Drone</string>
+   <string>Myo-Drone</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(85, 87, 83);
+gridline-color: rgb(211, 215, 207);
+color: rgb(211, 215, 207);</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
-    <item alignment="Qt::AlignHCenter">
-     <widget class="QPushButton" name="buttonEmergency">
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(255, 37, 40);
-border-color: rgb(0, 0, 0);
-font: 75 30pt &quot;Calibri&quot;;
-alternate-background-color: rgb(0, 0, 0);</string>
-      </property>
-      <property name="text">
-       <string>DroneControl</string>
-      </property>
-     </widget>
-    </item>
     <item>
-     <widget class="QFrame" name="fModus">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <widget class="QFrame" name="container">
+      <layout class="QHBoxLayout" name="frame3">
        <item>
-        <widget class="QFrame" name="fgJoystick">
-         <layout class="QGridLayout" name="gridLayout_3">
-          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-           <widget class="QLabel" name="lJoystick">
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Joystick&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
+        <widget class="QFrame" name="verticalFrame">
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QFrame" name="frArmband">
+            <layout class="QVBoxLayout" name="verticalLayout_4">
+             <item>
+              <widget class="QLabel" name="lbArmband">
+               <property name="font">
+                <font>
+                 <pointsize>25</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Armband</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frJoystick">
+            <layout class="QGridLayout" name="gridLayout">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lbJoystick">
+               <property name="font">
+                <font>
+                 <pointsize>25</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Joystick</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QFrame" name="frSprache">
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0">
+              <widget class="QLabel" name="lbSprache">
+               <property name="font">
+                <font>
+                 <pointsize>25</pointsize>
+                </font>
+               </property>
+               <property name="text">
+                <string>Sprache</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
          </layout>
         </widget>
        </item>
        <item>
-        <widget class="QFrame" name="fgSprache">
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-           <widget class="QLabel" name="lSprache">
+        <widget class="QFrame" name="frame_video">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <property name="lineWidth">
+          <number>1</number>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="videoContainer">
+            <property name="minimumSize">
+             <size>
+              <width>31</width>
+              <height>15</height>
+             </size>
+            </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Sprache&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>Loading...</string>
+            </property>
+            <property name="textFormat">
+             <enum>Qt::AutoText</enum>
+            </property>
+            <property name="scaledContents">
+             <bool>false</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
          </layout>
-        </widget>
-       </item>
-       <item>
-        <widget class="QFrame" name="fgArmband">
-         <layout class="QGridLayout" name="gridLayout">
-          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-           <widget class="QLabel" name="lArmband">
-            <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;Armband&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QFrame" name="frame_2">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QLabel" name="videoContainer">
-         <property name="minimumSize">
-          <size>
-           <width>31</width>
-           <height>15</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Loading...</string>
-         </property>
-         <property name="textFormat">
-          <enum>Qt::AutoText</enum>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
         </widget>
        </item>
       </layout>
@@ -166,7 +179,20 @@ alternate-background-color: rgb(0, 0, 0);</string>
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="buttonEmergency">
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Emergency</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QPushButton" name="buttonDetect">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string>Detect</string>
          </property>
@@ -175,23 +201,7 @@ alternate-background-color: rgb(0, 0, 0);</string>
          </property>
         </widget>
        </item>
-       <item>
-        <widget class="QPushButton" name="buttonAutopilot">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Autopilot</string>
-         </property>
-         <property name="checkable">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
       </layout>
-      <zorder>buttonDetect</zorder>
-      <zorder>buttonStart</zorder>
-      <zorder>buttonAutopilot</zorder>
      </widget>
     </item>
    </layout>
@@ -201,15 +211,17 @@ alternate-background-color: rgb(0, 0, 0);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>777</width>
-     <height>21</height>
+     <width>1200</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
      <string>&amp;Window</string>
     </property>
+    <addaction name="actionVideo_Options"/>
     <addaction name="actionControl_Window"/>
+    <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuReconnect">
     <property name="title">
@@ -217,6 +229,7 @@ alternate-background-color: rgb(0, 0, 0);</string>
     </property>
     <addaction name="actionReconnect"/>
     <addaction name="separator"/>
+    <addaction name="actionVideo_Service"/>
     <addaction name="actionNavdata_Service"/>
    </widget>
    <widget class="QMenu" name="menuDebug">
@@ -224,6 +237,7 @@ alternate-background-color: rgb(0, 0, 0);</string>
      <string>&amp;Debug</string>
     </property>
     <addaction name="actionCommands"/>
+    <addaction name="actionOpenCV"/>
     <addaction name="actionNavdata"/>
    </widget>
    <widget class="QMenu" name="menuModus">
@@ -232,7 +246,7 @@ alternate-background-color: rgb(0, 0, 0);</string>
     </property>
     <addaction name="actionArmband"/>
     <addaction name="actionJoystick"/>
-    <addaction name="actionSprachsteuerung"/>
+    <addaction name="actionSprache"/>
    </widget>
    <addaction name="menuWindow"/>
    <addaction name="menuReconnect"/>
@@ -247,9 +261,22 @@ alternate-background-color: rgb(0, 0, 0);</string>
     <bool>false</bool>
    </property>
   </widget>
+  <action name="actionVideo_Options">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Video Settings</string>
+   </property>
+  </action>
   <action name="actionReconnect">
    <property name="text">
     <string>&amp;All Services</string>
+   </property>
+  </action>
+  <action name="actionVideo_Service">
+   <property name="text">
+    <string>&amp;Video-Service</string>
    </property>
   </action>
   <action name="actionNavdata_Service">
@@ -268,6 +295,14 @@ alternate-background-color: rgb(0, 0, 0);</string>
     <bool>true</bool>
    </property>
   </action>
+  <action name="actionOpenCV">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>&amp;OpenCV</string>
+   </property>
+  </action>
   <action name="actionNavdata">
    <property name="checkable">
     <bool>true</bool>
@@ -284,40 +319,28 @@ alternate-background-color: rgb(0, 0, 0);</string>
     <string>&amp;Manual Control</string>
    </property>
   </action>
-  <action name="actionArmband">
-   <property name="text">
-    <string>Armband</string>
-   </property>
-  </action>
   <action name="actionJoystick">
    <property name="text">
     <string>Joystick</string>
    </property>
   </action>
-  <action name="actionSprachsteuerung">
+  <action name="actionArmband">
    <property name="text">
-    <string>Sprachsteuerung</string>
+    <string>Armband</string>
+   </property>
+  </action>
+  <action name="actionSprache">
+   <property name="text">
+    <string>Sprache</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections>
-  <connection>
-   <sender>buttonDetect</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>buttonAutopilot</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>576</x>
-     <y>476</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>763</x>
-     <y>476</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

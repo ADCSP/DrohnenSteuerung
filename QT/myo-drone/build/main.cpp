@@ -4,9 +4,11 @@
 #include <QFile>
 #include <QDebug>
 #include <MainWindow.h>
+#include <ObjectDetector.h>
 #include <provision.cpp>
 
 using namespace Drone;
+using namespace ObjectDetection;
 
 int main(int argc, char *argv[])
 {
@@ -20,7 +22,8 @@ int main(int argc, char *argv[])
 
     /* Initialize the nessesary objects */
     CVDrone&        drone = CVDrone::getInstance();
-    MainWindow      window(&drone);
+    ObjectDetector  detector(drone.getVideoService());
+    MainWindow      window(&drone, &detector);
 
     /* Enter the event loop */
     window.show();

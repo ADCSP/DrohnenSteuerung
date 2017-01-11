@@ -1,10 +1,11 @@
 TEMPLATE = subdirs
 
-SUBDIRS +=  gui \
-            logic \
+SUBDIRS +=  logic \
             logic/command \
-            logic/navdata
+            logic/navdata \
+            logic/video \
+            gui
 
-SUBDIRS +=  build
+SUBDIRS += build
 
 CONFIG += ordered

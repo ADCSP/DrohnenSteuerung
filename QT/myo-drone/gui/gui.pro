@@ -9,21 +9,28 @@ QT += gui widgets
 INCLUDEPATH += "../logic"
 INCLUDEPATH += "../logic/navdata"
 INCLUDEPATH += "../logic/command"
+INCLUDEPATH += "../logic/video"
 
 SOURCES +=\
-            CommandDebugWindow.cpp \
-            MainWindow.cpp \
-            NavdataDebugWindow.cpp \
-            ControlWindow.cpp
+    CommandDebugWindow.cpp \
+    MainWindow.cpp \
+    NavdataDebugWindow.cpp \
+    OpenCVDebugWindow.cpp \
+    VideoSettingsWindow.cpp \
+    ControlWindow.cpp
 
 HEADERS  += \
-            CommandDebugWindow.h \
-            MainWindow.h \
-            NavdataDebugWindow.h \
-            ControlWindow.h
+    CommandDebugWindow.h \
+    MainWindow.h \
+    NavdataDebugWindow.h \
+    OpenCVDebugWindow.h \
+    VideoSettingsWindow.h \
+    ControlWindow.h
 
 FORMS    += \
-            CommandDebugWindow.ui \
-            MainWindow.ui \
-            NavdataDebugWindow.ui \
-            ControlWindow.ui
+    CommandDebugWindow.ui \
+    MainWindow.ui \
+    NavdataDebugWindow.ui \
+    OpenCVDebugWindow.ui \
+    VideoSettingsWindow.ui \
+    ControlWindow.ui
