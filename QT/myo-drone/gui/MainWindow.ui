@@ -437,7 +437,7 @@
      <widget class="QFrame" name="container">
       <layout class="QHBoxLayout" name="frame3">
        <item>
-        <widget class="QFrame" name="verticalFrame">
+        <widget class="QFrame" name="frame_modus">
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QFrame" name="frArmband">
@@ -453,8 +453,96 @@
                 <string>Armband</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignHCenter|Qt::AlignTop</set>
                </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="frSplit">
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <item>
+                 <widget class="QFrame" name="frGestures">
+                  <layout class="QVBoxLayout" name="verticalLayout_6">
+                   <item>
+                    <widget class="QLabel" name="lbFist">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/50x50/fist.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbSpread">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/50x50/spread.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbUnlock">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/50x50/unlock.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbLeft">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/50x50/wave_left.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbRight">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/50x50/wave_right.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QFrame" name="frGDeisplay">
+                  <layout class="QVBoxLayout" name="verticalLayout_7">
+                   <item>
+                    <widget class="QLabel" name="lbThalmic">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/thalmic_logo_col.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QLabel" name="lbMyo">
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="pixmap">
+                      <pixmap>Icons/myo.png</pixmap>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
               </widget>
              </item>
             </layout>
@@ -810,7 +898,7 @@
    </widget>
    <widget class="QMenu" name="menuModus">
     <property name="title">
-     <string>Modus</string>
+     <string>&amp;Modus</string>
     </property>
     <addaction name="actionArmband"/>
     <addaction name="actionJoystick"/>
@@ -889,22 +977,22 @@
   </action>
   <action name="actionJoystick">
    <property name="text">
-    <string>Joystick</string>
+    <string>&amp;Joystick</string>
    </property>
   </action>
   <action name="actionArmband">
    <property name="text">
-    <string>Armband</string>
+    <string>&amp;Armband</string>
    </property>
   </action>
   <action name="actionSprache">
    <property name="text">
-    <string>Sprache</string>
+    <string>&amp;Sprache</string>
    </property>
   </action>
   <action name="actionQuit">
    <property name="text">
-    <string>Quit</string>
+    <string>&amp;Quit</string>
    </property>
   </action>
  </widget>

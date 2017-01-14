@@ -94,9 +94,10 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
-    ui->actionControl_Window->setEnabled(false);
+    ui->actionControl_Window->setVisible(false);
     ui->frSprache->setVisible(false);
     ui->frJoystick->setVisible(false);
+    ui->buttonDetect->setVisible(false);
 }
 
 /*!
@@ -327,39 +328,39 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         switch (event->key()) {
         case Qt::Key_W:
             ui->lbButtonOut->setText("Forward");
-            //cvDrone->moveForward();
+            cvDrone->moveForward();
             return;
         case Qt::Key_A:
             ui->lbButtonOut->setText("Left");
-            //cvDrone->moveLeft();
+            cvDrone->moveLeft();
             return;
         case Qt::Key_S:
             ui->lbButtonOut->setText("Backward");
-            //cvDrone->moveBackward();
+            cvDrone->moveBackward();
             return;
         case Qt::Key_D:
             ui->lbButtonOut->setText("Right");
-            //cvDrone->moveRight();
+            cvDrone->moveRight();
             return;
         case Qt::Key_Up:
             ui->lbButtonOut->setText("Up");
-            //cvDrone->moveUp();
+            cvDrone->moveUp();
             return;
         case Qt::Key_Down:
             ui->lbButtonOut->setText("Down");
-            //cvDrone->moveDown();
+            cvDrone->moveDown();
             return;
         case Qt::Key_Left:
             ui->lbButtonOut->setText("AX L");
-            //cvDrone->turnLeft();
+            cvDrone->turnLeft();
             return;
         case Qt::Key_Right:
             ui->lbButtonOut->setText("AX R");
-            //cvDrone->turnRight();
+            cvDrone->turnRight();
             return;
         case Qt::Key_Escape:
             ui->lbButtonOut->setText("Emergency");
-            //cvDrone->emergency();
+            cvDrone->emergency();
             return;
         }
         QWidget::keyPressEvent(event);
@@ -371,7 +372,7 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
     if( !event->isAutoRepeat() && (event->key() != Qt::Key_Escape) )
     {
         ui->lbButtonOut->setText("");
-        //cvDrone->hover();
+        cvDrone->hover();
         return;
     }
     QWidget::keyReleaseEvent(event);

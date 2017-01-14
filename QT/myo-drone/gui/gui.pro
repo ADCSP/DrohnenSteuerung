@@ -34,3 +34,6 @@ FORMS    += \
     OpenCVDebugWindow.ui \
     VideoSettingsWindow.ui \
     ControlWindow.ui
+
+RESOURCES += \
+    icons.qrc
