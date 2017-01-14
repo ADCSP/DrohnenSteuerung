@@ -27,7 +27,7 @@ namespace Drone
     VideoService::VideoService(QString droneIP, int port, QObject *parent) :
         CuteService(droneIP, port, parent)
     {
-        capture = new cv::VideoCapture();
+        //capture = new cv::VideoCapture();
         fps = -1;
         lostConnection = true;
         lostTimer = new QTimer(this);
@@ -46,7 +46,7 @@ namespace Drone
     VideoService::~VideoService()
     {
         stop();
-        delete capture;
+        //delete capture;
         if(verbose)
             emit nextVerboseString("VideoService destroyed");
     }
@@ -64,11 +64,11 @@ namespace Drone
      * \brief VideoService::getMatrix returns the current frame.
      * \return
      */
-    cv::Mat VideoService::getMatrix()
+   /* cv::Mat VideoService::getMatrix()
     {
-        return frame.clone();
+            return frame.clone();
     }
-
+    */
     /*!
      * \brief VideoService::start starts the object thread.
      */
@@ -96,10 +96,10 @@ namespace Drone
     {
         if(timer->isActive())
             timer->stop();
-        capture->release();
-        delete capture;
+        //capture->release();
+        //delete capture;
         QThread::msleep(500);
-        capture = new cv::VideoCapture();
+        //capture = new cv::VideoCapture();
         connectToDrone();
     }
 
@@ -137,26 +137,30 @@ namespace Drone
             timer->stop();
             return;
         }
-        cv::Mat frame;
-        if(!capture->read(frame))
+       /* cv::Mat frame;
+       if(!capture->read(frame))
         {
             if(verbose)
                 emit nextVerboseString("Can't read from capture");
             return;
         }
-
+        */
+        /*
         if(frame.rows <=  0 || frame.cols <= 0)
         {
             if(verbose)
                 emit nextVerboseString("Invalid capture read");
             return;
         }
+        */
 
-        int currentFps = capture->get(CV_CAP_PROP_FPS);
+        //int currentFps = capture->get(CV_CAP_PROP_FPS);
+
+        /*
         if(fps != currentFps)
         {
             fps = currentFps;
-            /* Set timeout interval. The default is 1 second */
+            // Set timeout interval. The default is 1 second
             timer->stop();
             timer->setInterval((fps == -1) ? 1000 : std::round(1000.0f / fps) - 10);
             timer->start();
@@ -164,6 +168,7 @@ namespace Drone
                 emit nextVerboseString("FPS changed to: " + QString::number(fps));
         }
         this->frame = frame;
+        */
         lostConnection = false;
         emit nextFrameReady();
     }
@@ -172,7 +177,7 @@ namespace Drone
      * \brief VideoService::connectToDrone tries to connect to the drone and se the fps.
      */
     void VideoService::connectToDrone()
-    {
+    {   /*
         if(!capture->open(tcpString.toStdString()))
         {
             if(verbose)
@@ -184,15 +189,16 @@ namespace Drone
                 emit nextVerboseString("Successfully opened VideoCapture on: " + tcpString);
         }
         fps = capture->get(CV_CAP_PROP_FPS);
+        */
         if(verbose)
             emit nextVerboseString("FPS is set to:" + QString::number(fps));
         if(fps <= 10)
             fps = -1;
 
         /* Read frames to clear FFMPEG-buffer */
-        cv::Mat frame;
+        //cv::Mat frame;
         for(int i = 0; i <= 1500; i++)
-            capture->read(frame);
+            //capture->read(frame);
         /* Set timeout interval. The default is 1 second */
         timer->stop();
         timer->setInterval((fps == -1) ? 1000 : std::round(1000.0f / fps) - 10);

@@ -4,6 +4,7 @@
 
 INCLUDEPATH += "../logic"
 
+
 CONFIG += link_pkgconfig
 
 PKGCONFIG += opencv
@@ -12,4 +13,4 @@ HEADERS += \
     ObjectDetector.h
 
 SOURCES += \ 
-    ObjectDetector.cpp
+    ObjectDetector.cpp 

@@ -4,14 +4,16 @@
 #include <QObject>
 #include <QThread>
 #include <QPixmap>
-#include <C:\Users\Soulseller\opencv\build\include\opencv2/objdetect/objdetect.hpp>
-#include <C:\Users\Soulseller\opencv\build\include\opencv2/imgproc/imgproc.hpp>
+//#include <opencv2/objdetect/objdetect.hpp>
+//#include <opencv2/imgproc/imgproc.hpp>
+
+
 #include <math.h>
 #include <ConfigFile.h>
 #include <VideoService.h>
 #include <string>
 
-using namespace cv;
+//using namespace cv;
 
 namespace ObjectDetection
 {
@@ -70,7 +72,7 @@ namespace ObjectDetection
             Drone::ConfigFile *config;
             Drone::VideoService *service;
             QThread* thread;
-            cv::Mat frame;
+            //cv::Mat frame;
             int lastSeenIn;
     };
 }

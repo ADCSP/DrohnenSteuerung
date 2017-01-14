@@ -20,29 +20,30 @@
  * \param detector
  * \param parent
  */
-VideoSettingsWindow::VideoSettingsWindow(ObjectDetection::ObjectDetector *detector, QWidget *parent) :
+//VideoSettingsWindow::VideoSettingsWindow(ObjectDetection::ObjectDetector *detector, QWidget *parent) :
+VideoSettingsWindow::VideoSettingsWindow( QWidget *parent) :
     QWidget(parent),
     ui(new Ui::VideoSettingsWindow)
 {
     ui->setupUi(this);
 
     confirmed       = false;
-    configFile      = &Drone::ConfigFile::getInstance();
-    this->detector  = detector;
+    //configFile      = &Drone::ConfigFile::getInstance();
+    //this->detector  = detector;
 
-    connect(ui->sliderMinR,     SIGNAL(valueChanged(int)), detector, SLOT(setMinR(int)));
-    connect(ui->sliderMinG,     SIGNAL(valueChanged(int)), detector, SLOT(setMinG(int)));
-    connect(ui->sliderMinB,     SIGNAL(valueChanged(int)), detector, SLOT(setMinB(int)));
-    connect(ui->sliderMaxR,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxR(int)));
-    connect(ui->sliderMaxG,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxG(int)));
-    connect(ui->sliderMaxB,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxB(int)));
-    connect(ui->sliderRadius,   SIGNAL(valueChanged(int)), detector, SLOT(setRadius(int)));
+//    connect(ui->sliderMinR,     SIGNAL(valueChanged(int)), detector, SLOT(setMinR(int)));
+//    connect(ui->sliderMinG,     SIGNAL(valueChanged(int)), detector, SLOT(setMinG(int)));
+//    connect(ui->sliderMinB,     SIGNAL(valueChanged(int)), detector, SLOT(setMinB(int)));
+//    connect(ui->sliderMaxR,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxR(int)));
+//    connect(ui->sliderMaxG,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxG(int)));
+//    connect(ui->sliderMaxB,     SIGNAL(valueChanged(int)), detector, SLOT(setMaxB(int)));
+//    connect(ui->sliderRadius,   SIGNAL(valueChanged(int)), detector, SLOT(setRadius(int)));
 
     connect(ui->buttonReset,    SIGNAL(clicked()),         this,     SLOT(reset()));
     connect(ui->buttonCancel,   SIGNAL(clicked()),         this,     SLOT(cancel()));
     connect(ui->buttonOK,       SIGNAL(clicked()),         this,     SLOT(confirm()));
 
-    loadFromConfig();
+    //loadFromConfig();
 }
 
 /*!
@@ -67,16 +68,18 @@ void VideoSettingsWindow::show()
  * \param event this parameter is ignored, but requiered by the super class
  * If the confirmed variable is set to true the current state of the config file will be written.
  */
+/*
 void VideoSettingsWindow::closeEvent(QCloseEvent *event)
 {
     if(confirmed)
         configFile->writeToFile();
     emit closed();
 }
-
+*/
 /*!
  * \brief VideoSettingsWindow::loadFromConfig sets the slider values to the values in the config file.
  */
+/*
 void VideoSettingsWindow::loadFromConfig()
 {
     ui->sliderMinR->setValue(configFile->getMinR());
@@ -89,16 +92,17 @@ void VideoSettingsWindow::loadFromConfig()
 
     ui->sliderRadius->setValue(configFile->getRadius());
 }
-
+*/
 /*!
  * \brief VideoSettingsWindow::reset resets the config file to default and calls loadFromConfig()
  */
+/*
 void VideoSettingsWindow::reset()
 {
     configFile->resetToDefault();
     loadFromConfig();
 }
-
+*/
 /*!
  * \brief VideoSettingsWindow::cancel closes the window.
  */

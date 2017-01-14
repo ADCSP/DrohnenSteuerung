@@ -22,17 +22,18 @@
  * \param *objectDetector
  * \param *parent
  */
-MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent) :
+//MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent) :
+MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    this->objectDetector    = objectDetector;
+    //this->objectDetector    = objectDetector;
     this->cvDrone           = cvDrone;
     this->commandService    = cvDrone->getCommandService();
     this->navdataService    = cvDrone->getNavdataService();
-    this->videoService      = cvDrone->getVideoService();
+    //this->videoService      = cvDrone->getVideoService();
 
     ui->videoContainer->setScaledContents(true);
 
@@ -44,7 +45,7 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
 
     connect(ui->actionReconnect,        SIGNAL(triggered()),                commandService, SLOT(reconnect()));
     connect(ui->actionNavdata_Service,  SIGNAL(triggered()),                navdataService, SLOT(reconnect()));
-    connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
+   // connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
 
     connect(ui->buttonStart,            SIGNAL(clicked(bool)),              this,           SLOT(toggleTakeOffLand(bool)));
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
@@ -63,13 +64,13 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     connect(objectDetector,             SIGNAL(moveDownLeft()),             cvDrone,        SLOT(moveLowerLeft()));
     connect(objectDetector,             SIGNAL(inCenter()),                 cvDrone,        SLOT(hover()));
     */
-    connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
-    connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
+    //connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
+   // connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
 
-    connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
+    //connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
 
-    ui->actionOpenCV->setVisible(false);
-    ui->actionVideo_Options->setVisible(false);
+    //ui->actionOpenCV->setVisible(false);
+    //ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
     ui->frSprache->setVisible(false);
@@ -113,11 +114,12 @@ void MainWindow::toggleControlWindow(bool toggle)
 /*!
  * \brief MainWindow::toggleVideoSettings either opens or closes the VideoSettingsWindow
  */
+/*
 void MainWindow::toggleVideoSettings(bool toggle)
 {
     if(toggle)
     {
-        videoSettings = new VideoSettingsWindow(objectDetector);
+        videoSettings = new VideoSettingsWindow();
         connect(videoSettings,  SIGNAL(closed()),   this,           SLOT(videoSettingsWindowClosed()));
         connect(this,           SIGNAL(closed()),   videoSettings,  SLOT(close()));
         videoSettings->show();
@@ -125,7 +127,7 @@ void MainWindow::toggleVideoSettings(bool toggle)
     else
         videoSettings->close();
 }
-
+*/
 /*!
  * \brief MainWindow::toggleCommandDebug either opens or closes the CommandDebugWindow
  */
@@ -161,11 +163,14 @@ void MainWindow::toggleNavdataDebug(bool toggle)
 /*!
  * \brief MainWindow::toggleOpenCVDebug either opens or closes the OpenCVDebugWindow
  */
+
+/*
 void MainWindow::toggleOpenCVDebug(bool toggle)
 {
     if(toggle)
     {
-        openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
+        //openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
+        //openCVDebug = new OpenCVDebugWindow(videoService);
         connect(openCVDebug,    SIGNAL(closed()),   this,           SLOT(openCVDebugWindowClosed()));
         connect(this,           SIGNAL(closed()),   openCVDebug,    SLOT(close()));
         openCVDebug->show();
@@ -173,7 +178,7 @@ void MainWindow::toggleOpenCVDebug(bool toggle)
     else
         openCVDebug->close();
 }
-
+*/
 /*!
  * \brief MainWindow::toggleTakeOffLand either starts or lands the Drone
  */
@@ -234,24 +239,26 @@ void MainWindow::navdataDebugWindowClosed()
  * \brief MainWindow::openCVDebugWindowClosed is processed when ethe OpenCVDebugWindow is closed.
  * The corresponding checkBox will be unchecked.
  */
+/*
 void MainWindow::openCVDebugWindowClosed()
 {
     ui->actionOpenCV->setChecked(false);
     openCVDebug->disconnect();
     delete openCVDebug;
 }
-
+*/
 /*!
  * \brief MainWindow::videoSettingsWindowClosed is processed when ethe VideoSettingsWindow is closed.
  * The corresponding checkBox will be unchecked.
  */
+/*
 void MainWindow::videoSettingsWindowClosed()
 {
     ui->actionVideo_Options->setChecked(false);
     videoSettings->disconnect();
     delete videoSettings;
 }
-
+*/
 /*!
  * \brief MainWindow::showFrame shows the pixmap on the videoLabel.
  * \param pixmap the pixmap to show.

@@ -212,14 +212,13 @@ color: rgb(211, 215, 207);</string>
      <x>0</x>
      <y>0</y>
      <width>1200</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">
     <property name="title">
      <string>&amp;Window</string>
     </property>
-    <addaction name="actionVideo_Options"/>
     <addaction name="actionControl_Window"/>
     <addaction name="actionQuit"/>
    </widget>
@@ -229,7 +228,6 @@ color: rgb(211, 215, 207);</string>
     </property>
     <addaction name="actionReconnect"/>
     <addaction name="separator"/>
-    <addaction name="actionVideo_Service"/>
     <addaction name="actionNavdata_Service"/>
    </widget>
    <widget class="QMenu" name="menuDebug">
@@ -237,7 +235,6 @@ color: rgb(211, 215, 207);</string>
      <string>&amp;Debug</string>
     </property>
     <addaction name="actionCommands"/>
-    <addaction name="actionOpenCV"/>
     <addaction name="actionNavdata"/>
    </widget>
    <widget class="QMenu" name="menuModus">
@@ -261,22 +258,9 @@ color: rgb(211, 215, 207);</string>
     <bool>false</bool>
    </property>
   </widget>
-  <action name="actionVideo_Options">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;Video Settings</string>
-   </property>
-  </action>
   <action name="actionReconnect">
    <property name="text">
     <string>&amp;All Services</string>
-   </property>
-  </action>
-  <action name="actionVideo_Service">
-   <property name="text">
-    <string>&amp;Video-Service</string>
    </property>
   </action>
   <action name="actionNavdata_Service">
@@ -293,14 +277,6 @@ color: rgb(211, 215, 207);</string>
    </property>
    <property name="autoRepeat">
     <bool>true</bool>
-   </property>
-  </action>
-  <action name="actionOpenCV">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>&amp;OpenCV</string>
    </property>
   </action>
   <action name="actionNavdata">

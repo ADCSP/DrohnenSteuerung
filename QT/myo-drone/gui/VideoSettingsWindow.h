@@ -2,7 +2,7 @@
 #define VIDEOSETTINGSWINDOW_H
 
 #include <QMainWindow>
-#include <ObjectDetector.h>
+//#include <ObjectDetector.h>
 
 namespace Ui {
 class VideoSettingsWindow;
@@ -13,7 +13,8 @@ class VideoSettingsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit VideoSettingsWindow(ObjectDetection::ObjectDetector *detector, QWidget *parent = 0);
+    //explicit VideoSettingsWindow(ObjectDetection::ObjectDetector *detector, QWidget *parent = 0);
+        explicit VideoSettingsWindow(QWidget *parent = 0);
     ~VideoSettingsWindow();
     void show();
 
@@ -22,8 +23,8 @@ protected:
 
 private:
     Ui::VideoSettingsWindow *ui;
-    ObjectDetection::ObjectDetector *detector;
-    Drone::ConfigFile *configFile;
+    //ObjectDetection::ObjectDetector *detector;
+    //Drone::ConfigFile *configFile;
     void loadFromConfig();
     bool confirmed;
 
