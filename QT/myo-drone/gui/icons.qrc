@@ -1,1 +1,18 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/small">
+        <file alias="fist">Icons/fist50.png</file>
+        <file alias="spread">Icons/spread50.png</file>
+        <file alias="connection_on">Icons/thalmic_logo_colo50.png</file>
+        <file alias="connection_off">Icons/thalmic_logo_grey50.png</file>
+        <file alias="unlock">Icons/unlock50.png</file>
+        <file alias="wave_left">Icons/wave_left50.png</file>
+        <file alias="wave_right">Icons/wave_right50.png</file>
+    </qresource>
+    <qresource prefix="/big">
+        <file alias="myo">Icons/myo.png</file>
+        <file alias="spread">Icons/spread.png</file>
+        <file alias="unlock">Icons/unlock.png</file>
+        <file alias="wave_left">Icons/wave_left.png</file>
+        <file alias="wave_right">Icons/wave_right.png</file>
+    </qresource>
+</RCC>

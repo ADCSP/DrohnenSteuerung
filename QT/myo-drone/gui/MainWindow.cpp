@@ -34,15 +34,41 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     this->navdataService    = cvDrone->getNavdataService();
     this->videoService      = cvDrone->getVideoService();
 
+    this->fist_small        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist50.png");
+    this->unlock_small      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/unlock50.png");
+    this->wave_left_small   = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_left50.png");
+    this->wave_right_small  = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_right50.png");
+    this->spread_small      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread50.png");
+    this->connect_myo_on    = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_colo50.png");
+    this->connect_myo_off   = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey50.png");
+    this->myo_detail        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo.png");
+
+    //this->fist_small        = QPixmap(":/small/fist50.png");
+    //this->unlock_small      = QPixmap(":/small/unlock");
+    //this->wave_left_small   = QPixmap(":/small/wave_left");
+    //this->wave_right_small  = QPixmap(":/small/wave_right");
+    //this->spread_small      = QPixmap(":/small/spread");
+    //this->connect_myo_on    = QPixmap(":/small/connection_on");
+    //this->connect_myo_off   = QPixmap(":/small/connection_off");
+    //this->myo_detail        = QPixmap(":/big/myo");
+
+    this->setWindowIcon(connect_myo_on);
+
+    ui->lbFist      ->setPixmap(fist_small);
+    ui->lbUnlock    ->setPixmap(unlock_small);
+    ui->lbLeft      ->setPixmap(wave_left_small);
+    ui->lbRight     ->setPixmap(wave_right_small);
+    ui->lbSpread    ->setPixmap(spread_small);
+    ui->lbThalmic   ->setPixmap(connect_myo_off);
+    ui->lbMyo       ->setPixmap(myo_detail);
+
     setFocusPolicy(Qt::StrongFocus);
 
     ui->videoContainer->setScaledContents(true);
 
     connect(ui->actionControl_Window,   SIGNAL(toggled(bool)),              this,           SLOT(toggleControlWindow(bool)));
-    //connect(ui->actionVideo_Options,    SIGNAL(toggled(bool)),              this,           SLOT(toggleVideoSettings(bool)));
     connect(ui->actionCommands,         SIGNAL(toggled(bool)),              this,           SLOT(toggleCommandDebug(bool)));
     connect(ui->actionNavdata,          SIGNAL(toggled(bool)),              this,           SLOT(toggleNavdataDebug(bool)));
-    //connect(ui->actionOpenCV,           SIGNAL(toggled(bool)),              this,           SLOT(toggleOpenCVDebug(bool)));
 
     connect(ui->actionReconnect,        SIGNAL(triggered()),                commandService, SLOT(reconnect()));
     connect(ui->actionNavdata_Service,  SIGNAL(triggered()),                navdataService, SLOT(reconnect()));
@@ -70,25 +96,12 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
 
     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
-    /*
-    connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              objectDetector, SLOT(setActivated(bool)));
-    connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              this,           SLOT(detectToggled(bool)));
-    */
-    /*
-    connect(objectDetector,             SIGNAL(moveLeft()),                 cvDrone,        SLOT(moveLeft()));
-    connect(objectDetector,             SIGNAL(moveRight()),                cvDrone,        SLOT(moveRight()));
-    connect(objectDetector,             SIGNAL(moveUp()),                   cvDrone,        SLOT(moveUp()));
-    connect(objectDetector,             SIGNAL(moveDown()),                 cvDrone,        SLOT(moveDown()));
-    connect(objectDetector,             SIGNAL(moveUpRight()),              cvDrone,        SLOT(moveUpperRight()));
-    connect(objectDetector,             SIGNAL(moveUpLeft()),               cvDrone,        SLOT(moveUpperLeft()));
-    connect(objectDetector,             SIGNAL(moveDownRight()),            cvDrone,        SLOT(moveLowerRight()));
-    connect(objectDetector,             SIGNAL(moveDownLeft()),             cvDrone,        SLOT(moveLowerLeft()));
-    connect(objectDetector,             SIGNAL(inCenter()),                 cvDrone,        SLOT(hover()));
-    */
+
     connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
     connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
 
     connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
+
 
     ui->actionOpenCV->setVisible(false);
     ui->actionVideo_Options->setVisible(false);
