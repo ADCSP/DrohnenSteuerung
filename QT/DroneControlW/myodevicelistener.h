@@ -10,15 +10,14 @@ public:
 
 
     MyoDeviceListener();
-    void onArmSync();
-    void onArmUnsync();
-    void onBatteryLevelReceived();
-    void onPair();
-    void onUnpair();
-
-    void onLock();
-    void onUnlock();
-    void onPose();
+   virtual void onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState) override;
+   virtual void onArmUnsync(myo::Myo *myo, uint64_t timestamp) override;
+   virtual void onBatteryLevelReceived(myo::Myo *myo, uint64_t timestamp, uint8_t level) override;
+   virtual void onPair(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion) override;
+   virtual void onUnpair(myo::Myo *myo, uint64_t timestamp)override;
+   virtual void onLock(myo::Myo *myo, uint64_t timestamp) override;
+   virtual void onUnlock(myo::Myo *myo, uint64_t timestamp) override;
+   virtual void onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)override;
 
 
 };
