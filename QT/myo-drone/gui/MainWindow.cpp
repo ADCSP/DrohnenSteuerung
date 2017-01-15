@@ -34,33 +34,40 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector 
     this->navdataService    = cvDrone->getNavdataService();
     this->videoService      = cvDrone->getVideoService();
 
-    this->fist_small        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist50.png");
-    this->unlock_small      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/unlock50.png");
-    this->wave_left_small   = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_left50.png");
-    this->wave_right_small  = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_right50.png");
-    this->spread_small      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread50.png");
-    this->connect_myo_on    = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_colo50.png");
-    this->connect_myo_off   = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey50.png");
-    this->myo_detail        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo.png");
+    this->fist_R            = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist_R.png");
+    this->unlock_R          = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/double_tap_R.png");
+    this->wave_in_R         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_in_R.png");
+    this->wave_out_R        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_out_R.png");
+    this->spread_R          = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread_R.png");
 
-    //this->fist_small        = QPixmap(":/small/fist50.png");
-    //this->unlock_small      = QPixmap(":/small/unlock");
-    //this->wave_left_small   = QPixmap(":/small/wave_left");
-    //this->wave_right_small  = QPixmap(":/small/wave_right");
-    //this->spread_small      = QPixmap(":/small/spread");
-    //this->connect_myo_on    = QPixmap(":/small/connection_on");
-    //this->connect_myo_off   = QPixmap(":/small/connection_off");
-    //this->myo_detail        = QPixmap(":/big/myo");
+    this->fist_Rs           = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist_Rs.png");
+    this->unlock_Rs         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/double_tap_Rs.png");
+    this->wave_in_Rs        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_in_Rs.png");
+    this->wave_out_Rs       = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_out_Rs.png");
+    this->spread_Rs         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread_Rs.png");
+
+    this->fist_L            = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist_L.png");
+    this->unlock_L          = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/double_tap_L.png");
+    this->wave_in_L         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_in_L.png");
+    this->wave_out_L        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_out_L.png");
+    this->spread_L          = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread_L.png");
+
+    this->fist_Ls           = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/fist_Ls.png");
+    this->unlock_Ls         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/double_tap_Ls.png");
+    this->wave_in_Ls        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_in_Ls.png");
+    this->wave_out_Ls       = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_out_Ls.png");
+    this->spread_Ls         = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread_Ls.png");
+
+    this->connect_myo_on    = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
+    this->connect_myo_off   = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
+    this->myo_detail        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo.png");
 
     this->setWindowIcon(connect_myo_on);
 
-    ui->lbFist      ->setPixmap(fist_small);
-    ui->lbUnlock    ->setPixmap(unlock_small);
-    ui->lbLeft      ->setPixmap(wave_left_small);
-    ui->lbRight     ->setPixmap(wave_right_small);
-    ui->lbSpread    ->setPixmap(spread_small);
     ui->lbThalmic   ->setPixmap(connect_myo_off);
     ui->lbMyo       ->setPixmap(myo_detail);
+    //set RightArmIcons
+    changeArm(true);
 
     setFocusPolicy(Qt::StrongFocus);
 
@@ -389,4 +396,28 @@ void MainWindow::keyReleaseEvent(QKeyEvent *event)
         return;
     }
     QWidget::keyReleaseEvent(event);
+}
+
+/*!
+ * \brief MainWindow::changeHand changes all icons acording to the parameter.
+ * \param isRightHand
+ */
+void MainWindow::changeArm(bool isRightArm)
+{
+    if(isRightArm)
+    {
+        ui->lbFist      ->setPixmap(fist_Rs);
+        ui->lbUnlock    ->setPixmap(unlock_Rs);
+        ui->lbWIn       ->setPixmap(wave_in_Rs);
+        ui->lbWOut      ->setPixmap(wave_out_Rs);
+        ui->lbSpread    ->setPixmap(spread_Rs);
+    }
+    else
+    {
+        ui->lbFist      ->setPixmap(fist_Ls);
+        ui->lbUnlock    ->setPixmap(unlock_Ls);
+        ui->lbWIn       ->setPixmap(wave_in_Ls);
+        ui->lbWOut      ->setPixmap(wave_out_Ls);
+        ui->lbSpread    ->setPixmap(spread_Ls);
+    }
 }

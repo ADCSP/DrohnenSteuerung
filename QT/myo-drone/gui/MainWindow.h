@@ -44,14 +44,31 @@ private:
     Drone::NavdataService *navdataService;
     Drone::VideoService *videoService;
     cv::Mat img;
-    QPixmap fist_small;
-    QPixmap unlock_small;
-    QPixmap wave_left_small;
-    QPixmap wave_right_small;
-    QPixmap spread_small;
+
+    QPixmap fist_R;
+    QPixmap fist_Rs;
+    QPixmap fist_L;
+    QPixmap fist_Ls;
+    QPixmap unlock_R;
+    QPixmap unlock_Rs;
+    QPixmap unlock_L;
+    QPixmap unlock_Ls;
+    QPixmap wave_in_R;
+    QPixmap wave_in_Rs;
+    QPixmap wave_in_L;
+    QPixmap wave_in_Ls;
+    QPixmap wave_out_R;
+    QPixmap wave_out_Rs;
+    QPixmap wave_out_L;
+    QPixmap wave_out_Ls;
+    QPixmap spread_R;
+    QPixmap spread_Rs;
+    QPixmap spread_L;
+    QPixmap spread_Ls;
     QPixmap connect_myo_on;
     QPixmap connect_myo_off;
     QPixmap myo_detail;
+    void changeArm(bool);
 
 signals:
     void closed();

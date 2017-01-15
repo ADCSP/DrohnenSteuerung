@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1200</width>
-    <height>678</height>
+    <height>702</height>
    </rect>
   </property>
   <property name="palette">
@@ -459,7 +459,7 @@
                 <string>Armband</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                </property>
               </widget>
              </item>
@@ -522,7 +522,7 @@
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="lbRight">
+                    <widget class="QLabel" name="lbWOut">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -545,12 +545,12 @@
                       <string>Wave Right</string>
                      </property>
                      <property name="text">
-                      <string>W Right</string>
+                      <string>W Out</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QLabel" name="lbLeft">
+                    <widget class="QLabel" name="lbWIn">
                      <property name="sizePolicy">
                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                        <horstretch>0</horstretch>
@@ -570,13 +570,10 @@
                       </size>
                      </property>
                      <property name="toolTip">
-                      <string>Wave Left</string>
+                      <string>Wave In</string>
                      </property>
                      <property name="text">
-                      <string/>
-                     </property>
-                     <property name="pixmap">
-                      <pixmap>:/myo/wave_left_small</pixmap>
+                      <string>W In</string>
                      </property>
                     </widget>
                    </item>
@@ -790,7 +787,7 @@
                 <string>Joystick</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                </property>
               </widget>
              </item>
@@ -969,7 +966,7 @@
                 <string>Sprache</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignHCenter|Qt::AlignTop</set>
+                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                </property>
               </widget>
              </item>
