@@ -1,6 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "bluetooth.h"
+#include "myodevicelistener.h"
+#include "myo/myo.hpp"
+
+//später Qdebug löschen
+#include <QDebug>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,9 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->fJoystick->setVisible(false);
 
 
-    Bluetooth *bt = new Bluetooth();
-
-    connect(ui->pushButton,SIGNAL(clicked()),bt, SLOT(connectBT()));
 
 }
 
@@ -62,4 +64,51 @@ void MainWindow::on_actionJoystick_triggered()
     ui->frArmband->setVisible(false);
     ui->fSprache->setVisible(false);
     ui->fJoystick->setVisible(true);
+}
+
+
+
+void MainWindow::startMyo()
+{
+
+    try
+
+    {
+        //Application Identifier muss ein reverse String sein
+        myo::Hub hub("com.adcsp.myo");
+
+        qDebug()<<"Verbundenes Myo wird gesucht...";
+
+        myo::Myo* myo =hub.waitForMyo(10000);
+
+        if(!myo)
+        {
+            qDebug()<<"Myo nicht gefunden.";
+        }
+
+            qDebug()<<"Myo wurde gefunden.";
+
+            MyoDeviceListener myoDL;
+
+            hub.addListener(&myoDL);
+
+            while (1)
+            {
+            hub.run(1000/20);
+
+            }
+    }
+
+
+catch(std::exception& e )
+    {
+        qDebug()<<"error: "<<e.what();
+    }
+
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    startMyo();
 }

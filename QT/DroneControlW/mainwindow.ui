@@ -364,10 +364,10 @@ color:#333;
        <string notr="true">color:#00ee00;</string>
       </property>
       <property name="text">
-       <string>Connected</string>
+       <string/>
       </property>
       <property name="pixmap">
-       <pixmap>C:/Users/dominik/Downloads/bluetooth.ico</pixmap>
+       <pixmap>../../../../../dominik/Downloads/bluetooth.ico</pixmap>
       </property>
       <property name="scaledContents">
        <bool>true</bool>
@@ -525,13 +525,6 @@ background-color: rgb(255, 255, 60);</string>
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Joystick&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
-     <zorder>lbJoystick</zorder>
-     <zorder>frArmband</zorder>
-     <zorder>frArmband</zorder>
-     <zorder>frArmband</zorder>
-     <zorder>frArmband</zorder>
-     <zorder>frArmband</zorder>
-     <zorder>frArmband</zorder>
     </widget>
     <zorder>fSprache</zorder>
     <zorder>fJoystick</zorder>
@@ -544,7 +537,7 @@ background-color: rgb(255, 255, 60);</string>
      <x>0</x>
      <y>0</y>
      <width>900</width>
-     <height>24</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

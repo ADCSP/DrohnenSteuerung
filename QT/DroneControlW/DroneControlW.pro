@@ -15,13 +15,36 @@ QMAKE_CFLAGS_WARN_OFF -= -Wunused-parameter
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    bluetooth.cpp
+    myodevicelistener.cpp
 
 FORMS    += mainwindow.ui
 
 HEADERS += \
     mainwindow.h \
-    bluetooth.h
+    myodevicelistener.h \
+    MyoLibrary/include/myo/cxx/detail/ThrowOnError.hpp \
+    MyoLibrary/include/myo/cxx/impl/Hub_impl.hpp \
+    MyoLibrary/include/myo/cxx/impl/Myo_impl.hpp \
+    MyoLibrary/include/myo/cxx/impl/Pose_impl.hpp \
+    MyoLibrary/include/myo/cxx/DeviceListener.hpp \
+    MyoLibrary/include/myo/cxx/Hub.hpp \
+    MyoLibrary/include/myo/cxx/Myo.hpp \
+    MyoLibrary/include/myo/cxx/Pose.hpp \
+    MyoLibrary/include/myo/cxx/Quaternion.hpp \
+    MyoLibrary/include/myo/cxx/Vector3.hpp \
+    MyoLibrary/include/myo/libmyo/detail/visibility.h \
+    MyoLibrary/include/myo/libmyo.h \
+    MyoLibrary/include/myo/myo.hpp
 
 RESOURCES += \
     resource.qrc
+
+
+INCLUDEPATH += "MyoLibrary/include/"
+DEPENDPATH += "MyoLibrary/bin/myo32.dll"
+
+win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/MyoLibrary/lib/ -lmyo32
+else:unix: LIBS += -L$$PWD/MyoLibrary/lib/ -lmyo32
+
+INCLUDEPATH += $$PWD/MyoLibrary/include
+DEPENDPATH += $$PWD/MyoLibrary/include
