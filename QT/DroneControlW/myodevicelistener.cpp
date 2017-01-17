@@ -11,6 +11,7 @@ MyoDeviceListener::MyoDeviceListener()
 
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
 {
+
 qDebug()<<"synced";
 }
 
@@ -45,7 +46,34 @@ qDebug()<<"unlocked";
 
 void MyoDeviceListener::onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)
 {
-qDebug()<<"Pose";
+
+        switch(pose.type())
+        {
+        case 1: qDebug()<<"Fist";
+            myo->notifyUserAction();
+            break;
+        case 2: qDebug()<<"Wave in";
+            myo->notifyUserAction();
+            break;
+        case 3: qDebug()<<"Wave out";
+            myo->notifyUserAction();
+            break;
+        case 4: qDebug()<<"Spread Fingers";
+            myo->notifyUserAction();
+            break;
+        }
+        myo->unlock(myo->unlockHold);
+
+        if (pose.type()==5)
+        {
+            qDebug()<<"double tapped";
+            qDebug()<<"Lock.";
+         myo->lock();
+        }
+
+
+
+
 }
 
 
