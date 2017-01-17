@@ -1,0 +1,15 @@
+{
+    "commandPort": 5556,
+    "ip": "192.168.1.1",
+    "maxB": 41,
+    "maxG": 41,
+    "maxR": 255,
+    "minB": 20,
+    "minG": 20,
+    "minR": 100,
+    "navdataPort": 5554,
+    "radius": 50,
+    "speed": 7.999999821186066,
+    "speedAltitude": 40.00000059604645,
+    "videoPort": 5555
+}

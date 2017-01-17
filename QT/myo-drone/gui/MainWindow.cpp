@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
+
 /*
  * CV-Drone
  * Copyright (C) 2015 www.burntbunch.org
@@ -35,46 +36,90 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->navdataService    = cvDrone->getNavdataService();
     //this->videoService      = cvDrone->getVideoService();
 
+    this->fist_R            = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_R.png");
+    this->unlock_R          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_R.png");
+    this->wave_in_R         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_R.png");
+    this->wave_out_R        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_R.png");
+    this->spread_R          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_R.png");
+
+    this->fist_Rs           = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_Rs.png");
+    this->unlock_Rs         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_Rs.png");
+    this->wave_in_Rs        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_Rs.png");
+    this->wave_out_Rs       = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_Rs.png");
+    this->spread_Rs         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_Rs.png");
+
+    this->fist_L            = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_L.png");
+    this->unlock_L          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_L.png");
+    this->wave_in_L         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_L.png");
+    this->wave_out_L        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_L.png");
+    this->spread_L          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_L.png");
+
+    this->fist_Ls           = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_Ls.png");
+    this->unlock_Ls         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_Ls.png");
+    this->wave_in_Ls        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_Ls.png");
+    this->wave_out_Ls       = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_Ls.png");
+    this->spread_Ls         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_Ls.png");
+
+    this->connect_myo_on    = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
+    this->connect_myo_off   = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
+    this->myo_detail        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/myo.png");
+
+    this->setWindowIcon(connect_myo_on);
+
+    ui->lbThalmic   ->setPixmap(connect_myo_off);
+    ui->lbMyo       ->setPixmap(myo_detail);
+    //set RightArmIcons
+    changeArm(true);
+
+    setFocusPolicy(Qt::StrongFocus);
+
     ui->videoContainer->setScaledContents(true);
 
     connect(ui->actionControl_Window,   SIGNAL(toggled(bool)),              this,           SLOT(toggleControlWindow(bool)));
-    //connect(ui->actionVideo_Options,    SIGNAL(toggled(bool)),              this,           SLOT(toggleVideoSettings(bool)));
     connect(ui->actionCommands,         SIGNAL(toggled(bool)),              this,           SLOT(toggleCommandDebug(bool)));
     connect(ui->actionNavdata,          SIGNAL(toggled(bool)),              this,           SLOT(toggleNavdataDebug(bool)));
-    //connect(ui->actionOpenCV,           SIGNAL(toggled(bool)),              this,           SLOT(toggleOpenCVDebug(bool)));
 
     connect(ui->actionReconnect,        SIGNAL(triggered()),                commandService, SLOT(reconnect()));
     connect(ui->actionNavdata_Service,  SIGNAL(triggered()),                navdataService, SLOT(reconnect()));
-   // connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
+    //connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
 
     connect(ui->buttonStart,            SIGNAL(clicked(bool)),              this,           SLOT(toggleTakeOffLand(bool)));
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
-    /*
-    connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              objectDetector, SLOT(setActivated(bool)));
-    connect(ui->buttonDetect,           SIGNAL(toggled(bool)),              this,           SLOT(detectToggled(bool)));
-    */
-    /*
-    connect(objectDetector,             SIGNAL(moveLeft()),                 cvDrone,        SLOT(moveLeft()));
-    connect(objectDetector,             SIGNAL(moveRight()),                cvDrone,        SLOT(moveRight()));
-    connect(objectDetector,             SIGNAL(moveUp()),                   cvDrone,        SLOT(moveUp()));
-    connect(objectDetector,             SIGNAL(moveDown()),                 cvDrone,        SLOT(moveDown()));
-    connect(objectDetector,             SIGNAL(moveUpRight()),              cvDrone,        SLOT(moveUpperRight()));
-    connect(objectDetector,             SIGNAL(moveUpLeft()),               cvDrone,        SLOT(moveUpperLeft()));
-    connect(objectDetector,             SIGNAL(moveDownRight()),            cvDrone,        SLOT(moveLowerRight()));
-    connect(objectDetector,             SIGNAL(moveDownLeft()),             cvDrone,        SLOT(moveLowerLeft()));
-    connect(objectDetector,             SIGNAL(inCenter()),                 cvDrone,        SLOT(hover()));
-    */
+
+    connect(ui->bttnForward,            SIGNAL(pressed()),                  cvDrone,        SLOT(moveForward()));
+    connect(ui->bttnBackward,           SIGNAL(pressed()),                  cvDrone,        SLOT(moveBackward()));
+    connect(ui->bttnLeft,               SIGNAL(pressed()),                  cvDrone,        SLOT(moveLeft()));
+    connect(ui->bttnRight,              SIGNAL(pressed()),                  cvDrone,        SLOT(moveRight()));
+    connect(ui->bttnUp,                 SIGNAL(pressed()),                  cvDrone,        SLOT(moveUp()));
+    connect(ui->bttnDown,               SIGNAL(pressed()),                  cvDrone,        SLOT(moveDown()));
+    connect(ui->bttnTurnLeft,           SIGNAL(pressed()),                  cvDrone,        SLOT(turnLeft()));
+    connect(ui->bttnTurnRight,          SIGNAL(pressed()),                  cvDrone,        SLOT(turnRight()));
+
+    connect(ui->bttnForward,            SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnBackward,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnLeft,               SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnRight,              SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnUp,                 SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnDown,               SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnTurnLeft,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+    connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
+
+    connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
+
     //connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
    // connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
 
     //connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
 
+
     //ui->actionOpenCV->setVisible(false);
-    //ui->actionVideo_Options->setVisible(false);
+   // ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
+    ui->actionControl_Window->setVisible(false);
     ui->frSprache->setVisible(false);
     ui->frJoystick->setVisible(false);
+    ui->buttonDetect->setVisible(false);
 }
 
 /*!
@@ -119,7 +164,7 @@ void MainWindow::toggleVideoSettings(bool toggle)
 {
     if(toggle)
     {
-        videoSettings = new VideoSettingsWindow();
+        videoSettings = new VideoSettingsWindow(objectDetector);
         connect(videoSettings,  SIGNAL(closed()),   this,           SLOT(videoSettingsWindowClosed()));
         connect(this,           SIGNAL(closed()),   videoSettings,  SLOT(close()));
         videoSettings->show();
@@ -163,14 +208,12 @@ void MainWindow::toggleNavdataDebug(bool toggle)
 /*!
  * \brief MainWindow::toggleOpenCVDebug either opens or closes the OpenCVDebugWindow
  */
-
 /*
 void MainWindow::toggleOpenCVDebug(bool toggle)
 {
     if(toggle)
     {
-        //openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
-        //openCVDebug = new OpenCVDebugWindow(videoService);
+        openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
         connect(openCVDebug,    SIGNAL(closed()),   this,           SLOT(openCVDebugWindowClosed()));
         connect(this,           SIGNAL(closed()),   openCVDebug,    SLOT(close()));
         openCVDebug->show();
@@ -268,6 +311,9 @@ void MainWindow::showFrame(QPixmap pixmap)
     ui->videoContainer->setPixmap(pixmap);
 }
 
+/*!
+ * \brief MainWindow::on_actionJoystick_triggered hides Armband and Sprache, and disables the menuentry
+ */
 void MainWindow::on_actionJoystick_triggered()
 {
     ui->actionArmband->setEnabled(true);
@@ -299,4 +345,85 @@ void MainWindow::on_actionSprache_triggered()
     ui->frArmband->setVisible(false);
     ui->frSprache->setVisible(true);
     ui->frJoystick->setVisible(false);
+}
+
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    if(!event->isAutoRepeat())
+    {
+        switch (event->key()) {
+        case Qt::Key_W:
+            ui->lbButtonOut->setText("Forward");
+            cvDrone->moveForward();
+            return;
+        case Qt::Key_A:
+            ui->lbButtonOut->setText("Left");
+            cvDrone->moveLeft();
+            return;
+        case Qt::Key_S:
+            ui->lbButtonOut->setText("Backward");
+            cvDrone->moveBackward();
+            return;
+        case Qt::Key_D:
+            ui->lbButtonOut->setText("Right");
+            cvDrone->moveRight();
+            return;
+        case Qt::Key_Up:
+            ui->lbButtonOut->setText("Up");
+            cvDrone->moveUp();
+            return;
+        case Qt::Key_Down:
+            ui->lbButtonOut->setText("Down");
+            cvDrone->moveDown();
+            return;
+        case Qt::Key_Left:
+            ui->lbButtonOut->setText("AX L");
+            cvDrone->turnLeft();
+            return;
+        case Qt::Key_Right:
+            ui->lbButtonOut->setText("AX R");
+            cvDrone->turnRight();
+            return;
+        case Qt::Key_Escape:
+            ui->lbButtonOut->setText("Emergency");
+            cvDrone->emergency();
+            return;
+        }
+        QWidget::keyPressEvent(event);
+    }
+}
+
+void MainWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    if( !event->isAutoRepeat() && (event->key() != Qt::Key_Escape) )
+    {
+        ui->lbButtonOut->setText("");
+        cvDrone->hover();
+        return;
+    }
+    QWidget::keyReleaseEvent(event);
+}
+
+/*!
+ * \brief MainWindow::changeHand changes all icons acording to the parameter.
+ * \param isRightHand
+ */
+void MainWindow::changeArm(bool isRightArm)
+{
+    if(isRightArm)
+    {
+        ui->lbFist      ->setPixmap(fist_Rs);
+        ui->lbUnlock    ->setPixmap(unlock_Rs);
+        ui->lbWIn       ->setPixmap(wave_in_Rs);
+        ui->lbWOut      ->setPixmap(wave_out_Rs);
+        ui->lbSpread    ->setPixmap(spread_Rs);
+    }
+    else
+    {
+        ui->lbFist      ->setPixmap(fist_Ls);
+        ui->lbUnlock    ->setPixmap(unlock_Ls);
+        ui->lbWIn       ->setPixmap(wave_in_Ls);
+        ui->lbWOut      ->setPixmap(wave_out_Ls);
+        ui->lbSpread    ->setPixmap(spread_Ls);
+    }
 }

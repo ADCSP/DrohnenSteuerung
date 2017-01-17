@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/small">
+        <file alias="unlock_L">Icons/double_tap_Ls.png</file>
+        <file alias="unlock_R">Icons/double_tap_Rs.png</file>
+        <file alias="fist_L">Icons/fist_Ls.png</file>
+        <file alias="fist_R">Icons/fist_Rs.png</file>
+        <file alias="spread_L">Icons/spread_Ls.png</file>
+        <file alias="spread_R">Icons/spread_Rs.png</file>
+        <file alias="wave_in_L">Icons/wave_in_Ls.png</file>
+        <file alias="wave_in_R">Icons/wave_in_Rs.png</file>
+        <file alias="wave_out_L">Icons/wave_out_Ls.png</file>
+        <file alias="wave_out_R">Icons/wave_out_Rs.png</file>
+        <file alias="connection_off">Icons/thalmic_logo_color.png</file>
+        <file alias="connection_on">Icons/thalmic_logo_grey.png</file>
+    </qresource>
+    <qresource prefix="/big">
+        <file alias="myo">Icons/myo.png</file>
+        <file alias="unlock_L">Icons/double_tap_L.png</file>
+        <file alias="unlock_R">Icons/double_tap_R.png</file>
+        <file alias="fist_L">Icons/fist_L.png</file>
+        <file alias="fist_R">Icons/fist_R.png</file>
+        <file alias="spread_L">Icons/spread_L.png</file>
+        <file alias="spread_R">Icons/spread_R.png</file>
+        <file alias="wave_in_L">Icons/wave_in_L.png</file>
+        <file alias="wave_in_R">Icons/wave_in_R.png</file>
+        <file alias="wave_out_L">Icons/wave_out_L.png</file>
+        <file alias="wave_out_R">Icons/wave_out_R.png</file>
+    </qresource>
+</RCC>
