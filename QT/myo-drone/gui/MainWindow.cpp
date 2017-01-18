@@ -63,8 +63,8 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->connect_myo_on    = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
     this->connect_myo_off   = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
     this->myo_detail        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/myo.png");
-    this->myo_locked        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_closed.png");
-    this->myo_unlocked      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png");
+    this->myo_locked        = QPixmap("C:/Users/Soulseller/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_closed.png");
+    this->myo_unlocked      = QPixmap("C:/Users/Soulseller/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png");
 
     this->setWindowIcon(connect_myo_on);
 
@@ -124,8 +124,10 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     ui->frJoystick->setVisible(false);
     ui->buttonDetect->setVisible(false);
 
-    if(ui->actionArmband->isEnabled())
-        startMyo();
+
+    ui->lbArmband->setText("Hallo");
+    startMyo();
+
 }
 
 /*!

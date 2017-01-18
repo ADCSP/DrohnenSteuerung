@@ -1,6 +1,6 @@
 #include "myodevicelistener.h"
 
-#include <QDebug>
+#include <qDebug>
 
 
 

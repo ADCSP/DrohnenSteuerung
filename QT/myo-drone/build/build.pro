@@ -20,6 +20,12 @@ win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../logic/debug/logic.lib
 
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../logic/MyoLibrary/lib/ -lmyo32
+
+INCLUDEPATH += $$PWD/../logic/MyoLibrary/include
+DEPENDPATH += $$PWD/../logic/MyoLibrary/include
+
+
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../gui/release/ -lgui
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../gui/debug/ -lgui
 
@@ -50,9 +56,9 @@ else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/
 
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../logic/MyoLibrary/lib/ -lmyo32
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
 
-INCLUDEPATH += $$PWD/../logic/MyoLibrary/include
-DEPENDPATH += $$PWD/../logic/MyoLibrary/include
+INCLUDEPATH += $$PWD/../gui/MyoLibrary/include
+DEPENDPATH += $$PWD/../gui/MyoLibrary/include
 
 TARGET = ../MyoDrone

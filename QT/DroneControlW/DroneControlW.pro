@@ -34,7 +34,6 @@ HEADERS += \
     MyoLibrary/include/myo/cxx/Vector3.hpp \
     MyoLibrary/include/myo/libmyo/detail/visibility.h \
     MyoLibrary/include/myo/libmyo.h \
-    MyoLibrary/include/myo/myo.hpp
 
 RESOURCES += \
     resource.qrc

@@ -91,8 +91,9 @@ public slots:
    // void openCVDebugWindowClosed();
     //void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
-private slots:
     void startMyo();
+private slots:
+
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
     void on_actionSprache_triggered();

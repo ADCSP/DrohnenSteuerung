@@ -6,28 +6,46 @@ QMAKE_CFLAGS_WARN_OFF -= -Wunused-parameter
 
 QT += gui widgets
 
+
 INCLUDEPATH += "../logic"
 INCLUDEPATH += "../logic/navdata"
 INCLUDEPATH += "../logic/command"
-INCLUDEPATH += "../logic/video"
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../logic/MyoLibrary/lib/ -lmyo32
 
-INCLUDEPATH += $$PWD/../logic/MyoLibrary/include
-DEPENDPATH += $$PWD/../logic/MyoLibrary/include
+
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
+
+INCLUDEPATH += $$PWD/../gui/MyoLibrary/include
+DEPENDPATH += $$PWD/../gui/MyoLibrary/include
 
 
 SOURCES +=\
-    CommandDebugWindow.cpp \
-    MainWindow.cpp \
-    NavdataDebugWindow.cpp \
-    ControlWindow.cpp
+        CommandDebugWindow.cpp \
+        MainWindow.cpp \
+        NavdataDebugWindow.cpp \
+        myodevicelistener.cpp \
+        ControlWindow.cpp
 
 HEADERS  += \
-    CommandDebugWindow.h \
-    MainWindow.h \
-    NavdataDebugWindow.h \
-    ControlWindow.h
+        myodevicelistener.h \
+        MyoLibrary/include/myo/cxx/detail/ThrowOnError.hpp \
+        MyoLibrary/include/myo/cxx/impl/Hub_impl.hpp \
+        MyoLibrary/include/myo/cxx/impl/Myo_impl.hpp \
+        MyoLibrary/include/myo/cxx/impl/Pose_impl.hpp \
+        MyoLibrary/include/myo/cxx/DeviceListener.hpp \
+        MyoLibrary/include/myo/cxx/Hub.hpp \
+        MyoLibrary/include/myo/cxx/Myo.hpp \
+        MyoLibrary/include/myo/cxx/Pose.hpp \
+        MyoLibrary/include/myo/cxx/Quaternion.hpp \
+        MyoLibrary/include/myo/cxx/Vector3.hpp \
+        MyoLibrary/include/myo/libmyo/detail/visibility.h \
+        MyoLibrary/include/myo/libmyo.h \
+        CommandDebugWindow.h \
+        MainWindow.h \
+        NavdataDebugWindow.h \
+        ControlWindow.h
+
 
 FORMS    += \
     CommandDebugWindow.ui \
