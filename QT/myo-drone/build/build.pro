@@ -49,4 +49,10 @@ win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../
 else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/../logic/navdata/debug/navdata.lib
 
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../logic/MyoLibrary/lib/ -lmyo32
+
+INCLUDEPATH += $$PWD/../logic/MyoLibrary/include
+DEPENDPATH += $$PWD/../logic/MyoLibrary/include
+
 TARGET = ../MyoDrone

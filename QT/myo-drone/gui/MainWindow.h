@@ -13,6 +13,7 @@
 #include <CommandService.h>
 #include <NavdataService.h>
 //#include <ObjectDetector.h>
+#include  <myodevicelistener.h>
 
 namespace Ui {
 class MainWindow;
@@ -89,6 +90,7 @@ public slots:
     //void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
 private slots:
+    void startMyo();
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
     void on_actionSprache_triggered();

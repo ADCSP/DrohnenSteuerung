@@ -11,6 +11,12 @@ INCLUDEPATH += "../logic/navdata"
 INCLUDEPATH += "../logic/command"
 INCLUDEPATH += "../logic/video"
 
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../logic/MyoLibrary/lib/ -lmyo32
+
+INCLUDEPATH += $$PWD/../logic/MyoLibrary/include
+DEPENDPATH += $$PWD/../logic/MyoLibrary/include
+
+
 SOURCES +=\
     CommandDebugWindow.cpp \
     MainWindow.cpp \

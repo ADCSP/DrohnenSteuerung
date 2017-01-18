@@ -72,7 +72,6 @@ void MainWindow::startMyo()
 {
 
     try
-
     {
         //Application Identifier muss ein reverse String sein
         myo::Hub hub("com.adcsp.myo");
@@ -82,9 +81,9 @@ void MainWindow::startMyo()
         myo::Myo* myo =hub.waitForMyo(10000);
 
         if(!myo)
-        {
-            qDebug()<<"Myo nicht gefunden.";
-        }
+            {
+                qDebug()<<"Myo nicht gefunden.";
+            }
 
             qDebug()<<"Myo wurde gefunden.";
 
@@ -94,13 +93,10 @@ void MainWindow::startMyo()
 
             while (1)
             {
-            hub.run(1000/20);
-
-            }
+                hub.run(1000/20);
+            }    
     }
-
-
-catch(std::exception& e )
+    catch(std::exception& e )
     {
         qDebug()<<"error: "<<e.what();
     }

@@ -36,33 +36,33 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->navdataService    = cvDrone->getNavdataService();
     //this->videoService      = cvDrone->getVideoService();
 
-    this->fist_R            = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_R.png");
-    this->unlock_R          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_R.png");
-    this->wave_in_R         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_R.png");
-    this->wave_out_R        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_R.png");
-    this->spread_R          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_R.png");
+    this->fist_R            = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_R.png");
+    this->unlock_R          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_R.png");
+    this->wave_in_R         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_in_R.png");
+    this->wave_out_R        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_out_R.png");
+    this->spread_R          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/spread_R.png");
 
-    this->fist_Rs           = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_Rs.png");
-    this->unlock_Rs         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_Rs.png");
-    this->wave_in_Rs        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_Rs.png");
-    this->wave_out_Rs       = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_Rs.png");
-    this->spread_Rs         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_Rs.png");
+    this->fist_Rs           = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_Rs.png");
+    this->unlock_Rs         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_Rs.png");
+    this->wave_in_Rs        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_in_Rs.png");
+    this->wave_out_Rs       = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_out_Rs.png");
+    this->spread_Rs         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/spread_Rs.png");
 
-    this->fist_L            = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_L.png");
-    this->unlock_L          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_L.png");
-    this->wave_in_L         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_L.png");
-    this->wave_out_L        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_L.png");
-    this->spread_L          = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_L.png");
+    this->fist_L            = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_L.png");
+    this->unlock_L          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_L.png");
+    this->wave_in_L         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_in_L.png");
+    this->wave_out_L        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_out_L.png");
+    this->spread_L          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/spread_L.png");
 
-    this->fist_Ls           = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/fist_Ls.png");
-    this->unlock_Ls         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/double_tap_Ls.png");
-    this->wave_in_Ls        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_in_Ls.png");
-    this->wave_out_Ls       = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/wave_out_Ls.png");
-    this->spread_Ls         = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/spread_Ls.png");
+    this->fist_Ls           = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_Ls.png");
+    this->unlock_Ls         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_Ls.png");
+    this->wave_in_Ls        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_in_Ls.png");
+    this->wave_out_Ls       = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/wave_out_Ls.png");
+    this->spread_Ls         = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/spread_Ls.png");
 
-    this->connect_myo_on    = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
-    this->connect_myo_off   = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
-    this->myo_detail        = QPixmap("C:/Users/Soulseller/GIT-SP/QT/myo-drone/gui/Icons/myo.png");
+    this->connect_myo_on    = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
+    this->connect_myo_off   = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
+    this->myo_detail        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/myo.png");
 
     this->setWindowIcon(connect_myo_on);
 
@@ -120,6 +120,9 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     ui->frSprache->setVisible(false);
     ui->frJoystick->setVisible(false);
     ui->buttonDetect->setVisible(false);
+
+    if(ui->actionArmband->isEnabled())
+        startMyo();
 }
 
 /*!
@@ -334,6 +337,7 @@ void MainWindow::on_actionArmband_triggered()
     ui->frSprache->setVisible(false);
     ui->frArmband->setVisible(true);
     ui->frJoystick->setVisible(false);
+    startMyo();
 }
 
 void MainWindow::on_actionSprache_triggered()
@@ -426,4 +430,40 @@ void MainWindow::changeArm(bool isRightArm)
         ui->lbWOut      ->setPixmap(wave_out_Ls);
         ui->lbSpread    ->setPixmap(spread_Ls);
     }
+}
+
+void MainWindow::startMyo()
+{
+
+    try
+    {
+        //Application Identifier muss ein reverse String sein
+        myo::Hub hub("com.adcsp.myo");
+
+        qDebug()<<"Verbundenes Myo wird gesucht...";
+
+        myo::Myo* myo =hub.waitForMyo(10000);
+
+        if(!myo)
+            {
+                qDebug()<<"Myo nicht gefunden.";
+            }
+
+            qDebug()<<"Myo wurde gefunden.";
+
+            MyoDeviceListener myoDL;
+
+            hub.addListener(&myoDL);
+
+            while (1)
+            {
+                hub.run(1000/20);
+            }
+    }
+    catch(std::exception& e )
+    {
+        qDebug()<<"error: "<<e.what();
+    }
+
+
 }
