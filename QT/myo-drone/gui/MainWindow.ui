@@ -438,6 +438,18 @@
       <layout class="QHBoxLayout" name="frame3">
        <item>
         <widget class="QFrame" name="frame_modus">
+         <property name="minimumSize">
+          <size>
+           <width>580</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>580</width>
+           <height>700</height>
+          </size>
+         </property>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QFrame" name="frArmband">
@@ -465,6 +477,12 @@
              </item>
              <item>
               <widget class="QFrame" name="frSplit">
+               <property name="maximumSize">
+                <size>
+                 <width>580</width>
+                 <height>700</height>
+                </size>
+               </property>
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
                  <widget class="QFrame" name="frGestures">
@@ -725,6 +743,22 @@
                        </property>
                       </spacer>
                      </item>
+                     <item>
+                      <widget class="QLabel" name="lbLocked">
+                       <property name="maximumSize">
+                        <size>
+                         <width>50</width>
+                         <height>50</height>
+                        </size>
+                       </property>
+                       <property name="text">
+                        <string>Lock</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
                     </layout>
                    </item>
                    <item>
@@ -809,10 +843,16 @@
              <item>
               <widget class="QFrame" name="gridFrame">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>580</width>
+                 <height>700</height>
+                </size>
                </property>
                <layout class="QGridLayout" name="gridLayout">
                 <item row="1" column="2">
@@ -1165,6 +1205,7 @@
      <string>&amp;Window</string>
     </property>
     <addaction name="actionControl_Window"/>
+    <addaction name="actionVideo"/>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuReconnect">
@@ -1258,6 +1299,20 @@
   <action name="actionQuit">
    <property name="text">
     <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionVideo">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Video</string>
    </property>
   </action>
  </widget>

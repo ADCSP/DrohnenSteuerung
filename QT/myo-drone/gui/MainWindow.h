@@ -69,6 +69,8 @@ private:
     QPixmap spread_Ls;
     QPixmap connect_myo_on;
     QPixmap connect_myo_off;
+    QPixmap myo_locked;
+    QPixmap myo_unlocked;
     QPixmap myo_detail;
     void changeArm(bool);
 
@@ -94,6 +96,7 @@ private slots:
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
     void on_actionSprache_triggered();
+    void on_actionVideo_toggled(bool toggle);
 };
 
 #endif // MAINWINDOW_H

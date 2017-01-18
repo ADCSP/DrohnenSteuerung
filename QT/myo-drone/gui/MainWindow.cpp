@@ -63,11 +63,14 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->connect_myo_on    = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
     this->connect_myo_off   = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
     this->myo_detail        = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/myo.png");
+    this->myo_locked        = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_closed.png");
+    this->myo_unlocked      = QPixmap("/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png");
 
     this->setWindowIcon(connect_myo_on);
 
     ui->lbThalmic   ->setPixmap(connect_myo_off);
     ui->lbMyo       ->setPixmap(myo_detail);
+    ui->lbLocked    ->setPixmap(myo_locked);
     //set RightArmIcons
     changeArm(true);
 
@@ -314,6 +317,21 @@ void MainWindow::showFrame(QPixmap pixmap)
     ui->videoContainer->setPixmap(pixmap);
 }
 
+void MainWindow::on_actionVideo_toggled(bool toggle)
+{
+    ui->frame_video->setVisible(toggle);
+    int x = this->geometry().topLeft().x();
+    int y = this->geometry().topLeft().y();
+    if (toggle)
+    {
+        this->setGeometry(x, y, 1200, 702);
+    }
+    else
+    {
+        this->setGeometry(x, y, 600, 702);
+    }
+}
+
 /*!
  * \brief MainWindow::on_actionJoystick_triggered hides Armband and Sprache, and disables the menuentry
  */
@@ -441,15 +459,15 @@ void MainWindow::startMyo()
         myo::Hub hub("com.adcsp.myo");
 
         qDebug()<<"Verbundenes Myo wird gesucht...";
-
         myo::Myo* myo =hub.waitForMyo(10000);
+
 
         if(!myo)
             {
                 qDebug()<<"Myo nicht gefunden.";
             }
-
             qDebug()<<"Myo wurde gefunden.";
+
 
             MyoDeviceListener myoDL;
 
@@ -459,11 +477,11 @@ void MainWindow::startMyo()
             {
                 hub.run(1000/20);
             }
+
     }
     catch(std::exception& e )
     {
         qDebug()<<"error: "<<e.what();
     }
-
 
 }
