@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 
-
 namespace Ui {
 class MainWindow;
 }
@@ -19,6 +18,7 @@ public:
 private slots:
 
 
+
     void on_actionArmband_triggered();
 
     void on_DroneControl_clicked();
@@ -27,6 +27,8 @@ private slots:
 
     void on_actionJoystick_triggered();
 
+    void startMyo();
+    void on_pushButton_clicked();
 private:
     Ui::MainWindow *ui;
 };

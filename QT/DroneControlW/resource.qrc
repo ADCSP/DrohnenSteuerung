@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/bluetooth.ico</file>
+        <file>Icons/bluetooth_aus.ico</file>
+        <file>Icons/make_fist2.png</file>
+        <file>Icons/make_fist3.png</file>
+        <file>Icons/spread_fingers.png</file>
+        <file>Icons/thalmic_logo_mark.svg</file>
+        <file>Icons/unlock_gesture.png</file>
+        <file>Icons/wave_left.png</file>
+        <file>Icons/wave_right.png</file>
+    </qresource>
+</RCC>
