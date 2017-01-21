@@ -5,10 +5,7 @@
 
 class MyoDeviceListener: public myo::DeviceListener
 {
-
 public:
-
-
 
    MyoDeviceListener();
    virtual void onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState) override;

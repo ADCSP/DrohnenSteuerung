@@ -1,7 +1,6 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
-
 /*
  * CV-Drone
  * Copyright (C) 2015 www.burntbunch.org
@@ -23,11 +22,13 @@
  * \param *objectDetector
  * \param *parent
  */
+
 //MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent) :
 MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
     ui->setupUi(this);
 
     //this->objectDetector    = objectDetector;
@@ -125,7 +126,9 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     ui->buttonDetect->setVisible(false);
 
 
-    ui->lbArmband->setText("Hallo");
+
+
+    //ui->lbArmband->setText("Hallo");
     startMyo();
 
 }
@@ -339,6 +342,8 @@ void MainWindow::on_actionVideo_toggled(bool toggle)
  */
 void MainWindow::on_actionJoystick_triggered()
 {
+
+
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(false);
     ui->actionSprache->setEnabled(true);
@@ -362,6 +367,7 @@ void MainWindow::on_actionArmband_triggered()
 
 void MainWindow::on_actionSprache_triggered()
 {
+
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(true);
     ui->actionSprache->setEnabled(false);
@@ -452,9 +458,10 @@ void MainWindow::changeArm(bool isRightArm)
     }
 }
 
+
 void MainWindow::startMyo()
 {
-
+/*
     try
     {
         //Application Identifier muss ein reverse String sein
@@ -468,22 +475,27 @@ void MainWindow::startMyo()
             {
                 qDebug()<<"Myo nicht gefunden.";
             }
-            qDebug()<<"Myo wurde gefunden.";
-
-
-            MyoDeviceListener myoDL;
-
-            hub.addListener(&myoDL);
-
-            while (1)
+         else
             {
-                hub.run(1000/20);
-            }
+                qDebug()<<"Myo wurde gefunden.";
+                MyoDeviceListener myoDL;
 
+                hub.addListener(&myoDL);
+
+                while (1)
+                {
+                    hub.run(1000/20);
+                }
+            }
     }
     catch(std::exception& e )
     {
         qDebug()<<"error: "<<e.what();
     }
+*/
+    ThreadHandler* handler = new ThreadHandler();
+    handler->StartThread();
 
 }
+
+

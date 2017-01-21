@@ -51,6 +51,7 @@ namespace Drone
 
         thread->start();
         moveToThread(thread);
+
     }
 
     /*!

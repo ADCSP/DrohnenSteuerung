@@ -6,6 +6,7 @@
 #include <MainWindow.h>
 //#include <ObjectDetector.h>
 #include <provision.cpp>
+#include "threadhandler.h"
 
 using namespace Drone;
 //using namespace ObjectDetection;
@@ -24,7 +25,13 @@ int main(int argc, char *argv[])
     CVDrone&        drone = CVDrone::getInstance();
     //ObjectDetector  detector(drone.getVideoService());
     //MainWindow      window(&drone, &detector);
+
+
+
     MainWindow      window(&drone);
+
+    //ThreadHandler* handler = new ThreadHandler();
+    //handler->StartThread();
 
     /* Enter the event loop */
     window.show();

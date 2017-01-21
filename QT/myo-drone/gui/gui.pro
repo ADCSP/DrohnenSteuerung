@@ -25,7 +25,9 @@ SOURCES +=\
         MainWindow.cpp \
         NavdataDebugWindow.cpp \
         myodevicelistener.cpp \
-        ControlWindow.cpp
+        ControlWindow.cpp \
+    myothraed.cpp \
+    threadhandler.cpp
 
 HEADERS  += \
         myodevicelistener.h \
@@ -44,7 +46,9 @@ HEADERS  += \
         CommandDebugWindow.h \
         MainWindow.h \
         NavdataDebugWindow.h \
-        ControlWindow.h
+        ControlWindow.h \
+    myothraed.h \
+    threadhandler.h
 
 
 FORMS    += \

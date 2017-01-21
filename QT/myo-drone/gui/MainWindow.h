@@ -14,6 +14,7 @@
 #include <NavdataService.h>
 //#include <ObjectDetector.h>
 #include  <myodevicelistener.h>
+#include "threadhandler.h"
 
 namespace Ui {
 class MainWindow;
@@ -78,6 +79,7 @@ signals:
     void closed();
 
 public slots:
+
     void toggleControlWindow(bool toggle);
     //void toggleVideoSettings(bool toggle);
     void toggleCommandDebug(bool toggle);
@@ -92,8 +94,9 @@ public slots:
     //void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
     void startMyo();
-private slots:
 
+
+    private slots:
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
     void on_actionSprache_triggered();
