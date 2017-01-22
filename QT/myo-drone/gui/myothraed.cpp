@@ -2,9 +2,11 @@
 
 #include <QThread>
 #include <QDebug>
+
 MyoThraed::MyoThraed()
 {
     this->b = true;
+    //this->msb = msb;
 }
 
 void MyoThraed::runAgain() {

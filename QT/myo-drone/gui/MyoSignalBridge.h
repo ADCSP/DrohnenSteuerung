@@ -16,6 +16,7 @@ public:
     void sendUnlocked();
     void sendSynced();
     void sendUnsynced();
+    MyoSignalBridge();
 
 signals:
    void fist();

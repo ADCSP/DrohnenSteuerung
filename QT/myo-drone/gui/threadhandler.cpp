@@ -5,6 +5,7 @@ ThreadHandler::ThreadHandler()
 {
     thread          = new QThread();
     worker          = new MyoThraed();
+    //this->msb       = msb;
 
     worker->moveToThread(thread);
     connect(worker,     SIGNAL(fist()),         this,       SIGNAL(fist()));

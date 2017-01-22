@@ -1,7 +1,9 @@
 #include "MyoSignalBridge.h"
 
 MyoSignalBridge::MyoSignalBridge()
-{}
+{
+
+}
 
 void MyoSignalBridge::sendFist()
 {

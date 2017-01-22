@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QThread>
 #include <QDebug>
-
+#include "MyoSignalBridge.h"
 #include "myothraed.h"
 
 
@@ -17,6 +17,7 @@ public:
     ~ThreadHandler();
     void StartThread();
     void StopThread();
+    MyoSignalBridge msb;
 
 public slots:
     void functionFinished();

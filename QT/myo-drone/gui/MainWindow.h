@@ -22,10 +22,12 @@ class MainWindow : public QMainWindow
 
 public:
     ThreadHandler* handler();
+
     explicit MainWindow(Drone::CVDrone *cvDrone, QWidget *parent = 0);
     void keyPressEvent(QKeyEvent *e) override;
     void keyReleaseEvent(QKeyEvent *e) override;
     ~MainWindow();
+    MyoSignalBridge msb;
 
 protected:
     void closeEvent(QCloseEvent *event) override;
@@ -38,7 +40,6 @@ private:
     Drone::CVDrone *cvDrone;
     Drone::CommandService *commandService;
     Drone::NavdataService *navdataService;
-    MyoSignalBridge *msb;
     ThreadHandler *handler;
 
     QPixmap fist_R;
@@ -66,6 +67,7 @@ private:
     QPixmap myo_locked;
     QPixmap myo_unlocked;
     QPixmap myo_detail;
+    QPixmap logo;
     void changeArm(bool);
 
 signals:
