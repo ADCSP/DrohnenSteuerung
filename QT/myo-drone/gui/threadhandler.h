@@ -22,6 +22,9 @@ public slots:
     void functionFinished();
     void threadTerminated();
 
+signals:
+    void fist();
+
 private:
     //QTimer*     shutdown;
     QThread*    thread;

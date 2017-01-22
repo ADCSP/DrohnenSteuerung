@@ -30,13 +30,17 @@ void MyoThraed::doWork() {
          else
             {
                 qDebug()<<"Myo wurde gefunden.";
-                MyoDeviceListener myoDL;
-                hub.addListener(&myoDL);
+                MyoDeviceListener myoDL = new MyoDeviceListener();
+                msb = myoDL.msb;
+                connect(msb,SIGNAL(fist()),this,SIGNAL(fist());
+//                hub.addListener(&myoDL);
+                hub.addListener(myoDL);
 
 
                 while (b)
                 {
                     hub.run(1000/20);
+                    // falls notwendig communication erlauben
                 }
             }
     }

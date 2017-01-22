@@ -39,6 +39,7 @@ private:
     Drone::CommandService *commandService;
     Drone::NavdataService *navdataService;
     MyoSignalBridge *msb;
+    ThreadHandler *handler;
 
     QPixmap fist_R;
     QPixmap fist_Rs;

@@ -7,7 +7,7 @@ class MyoSignalBridge : public QObject
 {
     Q_OBJECT
 public:
-    static MyoSignalBridge* instance();
+    MyoSignalBridge();
     void sendFist();
     void sendSpread();
     void sendWaveIn();
@@ -16,10 +16,6 @@ public:
     void sendUnlocked();
     void sendSynced();
     void sendUnsynced();
-
-private:
-    MyoSignalBridge();
-    static MyoSignalBridge* msb;
 
 signals:
    void fist();

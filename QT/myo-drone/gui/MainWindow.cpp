@@ -38,7 +38,9 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->cvDrone           = cvDrone;
     this->commandService    = cvDrone->getCommandService();
     this->navdataService    = cvDrone->getNavdataService();
-    this->msb               = MyoSignalBridge.instance();
+
+    this->handler           = new ThreadHandler();
+
 
     this->fist_R            = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_R.png");
     this->unlock_R          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_R.png");
@@ -110,28 +112,28 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     connect(ui->bttnTurnLeft,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
     connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
 
-    connect(msb,                        SIGNAL(wave_in()),                  cvDrone,        SLOT(moveLeft()));
-    connect(msb,                        SIGNAL(wave_out()),                 cvDrone,        SLOT(moveRight()));
-    connect(msb,                        SIGNAL(fist()),                     cvDrone,        SLOT(moveForward()));
-    connect(msb,                        SIGNAL(spread()),                   cvDrone,        SLOT(moveBackward()));
+//    connect(msb,                        SIGNAL(wave_in()),                  cvDrone,        SLOT(moveLeft()));
+//    connect(msb,                        SIGNAL(wave_out()),                 cvDrone,        SLOT(moveRight()));
+//    connect(msb,                        SIGNAL(fist()),                     cvDrone,        SLOT(moveForward()));
+//    connect(msb,                        SIGNAL(spread()),                   cvDrone,        SLOT(moveBackward()));
 
 //    connect(msb,                        SIGNAL(no_gesture()),               cvDrone,        SLOT(hover()));
 //    connect(msb,                        SIGNAL(disconnected()),             cvDrone,        SLOT(hover()));
-    connect(msb,                        SIGNAL(unsynced()),                 cvDrone,        SLOT(hover()));
-    connect(msb,                        SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
+//    connect(msb,                        SIGNAL(unsynced()),                 cvDrone,        SLOT(hover()));
+//    connect(msb,                        SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
 
 
-    connect(msb,                        SIGNAL(wave_in()),                this,           SLOT(on_myo_wave_in()));
-    connect(msb,                        SIGNAL(wave_out()),               this,           SLOT(on_myo_wave_out()));
-    connect(msb,                        SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
-    connect(msb,                        SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
+//    connect(msb,                        SIGNAL(wave_in()),                this,           SLOT(on_myo_wave_in()));
+//    connect(msb,                        SIGNAL(wave_out()),               this,           SLOT(on_myo_wave_out()));
+    connect(handler(),                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
+//    connect(msb,                        SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
 //    connect(msb,                        SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
 //    connect(msb,                        SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
 //    connect(msb,                        SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
-    connect(msb,                        SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
-    connect(msb,                        SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
-    connect(msb,                        SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
-    connect(msb,                        SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
+//    connect(msb,                        SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
+//    connect(msb,                        SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
+//    connect(msb,                        SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
+//    connect(msb,                        SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
 
     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
 

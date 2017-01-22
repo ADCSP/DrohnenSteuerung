@@ -4,7 +4,7 @@
 
 MyoDeviceListener::MyoDeviceListener()
 {
-    this->msb = MyoSignalBridge.instance();
+    this->msb = new MyoSignalBridge();
 }
 
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
