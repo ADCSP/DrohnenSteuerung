@@ -1,24 +1,24 @@
 #include "myodevicelistener.h"
 
-#include <qDebug>
+#include <QDebug>
 
 
 
 MyoDeviceListener::MyoDeviceListener()
 {
-
+    this->msb = new MyoSignalBridge();
 }
 
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
 {
     qDebug()<<"synced";
-    //emit synced();
+    msb.sendSynced();
 }
 
 void MyoDeviceListener::onArmUnsync(myo::Myo *myo, uint64_t timestamp)
 {
     qDebug()<<"unsynced";
-    //emit unsynced();
+    msb.sendUnsynced();
 }
 
 void MyoDeviceListener::onBatteryLevelReceived(myo::Myo *myo, uint64_t timestamp, uint8_t level)
@@ -38,13 +38,13 @@ void MyoDeviceListener::onUnpair(myo::Myo *myo, uint64_t timestamp)
 void MyoDeviceListener::onLock(myo::Myo *myo, uint64_t timestamp)
 {
     qDebug()<<"locked";
-    //emit locked();
+    msb.sendLocked();
 }
 
 void MyoDeviceListener:: onUnlock(myo::Myo *myo, uint64_t timestamp)
 {
     qDebug()<<"unlocked";
-    //emit unlocked();
+    msb.sendUnlocked();
 }
 
 void MyoDeviceListener::onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)
@@ -54,22 +54,22 @@ void MyoDeviceListener::onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose
     case 1:
         qDebug()<<"Fist";
         myo->notifyUserAction();
-        //emit fist();
+        msb.sendFist();
         break;
     case 2:
         qDebug()<<"Wave in";
         myo->notifyUserAction();
-        //emit wave_in();
+        msb.sendWaveIn();
         break;
     case 3:
         qDebug()<<"Wave out";
         myo->notifyUserAction();
-        //emit wave_out();
+        msb.sendWaveOut();
         break;
     case 4:
         qDebug()<<"Spread Fingers";
         myo->notifyUserAction();
-        //emit spread();
+        msb.sendSpread();
         break;
     }
     myo->unlock(myo->unlockHold);
