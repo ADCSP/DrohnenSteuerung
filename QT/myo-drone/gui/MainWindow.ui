@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>702</height>
+    <width>750</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="palette">
@@ -807,7 +807,7 @@
              <item>
               <widget class="QLabel" name="lbJoystick">
                <property name="sizePolicy">
-                <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                  <horstretch>0</horstretch>
                  <verstretch>0</verstretch>
                 </sizepolicy>
@@ -817,11 +817,20 @@
                  <pointsize>25</pointsize>
                 </font>
                </property>
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="frameShadow">
+                <enum>QFrame::Raised</enum>
+               </property>
                <property name="text">
                 <string>Joystick</string>
                </property>
-               <property name="alignment">
-                <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+               <property name="scaledContents">
+                <bool>true</bool>
+               </property>
+               <property name="wordWrap">
+                <bool>false</bool>
                </property>
               </widget>
              </item>
@@ -863,6 +872,11 @@
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                  </property>
                   <property name="text">
                    <string>Right</string>
                   </property>
@@ -875,6 +889,11 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
                    <string>Left</string>
@@ -889,6 +908,11 @@
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                  </property>
                   <property name="text">
                    <string>AX Left</string>
                   </property>
@@ -901,6 +925,11 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
                    <string>AX Right</string>
@@ -915,6 +944,11 @@
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                  </property>
                   <property name="text">
                    <string>Backward</string>
                   </property>
@@ -927,6 +961,11 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
                    <string>Forward</string>
@@ -941,6 +980,11 @@
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                  </property>
                   <property name="text">
                    <string>Up</string>
                   </property>
@@ -953,6 +997,11 @@
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                   </property>
                   <property name="text">
                    <string>Down</string>
@@ -1023,6 +1072,10 @@
                  <width>600</width>
                  <height>500</height>
                 </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 16pt &quot;MS Shell Dlg 2&quot;;
+text-decoration: underline;</string>
                </property>
                <property name="text">
                 <string>Soon ...</string>
@@ -1143,6 +1196,11 @@
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+         </property>
          <property name="text">
           <string>Start</string>
          </property>
@@ -1162,6 +1220,11 @@
          <property name="autoFillBackground">
           <bool>false</bool>
          </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.176136 rgba(170, 6, 6, 255), stop:0.909091 rgba(255, 14, 14, 255));
+border-color: rgb(23, 26, 37);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+         </property>
          <property name="text">
           <string>Emergency</string>
          </property>
@@ -1177,6 +1240,11 @@
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0.210227 rgba(0, 134, 158, 255), stop:0.818182 rgba(28, 192, 222, 255));
+border-color: rgb(23, 26, 37);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
          </property>
          <property name="text">
           <string>Detect</string>
@@ -1196,8 +1264,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1200</width>
-     <height>25</height>
+     <width>750</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuWindow">

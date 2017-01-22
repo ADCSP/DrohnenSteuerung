@@ -1,14 +1,21 @@
 #include "MyoSignalBridge.h"
 
 MyoSignalBridge::MyoSignalBridge()
-{}
-
-static MyoSignalBridge* instance()
 {
-    if ( msb == NULL )
-        msb = new MyoSignalBridge();
-    return msb;
+
 }
+
+/*MyoSignalBridge &MyoSignalBridge::instance()
+{
+   // if ( msb == NULL )
+     //   msb = new MyoSignalBridge();
+    //return &msb;
+
+
+    static MyoSignalBridge _setupObj = new MyoSignalBridge();
+    return _setupObj;
+}
+*/
 
 void MyoSignalBridge::sendFist()
 {

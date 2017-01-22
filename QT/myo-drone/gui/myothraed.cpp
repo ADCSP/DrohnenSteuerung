@@ -6,6 +6,7 @@
 MyoThraed::MyoThraed()
 {
     this->b = true;
+    //this->msb = msb;
 }
 
 void MyoThraed::runAgain() {
@@ -31,9 +32,9 @@ void MyoThraed::doWork() {
          else
             {
                 qDebug()<<"Myo wurde gefunden.";
-                MyoDeviceListener myoDL;
-                hub.addListener(&myoDL);
-
+                //MyoDeviceListener myoDL;
+                //hub.addListener(&myoDL);
+                hub.addListener(new MyoDeviceListener());
 
                 while (b)
                 {

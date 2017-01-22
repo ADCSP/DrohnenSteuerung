@@ -5,6 +5,7 @@ ThreadHandler::ThreadHandler()
 {
     thread          = new QThread();
     worker          = new MyoThraed();
+    //this->msb       = msb;
 
     worker->moveToThread(thread);
     QObject::connect(thread, SIGNAL(started()), worker, SLOT(runAgain()));

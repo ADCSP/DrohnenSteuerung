@@ -3,13 +3,17 @@
 
 #include <QObject>
 #include <myodevicelistener.h>
+#include <MyoSignalBridge.h>
 
 class MyoThraed : public QObject
 {
     Q_OBJECT
 public:
+   // MyoThraed(MyoSignalBridge msb);
     MyoThraed();
     bool b;
+
+    MyoSignalBridge msb;
 public slots:
     void runAgain();
 
