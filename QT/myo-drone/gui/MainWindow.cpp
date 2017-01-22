@@ -35,11 +35,10 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
 
     ui->setupUi(this);
 
-    //this->objectDetector    = objectDetector;
     this->cvDrone           = cvDrone;
     this->commandService    = cvDrone->getCommandService();
     this->navdataService    = cvDrone->getNavdataService();
-    //this->videoService      = cvDrone->getVideoService();
+    this->msb               = MyoSignalBridge.instance();
 
     this->fist_R            = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_R.png");
     this->unlock_R          = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/double_tap_R.png");
@@ -89,7 +88,6 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
 
     connect(ui->actionReconnect,        SIGNAL(triggered()),                commandService, SLOT(reconnect()));
     connect(ui->actionNavdata_Service,  SIGNAL(triggered()),                navdataService, SLOT(reconnect()));
-    //connect(ui->actionVideo_Service,    SIGNAL(triggered()),                videoService,   SLOT(reconnect()));
 
     connect(ui->buttonStart,            SIGNAL(clicked(bool)),              this,           SLOT(toggleTakeOffLand(bool)));
     connect(ui->buttonEmergency,        SIGNAL(clicked()),                  cvDrone,        SLOT(emergency()));
@@ -112,39 +110,30 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     connect(ui->bttnTurnLeft,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
     connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
 
-//    connect(myoconnector,               SIGNAL(wave_in()),                  cvDrone,        SLOT(moveLeft()));
-//    connect(myoconnector,               SIGNAL(wave_out()),                 cvDrone,        SLOT(moveRight()));
-//    connect(myoconnector,               SIGNAL(fist()),                     cvDrone,        SLOT(moveForward()));
-//    connect(myoconnector,               SIGNAL(spread()),                   cvDrone,        SLOT(moveBackward()));
+    connect(msb,                        SIGNAL(wave_in()),                  cvDrone,        SLOT(moveLeft()));
+    connect(msb,                        SIGNAL(wave_out()),                 cvDrone,        SLOT(moveRight()));
+    connect(msb,                        SIGNAL(fist()),                     cvDrone,        SLOT(moveForward()));
+    connect(msb,                        SIGNAL(spread()),                   cvDrone,        SLOT(moveBackward()));
 
-//    connect(myoconnector,               SIGNAL(no_gesture()),               cvDrone,        SLOT(hover()));
-//    connect(myoconnector,               SIGNAL(disconnected()),             cvDrone,        SLOT(hover()));
-//    connect(myoconnector,               SIGNAL(unsynced()),                 cvDrone,        SLOT(hover()));
-//    connect(myoconnector,               SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
+//    connect(msb,                        SIGNAL(no_gesture()),               cvDrone,        SLOT(hover()));
+//    connect(msb,                        SIGNAL(disconnected()),             cvDrone,        SLOT(hover()));
+    connect(msb,                        SIGNAL(unsynced()),                 cvDrone,        SLOT(hover()));
+    connect(msb,                        SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
 
 
-//    connect(myoconnector,               SIGNAL(wave_left()),                this,           SLOT(on_myo_wave_in()));
-//    connect(myoconnector,               SIGNAL(wave_right()),               this,           SLOT(on_myo_wave_out()));
-//    connect(myoconnector,               SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
-//    connect(myoconnector,               SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
-//    connect(myoconnector,               SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
-//    connect(myoconnector,               SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
-//    connect(myoconnector,               SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
-//    connect(myoconnector,               SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
-//    connect(myoconnector,               SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
-//    connect(myoconnector,               SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
-//    connect(myoconnector,               SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
+    connect(msb,                        SIGNAL(wave_in()),                this,           SLOT(on_myo_wave_in()));
+    connect(msb,                        SIGNAL(wave_out()),               this,           SLOT(on_myo_wave_out()));
+    connect(msb,                        SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
+    connect(msb,                        SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
+//    connect(msb,                        SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
+//    connect(msb,                        SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
+//    connect(msb,                        SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
+    connect(msb,                        SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
+    connect(msb,                        SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
+    connect(msb,                        SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
+    connect(msb,                        SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
 
     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
-
-    //connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
-   // connect(videoService,               SIGNAL(connectionLost()),           objectDetector, SLOT(connectionLost()));
-
-    //connect(objectDetector,             SIGNAL(nextFrameReady(QPixmap)),    this,           SLOT(showFrame(QPixmap)));
-
-
-    //ui->actionOpenCV->setVisible(false);
-   // ui->actionVideo_Options->setVisible(false);
 
     ui->actionArmband->setEnabled(false);
     ui->actionControl_Window->setVisible(false);
@@ -152,13 +141,8 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     ui->frJoystick->setVisible(false);
     ui->buttonDetect->setVisible(false);
     ui->frame_video->setVisible(false);
-    this->setGeometry(x, y, 600, 702);
 
-    //ui->lbArmband->setText("Hallo");
     startMyo(true);
-
-
-
 
 }
 
@@ -197,23 +181,6 @@ void MainWindow::toggleControlWindow(bool toggle)
 }
 
 /*!
- * \brief MainWindow::toggleVideoSettings either opens or closes the VideoSettingsWindow
- */
-/*
-void MainWindow::toggleVideoSettings(bool toggle)
-{
-    if(toggle)
-    {
-        videoSettings = new VideoSettingsWindow(objectDetector);
-        connect(videoSettings,  SIGNAL(closed()),   this,           SLOT(videoSettingsWindowClosed()));
-        connect(this,           SIGNAL(closed()),   videoSettings,  SLOT(close()));
-        videoSettings->show();
-    }
-    else
-        videoSettings->close();
-}
-*/
-/*!
  * \brief MainWindow::toggleCommandDebug either opens or closes the CommandDebugWindow
  */
 void MainWindow::toggleCommandDebug(bool toggle)
@@ -245,23 +212,6 @@ void MainWindow::toggleNavdataDebug(bool toggle)
         navdataDebug->close();
 }
 
-/*!
- * \brief MainWindow::toggleOpenCVDebug either opens or closes the OpenCVDebugWindow
- */
-/*
-void MainWindow::toggleOpenCVDebug(bool toggle)
-{
-    if(toggle)
-    {
-        openCVDebug = new OpenCVDebugWindow(videoService, objectDetector);
-        connect(openCVDebug,    SIGNAL(closed()),   this,           SLOT(openCVDebugWindowClosed()));
-        connect(this,           SIGNAL(closed()),   openCVDebug,    SLOT(close()));
-        openCVDebug->show();
-    }
-    else
-        openCVDebug->close();
-}
-*/
 /*!
  * \brief MainWindow::toggleTakeOffLand either starts or lands the Drone
  */
@@ -319,30 +269,6 @@ void MainWindow::navdataDebugWindowClosed()
 }
 
 /*!
- * \brief MainWindow::openCVDebugWindowClosed is processed when ethe OpenCVDebugWindow is closed.
- * The corresponding checkBox will be unchecked.
- */
-/*
-void MainWindow::openCVDebugWindowClosed()
-{
-    ui->actionOpenCV->setChecked(false);
-    openCVDebug->disconnect();
-    delete openCVDebug;
-}
-*/
-/*!
- * \brief MainWindow::videoSettingsWindowClosed is processed when ethe VideoSettingsWindow is closed.
- * The corresponding checkBox will be unchecked.
- */
-/*
-void MainWindow::videoSettingsWindowClosed()
-{
-    ui->actionVideo_Options->setChecked(false);
-    videoSettings->disconnect();
-    delete videoSettings;
-}
-*/
-/*!
  * \brief MainWindow::showFrame shows the pixmap on the videoLabel.
  * \param pixmap the pixmap to show.
  */
@@ -371,8 +297,6 @@ void MainWindow::on_actionVideo_toggled(bool toggle)
  */
 void MainWindow::on_actionJoystick_triggered()
 {
-    //startMyo(false);
-    //&handler()->StopThread;
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(false);
     ui->actionSprache->setEnabled(true);
@@ -384,7 +308,6 @@ void MainWindow::on_actionJoystick_triggered()
 
 void MainWindow::on_actionArmband_triggered()
 {
-    //startMyo(true);
     ui->actionArmband->setEnabled(false);
     ui->actionJoystick->setEnabled(true);
     ui->actionSprache->setEnabled(true);
@@ -392,12 +315,10 @@ void MainWindow::on_actionArmband_triggered()
     ui->frSprache->setVisible(false);
     ui->frArmband->setVisible(true);
     ui->frJoystick->setVisible(false);
-    //startMyo();
 }
 
 void MainWindow::on_actionSprache_triggered()
 {
-    //startMyo(false);
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(true);
     ui->actionSprache->setEnabled(false);
@@ -556,7 +477,7 @@ void MainWindow::startMyo(bool active)
     ThreadHandler* handler = new ThreadHandler();
     if(active == true)
     {
-       handler->StartThread();
+        handler->StartThread();
     }
     else
     {

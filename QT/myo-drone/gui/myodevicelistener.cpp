@@ -1,15 +1,11 @@
 #include "myodevicelistener.h"
-
 #include <QDebug>
-
 
 
 MyoDeviceListener::MyoDeviceListener()
 {
-    this->msb = new MyoSignalBridge();
+    this->msb = MyoSignalBridge.instance();
 }
-
-
 
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
 {

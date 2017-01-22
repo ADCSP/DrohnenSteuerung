@@ -3,6 +3,12 @@
 MyoSignalBridge::MyoSignalBridge()
 {}
 
+static MyoSignalBridge* instance()
+{
+    if ( msb == NULL )
+        msb = new MyoSignalBridge();
+    return msb;
+}
 
 void MyoSignalBridge::sendFist()
 {

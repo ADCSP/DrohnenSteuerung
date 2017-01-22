@@ -3,18 +3,14 @@
 
 #include <vector>
 #include <QMainWindow>
-//#include <VideoSettingsWindow.h>
 #include <CommandDebugWindow.h>
 #include <NavdataDebugWindow.h>
-//#include <OpenCVDebugWindow.h>
 #include <ControlWindow.h>
 #include <CVDrone.h>
-//#include <VideoService.h>
 #include <CommandService.h>
 #include <NavdataService.h>
-//#include <ObjectDetector.h>
-//#include  <myodevicelistener.h>
 #include "threadhandler.h"
+#include "MyoSignalBridge.h"
 
 namespace Ui {
 class MainWindow;
@@ -26,7 +22,6 @@ class MainWindow : public QMainWindow
 
 public:
     ThreadHandler* handler();
-    //explicit MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent = 0);
     explicit MainWindow(Drone::CVDrone *cvDrone, QWidget *parent = 0);
     void keyPressEvent(QKeyEvent *e) override;
     void keyReleaseEvent(QKeyEvent *e) override;
@@ -37,17 +32,13 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-    //VideoSettingsWindow *videoSettings;
     CommandDebugWindow *commandDebug;
     NavdataDebugWindow *navdataDebug;
-   // OpenCVDebugWindow *openCVDebug;
     ControlWindow *controlWindow;
-    //ObjectDetection::ObjectDetector *objectDetector;
     Drone::CVDrone *cvDrone;
     Drone::CommandService *commandService;
     Drone::NavdataService *navdataService;
-    //Drone::VideoService *videoService;
-    //cv::Mat img;
+    MyoSignalBridge *msb;
 
     QPixmap fist_R;
     QPixmap fist_Rs;
@@ -82,17 +73,13 @@ signals:
 public slots:
 
     void toggleControlWindow(bool toggle);
-    //void toggleVideoSettings(bool toggle);
     void toggleCommandDebug(bool toggle);
     void toggleNavdataDebug(bool toggle);
-    //void toggleOpenCVDebug(bool toggle);
     void toggleTakeOffLand(bool toggle);
     void detectToggled(bool toggle);
     void controlWindowClosed();
     void commandDebugWindowClosed();
     void navdataDebugWindowClosed();
-   // void openCVDebugWindowClosed();
-    //void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
     void startMyo(bool active);
 

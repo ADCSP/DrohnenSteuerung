@@ -2,7 +2,7 @@
 #define MYOTHRAED_H
 
 #include <QObject>
-#include  <myodevicelistener.h>
+#include <myodevicelistener.h>
 
 class MyoThraed : public QObject
 {

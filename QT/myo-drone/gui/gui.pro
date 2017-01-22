@@ -28,7 +28,8 @@ SOURCES +=\
         myodevicelistener.cpp \
         ControlWindow.cpp \
     myothraed.cpp \
-    threadhandler.cpp
+    threadhandler.cpp \
+    MyoSignalBridge.cpp
 
 HEADERS  += \
         myodevicelistener.h \
@@ -49,7 +50,8 @@ HEADERS  += \
         NavdataDebugWindow.h \
         ControlWindow.h \
     myothraed.h \
-    threadhandler.h
+    threadhandler.h \
+    MyoSignalBridge.h
 
 
 FORMS    += \
