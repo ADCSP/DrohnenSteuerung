@@ -2,6 +2,7 @@
 
 #include <QThread>
 #include <QDebug>
+
 MyoThraed::MyoThraed()
 {
     this->b = true;

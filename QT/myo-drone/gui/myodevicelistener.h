@@ -4,8 +4,9 @@
 #include "MyoSignalBridge.h"
 
 
-class MyoDeviceListener: public myo::DeviceListener
+class MyoDeviceListener: public myo::DeviceListener , public QObject
 {
+     //Q_OBJECT
 public:
     MyoDeviceListener();
     virtual void onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState) override;
