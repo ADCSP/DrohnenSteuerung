@@ -14,7 +14,6 @@ void MyoThraed::runAgain() {
 void MyoThraed::doWork() {
     qDebug() << "I WORK...\t(" << QThread::currentThreadId() << ")";
 
-
     try
     {
         //Application Identifier muss ein reverse String sein
@@ -32,8 +31,8 @@ void MyoThraed::doWork() {
             {
                 qDebug()<<"Myo wurde gefunden.";
                 MyoDeviceListener myoDL;
-
                 hub.addListener(&myoDL);
+
 
                 while (b)
                 {

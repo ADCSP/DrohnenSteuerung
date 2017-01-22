@@ -57,6 +57,7 @@ else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$OUT_PWD/
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
 
 INCLUDEPATH += $$PWD/../gui/MyoLibrary/include
 DEPENDPATH += $$PWD/../gui/MyoLibrary/include

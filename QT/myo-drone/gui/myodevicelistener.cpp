@@ -6,8 +6,12 @@
 
 MyoDeviceListener::MyoDeviceListener()
 {
+  //  flying = false;
 
+    //this->cvDrone = cvDrone;
 }
+
+
 
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
 {

@@ -23,11 +23,15 @@
  * \param *parent
  */
 
+
+
+
 //MainWindow::MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent) :
 MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
 
     ui->setupUi(this);
 
@@ -151,7 +155,10 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->setGeometry(x, y, 600, 702);
 
     //ui->lbArmband->setText("Hallo");
-    startMyo();
+    startMyo(true);
+
+
+
 
 }
 
@@ -364,6 +371,8 @@ void MainWindow::on_actionVideo_toggled(bool toggle)
  */
 void MainWindow::on_actionJoystick_triggered()
 {
+    //startMyo(false);
+    //&handler()->StopThread;
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(false);
     ui->actionSprache->setEnabled(true);
@@ -375,6 +384,7 @@ void MainWindow::on_actionJoystick_triggered()
 
 void MainWindow::on_actionArmband_triggered()
 {
+    //startMyo(true);
     ui->actionArmband->setEnabled(false);
     ui->actionJoystick->setEnabled(true);
     ui->actionSprache->setEnabled(true);
@@ -382,12 +392,12 @@ void MainWindow::on_actionArmband_triggered()
     ui->frSprache->setVisible(false);
     ui->frArmband->setVisible(true);
     ui->frJoystick->setVisible(false);
-    startMyo();
+    //startMyo();
 }
 
 void MainWindow::on_actionSprache_triggered()
 {
-
+    //startMyo(false);
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(true);
     ui->actionSprache->setEnabled(false);
@@ -540,42 +550,18 @@ void MainWindow::changeArm(bool isRightArm)
 }
 
 
-void MainWindow::startMyo()
+void MainWindow::startMyo(bool active)
 {
-/*
-    try
-    {
-        //Application Identifier muss ein reverse String sein
-        myo::Hub hub("com.adcsp.myo");
 
-        qDebug()<<"Verbundenes Myo wird gesucht...";
-        myo::Myo* myo =hub.waitForMyo(10000);
-
-
-        if(!myo)
-            {
-                qDebug()<<"Myo nicht gefunden.";
-            }
-         else
-            {
-                qDebug()<<"Myo wurde gefunden.";
-                MyoDeviceListener myoDL;
-
-                hub.addListener(&myoDL);
-
-                while (1)
-                {
-                    hub.run(1000/20);
-                }
-            }
-    }
-    catch(std::exception& e )
-    {
-        qDebug()<<"error: "<<e.what();
-    }
-*/
     ThreadHandler* handler = new ThreadHandler();
-    handler->StartThread();
+    if(active == true)
+    {
+       handler->StartThread();
+    }
+    else
+    {
+        handler->StopThread();
+    }
 
 }
 

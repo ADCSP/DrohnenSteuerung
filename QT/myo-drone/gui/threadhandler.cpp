@@ -30,9 +30,15 @@ void ThreadHandler::functionFinished() {
 }
 
 void ThreadHandler::threadTerminated() {
+    //thread->destroyed();
     qDebug() << "Thread stopped.";
 }
 
 void ThreadHandler::StartThread() {
     thread->start();
+}
+
+void ThreadHandler::StopThread() {
+    qDebug() << "Thread stopped.";
+    thread->terminate();
 }
