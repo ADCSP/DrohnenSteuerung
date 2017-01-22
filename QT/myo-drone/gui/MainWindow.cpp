@@ -308,6 +308,14 @@ void MainWindow::showFrame(QPixmap pixmap)
     ui->videoContainer->setPixmap(pixmap);
 }
 
+void MainWindow::timertest()
+{
+    if(ui->lbArmband->text().toLower() == "armband")
+        ui->lbArmband->setText("Q");
+    else
+        ui->lbArmband->setText("Armband");
+}
+
 void MainWindow::on_actionVideo_toggled(bool toggle)
 {
     ui->frame_video->setVisible(toggle);

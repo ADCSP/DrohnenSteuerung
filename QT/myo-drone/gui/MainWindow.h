@@ -89,6 +89,7 @@ public slots:
     void openCVDebugWindowClosed();
     void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
+    void timertest();
 private slots:
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
