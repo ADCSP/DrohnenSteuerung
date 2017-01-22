@@ -17,7 +17,15 @@ public:
    virtual void onUnlock(myo::Myo *myo, uint64_t timestamp) override;
    virtual void onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)override;
 
-
+signals:
+   fist();
+   spread();
+   wave_in();
+   wave_out();
+   locked();
+   unlocked();
+   synced();
+   unsynced();
 };
 
 #endif // MYODEVICELISTENER_H

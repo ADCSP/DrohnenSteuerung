@@ -108,6 +108,29 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     connect(ui->bttnTurnLeft,           SIGNAL(released()),                 cvDrone,        SLOT(hover()));
     connect(ui->bttnTurnRight,          SIGNAL(released()),                 cvDrone,        SLOT(hover()));
 
+//    connect(myoconnector,               SIGNAL(wave_in()),                  cvDrone,        SLOT(moveLeft()));
+//    connect(myoconnector,               SIGNAL(wave_out()),                 cvDrone,        SLOT(moveRight()));
+//    connect(myoconnector,               SIGNAL(fist()),                     cvDrone,        SLOT(moveForward()));
+//    connect(myoconnector,               SIGNAL(spread()),                   cvDrone,        SLOT(moveBackward()));
+
+//    connect(myoconnector,               SIGNAL(no_gesture()),               cvDrone,        SLOT(hover()));
+//    connect(myoconnector,               SIGNAL(disconnected()),             cvDrone,        SLOT(hover()));
+//    connect(myoconnector,               SIGNAL(unsynced()),                 cvDrone,        SLOT(hover()));
+//    connect(myoconnector,               SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
+
+
+//    connect(myoconnector,               SIGNAL(wave_left()),                this,           SLOT(on_myo_wave_in()));
+//    connect(myoconnector,               SIGNAL(wave_right()),               this,           SLOT(on_myo_wave_out()));
+//    connect(myoconnector,               SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
+//    connect(myoconnector,               SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
+//    connect(myoconnector,               SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
+//    connect(myoconnector,               SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
+//    connect(myoconnector,               SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
+//    connect(myoconnector,               SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
+//    connect(myoconnector,               SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
+//    connect(myoconnector,               SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
+//    connect(myoconnector,               SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
+
     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
 
     //connect(videoService,               SIGNAL(nextFrameReady()),           objectDetector, SLOT(colorFilter()));
@@ -124,9 +147,8 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     ui->frSprache->setVisible(false);
     ui->frJoystick->setVisible(false);
     ui->buttonDetect->setVisible(false);
-
-
-
+    ui->frame_video->setVisible(false);
+    this->setGeometry(x, y, 600, 702);
 
     //ui->lbArmband->setText("Hallo");
     startMyo();
@@ -342,8 +364,6 @@ void MainWindow::on_actionVideo_toggled(bool toggle)
  */
 void MainWindow::on_actionJoystick_triggered()
 {
-
-
     ui->actionArmband->setEnabled(true);
     ui->actionJoystick->setEnabled(false);
     ui->actionSprache->setEnabled(true);
@@ -375,6 +395,67 @@ void MainWindow::on_actionSprache_triggered()
     ui->frArmband->setVisible(false);
     ui->frSprache->setVisible(true);
     ui->frJoystick->setVisible(false);
+}
+
+void MainWindow::on_myo_fist()
+{
+    ui->lbMyo->setPixmap(fist_R);
+}
+
+void MainWindow::on_myo_spread()
+{
+    ui->lbMyo->setPixmap(spread_R);
+}
+
+void MainWindow::on_myo_wave_in()
+{
+    ui->lbMyo->setPixmap(wave_in_R);
+}
+
+void MainWindow::on_myo_wave_out()
+{
+    ui->lbMyo->setPixmap(wave_out_R);
+}
+
+void MainWindow::on_myo_no_gesture()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+}
+
+void MainWindow::on_myo_connect()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbThalmic->setPixmap(connect_myo_on);
+}
+
+void MainWindow::on_myo_disconnect()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbThalmic->setPixmap(connect_myo_off);
+}
+
+void MainWindow::on_myo_sync()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbLocked->setPixmap(myo_unlocked);
+}
+
+void MainWindow::on_myo_unsync()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbLocked->setPixmap(myo_locked);
+}
+
+void MainWindow::on_myo_locked()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbLocked->setPixmap(myo_locked);
+}
+
+void MainWindow::on_myo_unlocked()
+{
+    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbLocked->setPixmap(myo_unlocked);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)

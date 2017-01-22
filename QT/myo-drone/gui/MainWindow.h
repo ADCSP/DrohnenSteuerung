@@ -96,11 +96,22 @@ public slots:
     void startMyo();
 
 
-    private slots:
+private slots:
     void on_actionJoystick_triggered();
     void on_actionArmband_triggered();
     void on_actionSprache_triggered();
     void on_actionVideo_toggled(bool toggle);
+    void on_myo_fist();
+    void on_myo_spread();
+    void on_myo_wave_in();
+    void on_myo_wave_out();
+    void on_myo_no_gesture();
+    void on_myo_connect();
+    void on_myo_disconnect();
+    void on_myo_sync();
+    void on_myo_unsync();
+    void on_myo_locked();
+    void on_myo_unlocked();
 };
 
 #endif // MAINWINDOW_H
