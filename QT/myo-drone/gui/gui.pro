@@ -15,6 +15,7 @@ INCLUDEPATH += "../logic/command"
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../gui/MyoLibrary/lib/ -lmyo32
 
 INCLUDEPATH += $$PWD/../gui/MyoLibrary/include
 DEPENDPATH += $$PWD/../gui/MyoLibrary/include

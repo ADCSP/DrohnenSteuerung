@@ -13,7 +13,7 @@
 #include <CommandService.h>
 #include <NavdataService.h>
 //#include <ObjectDetector.h>
-#include  <myodevicelistener.h>
+//#include  <myodevicelistener.h>
 #include "threadhandler.h"
 
 namespace Ui {
@@ -25,6 +25,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    ThreadHandler* handler();
     //explicit MainWindow(Drone::CVDrone *cvDrone, ObjectDetection::ObjectDetector *objectDetector, QWidget *parent = 0);
     explicit MainWindow(Drone::CVDrone *cvDrone, QWidget *parent = 0);
     void keyPressEvent(QKeyEvent *e) override;
@@ -93,7 +94,7 @@ public slots:
    // void openCVDebugWindowClosed();
     //void videoSettingsWindowClosed();
     void showFrame(QPixmap pixmap);
-    void startMyo();
+    void startMyo(bool active);
 
 
 private slots:

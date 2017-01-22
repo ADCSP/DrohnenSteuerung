@@ -16,6 +16,7 @@ public:
     ThreadHandler();
     ~ThreadHandler();
     void StartThread();
+    void StopThread();
 
 public slots:
     void functionFinished();
