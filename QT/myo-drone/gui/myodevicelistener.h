@@ -17,6 +17,8 @@ public:
     virtual void onLock(myo::Myo *myo, uint64_t timestamp) override;
     virtual void onUnlock(myo::Myo *myo, uint64_t timestamp) override;
     virtual void onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)override;
+    virtual void onConnect(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion) override;
+    virtual void onDisconnect(myo::Myo *myo, uint64_t timestamp) override;
     MyoSignalBridge* msb;
 };
 

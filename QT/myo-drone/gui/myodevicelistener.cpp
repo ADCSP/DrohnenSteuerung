@@ -12,6 +12,8 @@ MyoDeviceListener::MyoDeviceListener()
 void MyoDeviceListener:: onArmSync(myo::Myo *myo, uint64_t timestamp, myo::Arm arm, myo::XDirection xDirection, float rotation, myo::WarmupState warmupState)
 {
     qDebug()<<"synced";
+    // 0 right arm, 1 left arm
+    //  qDebug()<<arm;
     msb->sendSynced();
 }
 
@@ -45,6 +47,18 @@ void MyoDeviceListener:: onUnlock(myo::Myo *myo, uint64_t timestamp)
 {
     qDebug()<<"unlocked";
     msb->sendUnlocked();
+}
+
+void MyoDeviceListener:: onConnect(myo::Myo *myo, uint64_t timestamp, myo::FirmwareVersion firmwareVersion)
+{
+    qDebug()<<"Connected";
+    //msb->sendConnected();
+}
+
+void MyoDeviceListener:: onDisconnect(myo::Myo *myo, uint64_t timestamp)
+{
+    qDebug()<<"Disconnected";
+    //msb->sendDisconnected();
 }
 
 void MyoDeviceListener::onPose(myo::Myo *myo, uint64_t timestamp, myo::Pose pose)
