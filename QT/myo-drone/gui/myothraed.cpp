@@ -41,6 +41,7 @@ void MyoThraed::doWork() {
                 connect(msb,    SIGNAL(wave_in()),  this,   SIGNAL(wave_in()));
                 connect(msb,    SIGNAL(wave_out()), this,   SIGNAL(wave_out()));
                 connect(msb,    SIGNAL(synced()),   this,   SIGNAL(synced()));
+                connect(msb,    SIGNAL(unsynced()), this,   SIGNAL(unsynced()));
                  hub.addListener(&myoDL);
                // hub.addListener(myoDL);
 
