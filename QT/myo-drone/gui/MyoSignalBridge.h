@@ -7,7 +7,6 @@ class MyoSignalBridge : public QObject
 {
     Q_OBJECT
 public:
-    MyoSignalBridge();
     void sendFist();
     void sendSpread();
     void sendWaveIn();

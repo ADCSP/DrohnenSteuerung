@@ -37,13 +37,11 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->commandService    = cvDrone->getCommandService();
     this->navdataService    = cvDrone->getNavdataService();
 
-<<<<<<< HEAD
     this->handler           = new ThreadHandler();
-=======
+
 
 
     //msb   = new MyoSignalBridge();
->>>>>>> 2d46cd94511b6ea2519ada60779eb068409957d8
 
 
     this->fist_R            = QPixmap("C:/Users/Soulseller/Drohnensteuerung/QT/myo-drone/gui/Icons/fist_R.png");
@@ -130,7 +128,7 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
 
 //    connect(msb,                        SIGNAL(wave_in()),                this,           SLOT(on_myo_wave_in()));
 //    connect(msb,                        SIGNAL(wave_out()),               this,           SLOT(on_myo_wave_out()));
-    connect(handler(),                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
+      connect(handler,                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
 //    connect(msb,                        SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
 //    connect(msb,                        SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
 //    connect(msb,                        SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
@@ -140,7 +138,7 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
 //    connect(msb,                        SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
 //    connect(msb,                        SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
 
-    connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
+     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
 
     ui->actionArmband->setEnabled(false);
     ui->actionControl_Window->setVisible(false);

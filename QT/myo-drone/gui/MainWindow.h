@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    ThreadHandler* handler();
+    //ThreadHandler* handler();
 
     explicit MainWindow(Drone::CVDrone *cvDrone, QWidget *parent = 0);
     void keyPressEvent(QKeyEvent *e) override;
