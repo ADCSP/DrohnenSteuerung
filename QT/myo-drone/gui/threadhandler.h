@@ -25,6 +25,13 @@ public slots:
 
 signals:
     void fist();
+    void spread();
+    void wave_in();
+    void wave_out();
+    void locked();
+    void unlocked();
+    void synced();
+    void unsynced();
 
 private:
     //QTimer*     shutdown;

@@ -34,7 +34,13 @@ void MyoThraed::doWork() {
                 qDebug()<<"Myo wurde gefunden.";
                 MyoDeviceListener myoDL;
                 msb = myoDL.msb;
-                connect(msb,SIGNAL(fist()),this,SIGNAL(fist()));
+                connect(msb,    SIGNAL(fist()),     this,   SIGNAL(fist()));
+                connect(msb,    SIGNAL(spread()),   this,   SIGNAL(spread()));
+                connect(msb,    SIGNAL(locked()),   this,   SIGNAL(locked()));
+                connect(msb,    SIGNAL(unlocked()), this,   SIGNAL(unlocked()));
+                connect(msb,    SIGNAL(wave_in()),  this,   SIGNAL(wave_in()));
+                connect(msb,    SIGNAL(wave_out()), this,   SIGNAL(wave_out()));
+                connect(msb,    SIGNAL(synced()),   this,   SIGNAL(synced()));
                  hub.addListener(&myoDL);
                // hub.addListener(myoDL);
 
