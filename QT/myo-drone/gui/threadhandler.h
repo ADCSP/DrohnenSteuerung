@@ -32,6 +32,8 @@ signals:
     void unlocked();
     void synced();
     void unsynced();
+    void connected();
+    void disconnected();
 
 private:
     //QTimer*     shutdown;

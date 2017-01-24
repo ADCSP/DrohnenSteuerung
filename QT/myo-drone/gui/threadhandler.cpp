@@ -16,6 +16,8 @@ ThreadHandler::ThreadHandler()
     connect(worker,     SIGNAL(unlocked()),     this,       SIGNAL(unlocked()));
     connect(worker,     SIGNAL(synced()),       this,       SIGNAL(synced()));
     connect(worker,     SIGNAL(unsynced()),     this,       SIGNAL(unsynced()));
+    connect(worker,     SIGNAL(connected()),    this,       SIGNAL(connected()));
+    connect(worker,     SIGNAL(disconnected()), this,       SIGNAL(disconnected()));
     connect(thread,     SIGNAL(started()),      worker,     SLOT(runAgain()));
     connect(worker,     SIGNAL(iFinished()),    this,       SLOT(functionFinished()));
     connect(thread,     SIGNAL(finished()),     this,       SLOT(threadTerminated()));
