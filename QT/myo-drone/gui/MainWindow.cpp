@@ -76,6 +76,7 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->myo_unlocked      = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png");
     this->logo              = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/logo.png");
 
+
     this->setWindowIcon(logo);
 
     ui->lbThalmic   ->setPixmap(myo_connection_off);
@@ -132,8 +133,9 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     connect(handler,                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
     connect(handler,                    SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
 //    connect(msb,                        SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
-//    connect(msb,                        SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
-//    connect(msb,                        SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
+
+    connect(handler,                    SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
+    connect(handler,                    SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
     connect(handler,                    SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
     connect(handler,                    SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
     connect(handler,                    SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));

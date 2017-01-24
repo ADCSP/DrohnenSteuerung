@@ -15,6 +15,8 @@ public:
     void sendUnlocked();
     void sendSynced();
     void sendUnsynced();
+    void sendConnected();
+    void sendDisconncted();
     MyoSignalBridge();
 
 signals:
@@ -26,6 +28,8 @@ signals:
    void unlocked();
    void synced();
    void unsynced();
+   void connected();
+   void disconnected();
 };
 
 #endif // MYOSIGNALBRIDGE_H

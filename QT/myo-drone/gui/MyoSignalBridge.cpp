@@ -44,3 +44,13 @@ void MyoSignalBridge::sendUnsynced()
 {
     emit unsynced();
 }
+
+void MyoSignalBridge::sendConnected()
+{
+    emit connected();
+}
+
+void MyoSignalBridge::sendDisconncted()
+{
+    emit disconnected();
+}
