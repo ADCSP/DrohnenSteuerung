@@ -5,7 +5,7 @@
 #include <QThread>
 #include <QDebug>
 #include "MyoSignalBridge.h"
-#include "myothraed.h"
+#include "MyoThread.h"
 
 
 

@@ -68,17 +68,18 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
     this->wave_out_Ls       = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/wave_out_Ls.png");
     this->spread_Ls         = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/spread_Ls.png");
 
-    this->connect_myo_on    = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
-    this->connect_myo_off   = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
-    this->myo_detail        = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo.png");
+    this->myo_connection_on = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_color.png");
+    this->myo_connection_off= QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/thalmic_logo_grey.png");
+    this->myo_synced        = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo_on.png");
+    this->myo_unsynced      = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/myo_off.png");
     this->myo_locked        = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_closed.png");
     this->myo_unlocked      = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png");
     this->logo              = QPixmap("C:/Users/-Malicious-/Downloads/DrohnenSteuerung/QT/myo-drone/gui/Icons/logo.png");
 
     this->setWindowIcon(logo);
 
-    ui->lbThalmic   ->setPixmap(connect_myo_off);
-    ui->lbMyo       ->setPixmap(myo_detail);
+    ui->lbThalmic   ->setPixmap(myo_connection_off);
+    ui->lbMyo       ->setPixmap(myo_synced);
     ui->lbLocked    ->setPixmap(myo_locked);
     //set RightArmIcons
     changeArm(true);
@@ -126,19 +127,19 @@ MainWindow::MainWindow(Drone::CVDrone *cvDrone, QWidget *parent) :
 //    connect(msb,                        SIGNAL(locked()),                   cvDrone,        SLOT(hover()));
 
 
-      connect(handler,                    SIGNAL(wave_in()),                  this,           SLOT(on_myo_wave_in()));
-      connect(handler,                    SIGNAL(wave_out()),                 this,           SLOT(on_myo_wave_out()));
-      connect(handler,                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
-      connect(handler,                    SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
+    connect(handler,                    SIGNAL(wave_in()),                  this,           SLOT(on_myo_wave_in()));
+    connect(handler,                    SIGNAL(wave_out()),                 this,           SLOT(on_myo_wave_out()));
+    connect(handler,                    SIGNAL(fist()),                     this,           SLOT(on_myo_fist()));
+    connect(handler,                    SIGNAL(spread()),                   this,           SLOT(on_myo_spread()));
 //    connect(msb,                        SIGNAL(no_gesture()),               this,           SLOT(on_myo_no_gesture()));
 //    connect(msb,                        SIGNAL(connected()),                this,           SLOT(on_myo_connect()));
 //    connect(msb,                        SIGNAL(disconnected()),             this,           SLOT(on_myo_disconnect()));
-      connect(handler,                    SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
-      connect(handler,                    SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
-      connect(handler,                    SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
-      connect(handler,                    SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
+    connect(handler,                    SIGNAL(synced()),                   this,           SLOT(on_myo_sync()));
+    connect(handler,                    SIGNAL(unsynced()),                 this,           SLOT(on_myo_unsync()));
+    connect(handler,                    SIGNAL(locked()),                   this,           SLOT(on_myo_locked()));
+    connect(handler,                    SIGNAL(unlocked()),                 this,           SLOT(on_myo_unlocked()));
 
-     connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
+    connect(ui->actionQuit,             SIGNAL(triggered()),                this,           SLOT(close()));
 
     ui->actionArmband->setEnabled(false);
     ui->actionControl_Window->setVisible(false);
@@ -355,42 +356,42 @@ void MainWindow::on_myo_wave_out()
 
 void MainWindow::on_myo_no_gesture()
 {
-    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbMyo->setPixmap(myo_synced);
 }
 
 void MainWindow::on_myo_connect()
 {
-    ui->lbMyo->setPixmap(myo_detail);
-    ui->lbThalmic->setPixmap(connect_myo_on);
+    ui->lbMyo->setPixmap(myo_synced);
+    ui->lbThalmic->setPixmap(myo_connection_on);
 }
 
 void MainWindow::on_myo_disconnect()
 {
-    ui->lbMyo->setPixmap(myo_detail);
-    ui->lbThalmic->setPixmap(connect_myo_off);
+    ui->lbMyo->setPixmap(myo_synced);
+    ui->lbThalmic->setPixmap(myo_connection_off);
 }
 
 void MainWindow::on_myo_sync()
 {
-    ui->lbMyo->setPixmap(myo_detail);
-    ui->lbLocked->setPixmap(myo_unlocked);
+    ui->lbMyo->setPixmap(myo_synced);
+    ui->lbLocked->setPixmap(myo_connection_on);
 }
 
 void MainWindow::on_myo_unsync()
 {
-    ui->lbMyo->setPixmap(myo_detail);
-    ui->lbLocked->setPixmap(myo_locked);
+    ui->lbMyo->setPixmap(myo_unsynced);
+    ui->lbLocked->setPixmap(myo_connection_off);
 }
 
 void MainWindow::on_myo_locked()
 {
-    ui->lbMyo->setPixmap(myo_detail);
+    ui->lbMyo->setPixmap(myo_unsynced);
     ui->lbLocked->setPixmap(myo_locked);
 }
 
 void MainWindow::on_myo_unlocked()
 {
-    ui->lbMyo->setPixmap(myo_detail);
+    //ui->lbMyo->setPixmap(myo_synced);
     ui->lbLocked->setPixmap(myo_unlocked);
 }
 

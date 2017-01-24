@@ -1,4 +1,4 @@
-#include "threadhandler.h"
+#include "MyoThreadHandler.h"
 
 
 ThreadHandler::ThreadHandler()

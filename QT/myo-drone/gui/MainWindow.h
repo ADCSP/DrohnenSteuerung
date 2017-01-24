@@ -9,7 +9,7 @@
 #include <CVDrone.h>
 #include <CommandService.h>
 #include <NavdataService.h>
-#include "threadhandler.h"
+#include "MyoThreadHandler.h"
 #include "MyoSignalBridge.h"
 
 namespace Ui {

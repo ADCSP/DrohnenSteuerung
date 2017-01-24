@@ -1,4 +1,4 @@
-#include "myodevicelistener.h"
+#include "MyoDeviceListener.h"
 #include <QDebug>
 
 

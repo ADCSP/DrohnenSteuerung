@@ -6,7 +6,7 @@
 #include <MainWindow.h>
 //#include <ObjectDetector.h>
 #include <provision.cpp>
-#include "threadhandler.h"
+#include "MyoThreadHandler.h"
 
 using namespace Drone;
 //using namespace ObjectDetection;

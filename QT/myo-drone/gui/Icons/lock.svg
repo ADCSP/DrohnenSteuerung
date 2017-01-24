@@ -12,7 +12,7 @@
    version="1.1"
    id="svg4581"
    sodipodi:docname="lock.svg"
-   inkscape:export-filename="/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_closeds.png"
+   inkscape:export-filename="/home/luna/git/DrohnenSteuerung/QT/myo-drone/gui/Icons/lock_open.png"
    inkscape:export-xdpi="44.859814"
    inkscape:export-ydpi="44.859814"
    inkscape:version="0.92.0 r">
@@ -44,19 +44,21 @@
      showgrid="false"
      inkscape:zoom="5.4387746"
      inkscape:cx="28.747794"
-     inkscape:cy="93.536628"
+     inkscape:cy="56.763639"
      inkscape:window-x="0"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg4581" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#a9a9a9;stroke-width:3.40609932;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     style="fill:none;fill-opacity:1;stroke:#0abddd;stroke-width:3.40609932;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
      d="M 28.580078 28.867188 C 23.396301 28.867188 19.222656 33.038879 19.222656 38.222656 L 19.222656 88.064453 C 19.222656 93.24823 23.396301 97.419922 28.580078 97.419922 L 78.419922 97.419922 C 83.603699 97.419922 87.777344 93.24823 87.777344 88.064453 L 87.777344 38.222656 C 87.777344 33.038879 83.603699 28.867188 78.419922 28.867188 L 28.580078 28.867188 z M 53.482422 41.277344 A 11.171111 11.171111 0 0 1 64.652344 52.449219 A 11.171111 11.171111 0 0 1 58.427734 62.460938 L 64.652344 80.423828 C 65.206551 82.023191 63.290317 83.480469 61.597656 83.480469 L 45.318359 83.480469 C 43.625698 83.480469 42.261719 82.116491 42.261719 80.423828 L 48.496094 62.431641 A 11.171111 11.171111 0 0 1 42.310547 52.449219 A 11.171111 11.171111 0 0 1 53.482422 41.277344 z "
      id="rect4592" />
   <path
-     style="fill:none;fill-opacity:1;stroke:#a9a9a9;stroke-width:3.40609932;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 37.458984 9.5800781 C 32.275202 9.5800781 28.101562 13.751767 28.101562 18.935547 L 28.101562 28.292969 L 33.693359 28.314453 L 33.693359 19.839844 C 33.693359 17.272378 35.758705 15.205078 38.326172 15.205078 L 68.673828 15.205078 C 71.241293 15.205078 73.306641 17.272378 73.306641 19.839844 L 73.306641 28.462891 L 78.898438 28.484375 L 78.898438 18.935547 C 78.898438 13.751767 74.724799 9.5800781 69.541016 9.5800781 L 37.458984 9.5800781 z "
-     id="rect4612" />
+     style="fill:none;fill-opacity:1;stroke:#0abddd;stroke-width:3.40609932;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+     d="m 37.458984,2.0416153 c -5.183782,0 -9.357422,4.1716889 -9.357422,9.3554687 v 0.882813 l 5.591797,0.02148 v 0 c 0,0 2.065346,-4.6347658 4.632813,-4.6347658 h 30.347656 c 2.567465,0 4.632813,2.0673 4.632813,4.6347658 l 0,16.345375 5.591797,0.02148 0,-17.271156 c 0,-5.1837798 -4.173639,-9.3554687 -9.357422,-9.3554687 z"
+     id="rect4612"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ssccssssccsss" />
   <path
      inkscape:connector-curvature="0"
      id="path4642"

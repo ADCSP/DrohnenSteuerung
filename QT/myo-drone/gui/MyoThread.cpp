@@ -1,4 +1,4 @@
-#include "myothraed.h"
+#include "MyoThread.h"
 
 #include <QThread>
 #include <QDebug>
